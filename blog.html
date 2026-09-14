@@ -29,9 +29,10 @@
     <div class="container-tight">
       <nav class="site-nav" aria-label="Navigazione principale">
         <a class="site-brand" href="index.html">Renato <span>Valigi</span></a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Apri il menu">
+        <input class="nav-toggle-checkbox" type="checkbox" id="nav-toggle" aria-label="Apri il menu">
+        <label class="nav-toggle" for="nav-toggle" aria-hidden="true">
           <span></span><span></span><span></span>
-        </button>
+        </label>
         <ul class="nav-menu" id="nav-menu">
           <li><a href="index.html">Home</a></li>
           <li><a href="progetti.html">Progetti</a></li>
@@ -52,18 +53,9 @@
           Riflessioni dal campo e dalla scrivania.
         </p>
 
-        <div class="blog-filters tag-row mt-lg" role="group" aria-label="Filtra per categoria">
-          <button type="button" class="blog-filter is-active" data-filter="tutti">Tutti</button>
-          <button type="button" class="blog-filter" data-filter="comunicazione">Comunicazione</button>
-          <button type="button" class="blog-filter" data-filter="marketing">Marketing</button>
-          <button type="button" class="blog-filter" data-filter="sport">Sport</button>
-          <button type="button" class="blog-filter" data-filter="leadership">Leadership</button>
-          <button type="button" class="blog-filter" data-filter="life">Life</button>
-        </div>
-
         <div class="post-list mt-lg">
 
-          <article class="post-card" data-categories="comunicazione sport">
+          <article class="post-card">
             <p class="post-card__date">set 2026</p>
             <div class="post-card__body">
               <h3><a href="blog/mourinho-pozzecco.html">Mourinho e Pozzecco: due estremi della comunicazione sportiva</a></h3>
@@ -80,7 +72,7 @@
             </div>
           </article>
 
-          <article class="post-card" data-categories="life marketing">
+          <article class="post-card">
             <p class="post-card__date">ago 2026</p>
             <div class="post-card__body">
               <h3><a href="blog/jakarta-fast-fashion.html">Jakarta e i tuoi vestiti: il prezzo nascosto del fast fashion</a></h3>
@@ -97,7 +89,7 @@
             </div>
           </article>
 
-          <article class="post-card" data-categories="sport leadership">
+          <article class="post-card">
             <p class="post-card__date">mag 2025</p>
             <div class="post-card__body">
               <h3><a href="blog/vincere-o-sbagliare.html">Vincere o sbagliare: cosa conta davvero nel settore giovanile</a></h3>
@@ -116,7 +108,6 @@
 
         </div>
 
-        <p class="form-hint mt-lg blog-empty" hidden>Nessun articolo in questa categoria, per ora.</p>
       </div>
     </section>
   </main>
@@ -168,7 +159,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span data-current-year>2026</span> Renato Valigi</span>
+        <span>&copy; 2026 Renato Valigi</span>
         <span>Sito realizzato per il Master in Growth Marketing e Agenti AI (start2impact &times; Unimarconi)</span>
       </div>
     </div>

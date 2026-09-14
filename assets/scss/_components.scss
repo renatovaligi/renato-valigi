@@ -35,6 +35,23 @@
   span { color: $color-accent; }
 }
 
+// Checkbox reale (accessibile da tastiera) che pilota il menu mobile
+// senza una riga di JavaScript: nascosta alla vista ma sempre raggiungibile
+// con Tab, la label visiva (l'hamburger) la attiva tramite l'attributo "for".
+.nav-toggle-checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+
+  @include from($bp-md) { display: none; }
+}
+
 .nav-toggle {
   display: inline-flex;
   flex-direction: column;
@@ -56,11 +73,16 @@
     transition: transform $transition, opacity $transition;
   }
 
-  &[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  &[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-  &[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
   @include from($bp-md) { display: none; }
+}
+
+.nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(2) { opacity: 0; }
+.nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-toggle-checkbox:focus-visible ~ .nav-toggle {
+  outline: 2px solid $color-analyst;
+  outline-offset: 2px;
 }
 
 .nav-menu {
@@ -68,7 +90,7 @@
   margin: 0;
   padding: 0;
 
-  // Mobile: collassato di default, rivelato da JS con .is-open
+  // Mobile: collassato di default, rivelato dalla checkbox .nav-toggle-checkbox
   display: none;
   position: absolute;
   left: 0;
@@ -79,8 +101,6 @@
   background: $color-paper;
   border-bottom: 1px solid $color-border;
   box-shadow: 0 12px 24px $color-shadow;
-
-  &.is-open { display: flex; }
 
   li { border-top: 1px solid $color-border; }
 
@@ -95,7 +115,11 @@
   }
 
   a[aria-current="page"] { color: $color-accent; }
+}
 
+.nav-toggle-checkbox:checked ~ .nav-menu { display: flex; }
+
+.nav-menu {
   @include from($bp-md) {
     display: flex;
     position: static;
@@ -373,27 +397,6 @@
   li { font-size: 0.8rem; padding: 0.2rem 0.7rem; }
 }
 
-// --- Filtri categorie blog -----------------------------
-.blog-filter {
-  font-family: $font-body;
-  font-size: 0.9rem;
-  font-weight: $fw-medium;
-  color: $color-ink;
-  background: $color-white;
-  border: 1px solid $color-border;
-  border-radius: 999px;
-  padding: 0.3rem 0.85rem;
-  cursor: pointer;
-  transition: background-color $transition, color $transition, border-color $transition;
-
-  &:hover { border-color: $color-accent; }
-
-  &.is-active {
-    background: $color-accent;
-    border-color: $color-accent;
-    color: $color-white;
-  }
-}
 
 // --- Articolo singolo --------------------------------
 .article {

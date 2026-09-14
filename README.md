@@ -51,14 +51,18 @@ sass --watch assets/scss/style.scss assets/css/style.css
 
 ## Scelte tecniche
 
-- **Solo HTML e CSS** per struttura e stile. JavaScript usato **solo** per:
-  1. il menu di navigazione sticky in versione mobile (`assets/js/script.js`);
-  2. una predisposizione **disattivata** per l'invio del form contatti con EmailJS.
+- **Solo HTML e CSS**, senza eccezioni nell'interfaccia: il menu mobile si apre e si
+  chiude con la tecnica della checkbox nascosta (`input[type="checkbox"]` +
+  `label`, pilotati solo da CSS con il selettore `:checked`), niente JavaScript.
+  L'unico script del sito (`assets/js/script.js`) è la predisposizione
+  **disattivata** per l'invio del form contatti con EmailJS, prevista
+  esplicitamente come possibilità facoltativa dalla consegna.
 - **Bootstrap 5 via CDN**, limitato a griglia, utility e componenti di base. Tutto
   l'aspetto visivo è ridefinito in Sass per non sembrare un template standard.
 - **Mobile-first**, responsive al 100% (breakpoint 576 / 768 / 992 px).
 - **Menu sticky**: l'header resta fisso su tutte le larghezze; su mobile il menu è
-  collassato e si apre con il pulsante hamburger (gestito via JS).
+  collassato e si apre con il pulsante hamburger, realizzato in puro CSS con
+  l'accoppiata checkbox nascosta + label, senza alcun JavaScript.
 - **Layout in CSS Grid**: la griglia progetti (`.project-grid`) e quella competenze
   (`.skill-grid`). Diverse sezioni usano Flexbox.
 - **Meta tag Open Graph** (title, description, image, url) in ogni pagina.
@@ -80,21 +84,10 @@ avviso che rimanda a LinkedIn.
 
 ## Pubblicazione su GitHub Pages
 
-1. Crea un repository (es. `renato-valigi`) e fai push del contenuto di questa cartella.
-2. Repository → **Settings → Pages** → Source: `Deploy from a branch`, branch `main`, cartella `/root`.
-3. Il sito sarà su `https://<username>.github.io/<repo>/`.
-
-> **Da aggiornare dopo il primo deploy:** i meta tag `og:image` e `og:url` in ogni
-> pagina usano l'URL segnaposto `https://renatovaligi.github.io/renato-valigi/`.
-> Sostituiscilo con l'URL reale di pubblicazione (cerca e sostituisci in tutti i `.html`).
-
-## Contenuti provvisori
-
-Bio, CV, il primo articolo del blog e il progetto "Analisi Strategica: Dott" sono
-contenuti reali. Sono segnalati come `[PLACEHOLDER]` / badge "Placeholder":
-
-- `progetti.html`: progetti 2 e 3;
-- `blog.html`: articoli 2 e 3.
+Il sito è pubblicato su **https://renatovaligi.github.io/renato-valigi/**
+(repository `renatovaligi/renato-valigi`, branch `main`, cartella `/`, GitHub
+Pages attivo). I meta tag `og:image` e `og:url` di ogni pagina puntano già a
+questo indirizzo reale.
 
 ## Checklist consegna
 

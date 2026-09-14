@@ -29,9 +29,10 @@
     <div class="container-tight">
       <nav class="site-nav" aria-label="Navigazione principale">
         <a class="site-brand" href="../index.html">Renato <span>Valigi</span></a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Apri il menu">
+        <input class="nav-toggle-checkbox" type="checkbox" id="nav-toggle" aria-label="Apri il menu">
+        <label class="nav-toggle" for="nav-toggle" aria-hidden="true">
           <span></span><span></span><span></span>
-        </button>
+        </label>
         <ul class="nav-menu" id="nav-menu">
           <li><a href="../index.html">Home</a></li>
           <li><a href="../progetti.html">Progetti</a></li>
@@ -207,7 +208,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span data-current-year>2026</span> Renato Valigi</span>
+        <span>&copy; 2026 Renato Valigi</span>
         <span>Sito realizzato per il Master in Growth Marketing e Agenti AI (start2impact &times; Unimarconi)</span>
       </div>
     </div>
