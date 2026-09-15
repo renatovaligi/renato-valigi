@@ -10,12 +10,8 @@ intrecciarsi, e ho provato a farlo vedere anche nel sito.
 
 ## Cosa c'è dentro
 
-Cinque pagine principali, home, progetti, CV, blog e contatti, più tre articoli
-del blog in pagine a parte. Il CV è scritto direttamente in HTML, come richiesto,
-non è un PDF caricato. I progetti nel portfolio sono lavori veri fatti durante il
-master, con i PDF scaricabili. Gli articoli del blog invece li ho scritti io,
-alcuni erano già usciti altrove (uno su una rivista di coaching cartacea) e li ho
-adattati per il sito.
+Cinque pagine principali, home, progetti, CV, blog e contatti, più articoli
+del blog in pagine a parte. Il CV è scritto direttamente in HTML, come richiesto dal brief. I progetti nel portfolio sono lavori veri, con i PDF scaricabili. Gli articoli del blog invece li ho scritti io.
 
 ## Struttura dei file
 
@@ -37,7 +33,7 @@ renato-valigi/
 ├── cv.html
 ├── blog.html
 ├── contatti.html
-└── .nojekyll                 # dice a GitHub Pages di non processare il sito con Jekyll
+└── .nojekyll                 
 ```
 
 ## Perché quasi zero JavaScript
