@@ -16,10 +16,10 @@
    *  b) sostituisci le costanti qui sotto con le tue chiavi EmailJS
    *  c) imposta EMAILJS_ENABLED = true
    */
-  var EMAILJS_ENABLED = false;
-  var EMAILJS_PUBLIC_KEY = "LA_TUA_PUBLIC_KEY";
-  var EMAILJS_SERVICE_ID = "IL_TUO_SERVICE_ID";
-  var EMAILJS_TEMPLATE_ID = "IL_TUO_TEMPLATE_ID";
+  var EMAILJS_ENABLED = true;
+  var EMAILJS_PUBLIC_KEY = "SewHFgRaKh3bC7CTG";
+  var EMAILJS_SERVICE_ID = "service_0o14ouk";
+  var EMAILJS_TEMPLATE_ID = "template_1fjaj9l";
 
   var form = document.getElementById("contact-form");
   var status = document.getElementById("form-status");

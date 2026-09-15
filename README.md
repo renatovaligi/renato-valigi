@@ -44,23 +44,23 @@ renato-valigi/
 
 Il sito è fatto solo con HTML e CSS, com'era richiesto. L'unica eccezione è lo
 script per il form contatti, ed è lì solo perché la consegna nomina esplicitamente
-EmailJS come opzione facoltativa per inviare i messaggi via email. Anche quello
-comunque è disattivato di default: finché non lo attivo, il form si limita a
-validare i campi obbligatori nel browser e mostra un avviso che rimanda a
-LinkedIn.
+EmailJS come opzione facoltativa per inviare i messaggi via email. L'ho attivato:
+il form ora manda davvero il messaggio alla mia casella, con EmailJS che fa da
+tramite senza bisogno di un backend.
 
 Anche il menu ad hamburger su mobile, che di solito si farebbe con qualche riga
 di JavaScript, qui è puro CSS: una checkbox nascosta collegata a una label,
 pilotata con il selettore `:checked`. Funziona esattamente come un menu normale,
 ma senza script.
 
-### Attivare EmailJS, se un giorno vorrò farlo
+### Come funziona EmailJS qui
 
-1. In `contatti.html` scommentare nell'head la riga dello script EmailJS.
-2. In `assets/js/script.js` mettere `EMAILJS_ENABLED = true` e inserire le tre
-   chiavi (`EMAILJS_PUBLIC_KEY`, `EMAILJS_SERVICE_ID`, `EMAILJS_TEMPLATE_ID`).
-3. Nel template su EmailJS usare gli stessi nomi dei campi del form: `nome`,
-   `email`, `messaggio`.
+In `contatti.html` è caricato lo script di EmailJS, e in `assets/js/script.js`
+ci sono le chiavi (`EMAILJS_PUBLIC_KEY`, `EMAILJS_SERVICE_ID`,
+`EMAILJS_TEMPLATE_ID`) collegate al mio account. Il template su EmailJS usa gli
+stessi nomi dei campi del form, `nome`, `email` e `messaggio`, così i dati
+passano diretti senza bisogno di rinominare niente. Se in futuro volessi
+disattivarlo basta rimettere `EMAILJS_ENABLED = false` in script.js.
 
 ## Il resto delle scelte tecniche
 
