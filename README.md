@@ -1,100 +1,88 @@
-# Sito personale — Renato Valigi
+# Sito personale di Renato Valigi
 
-Sito multipagina statico (HTML + CSS) realizzato per il progetto pratico del modulo
-**Sviluppo Web** del Master in Growth Marketing e Agenti AI (start2impact × Unimarconi).
+Questo è il sito che ho costruito per il progetto pratico del modulo Sviluppo Web
+del Master in Growth Marketing e Agenti AI (start2impact x Unimarconi). Racconta
+le due anime del mio lavoro: comunicazione sportiva e digital marketing da un
+lato, coaching di basket dall'altro. Nella pratica di solito finiscono per
+intrecciarsi, e ho provato a farlo vedere anche nel sito.
 
-Presenta due identità professionali: **comunicazione sportiva / digital marketing** e
-**coaching di basket**.
+È online qui: **https://renatovaligi.github.io/renato-valigi/**
 
-## Struttura
+## Cosa c'è dentro
+
+Cinque pagine principali, home, progetti, CV, blog e contatti, più tre articoli
+del blog in pagine a parte. Il CV è scritto direttamente in HTML, come richiesto,
+non è un PDF caricato. I progetti nel portfolio sono lavori veri fatti durante il
+master, con i PDF scaricabili. Gli articoli del blog invece li ho scritti io,
+alcuni erano già usciti altrove (uno su una rivista di coaching cartacea) e li ho
+adattati per il sito.
+
+## Struttura dei file
 
 ```
 renato-valigi/
 ├── assets/
-│   ├── scss/                 # sorgenti Sass (da compilare)
-│   │   ├── _variables.scss   # palette, tipografia, spaziature, breakpoint
-│   │   ├── _base.scss        # reset leggero, elementi HTML, helper di layout
-│   │   ├── _components.scss  # navbar, bottoni, card, hero, form, footer, CV, blog
-│   │   └── style.scss        # entrypoint: importa i partial
-│   ├── css/
-│   │   └── style.css         # CSS COMPILATO (non modificare a mano)
-│   ├── img/
-│   │   ├── foto-profilo.png
-│   │   └── favicon-master-512.png
-│   ├── js/
-│   │   └── script.js         # menu mobile sticky + predisposizione EmailJS
-│   └── docs/
-│       └── portfolio-analisi-strategica-dott.pdf
-├── blog/
-│   └── vincere-o-sbagliare.html # articolo pubblicato: "Vincere o sbagliare"
-├── index.html                # Home
-├── progetti.html             # Portfolio (griglia in CSS Grid)
-├── cv.html                   # Curriculum in HTML
-├── blog.html                 # Elenco articoli
-├── contatti.html             # Form di contatto + social
-├── .nojekyll                  # evita l'elaborazione Jekyll su GitHub Pages
-└── README.md
+│   ├── scss/                 # sorgenti Sass, da qui nasce il CSS
+│   │   ├── _variables.scss   # colori, font, spaziature, breakpoint
+│   │   ├── _base.scss        # reset e stili di base
+│   │   ├── _components.scss  # navbar, bottoni, card, hero, form, footer...
+│   │   └── style.scss        # punto di ingresso, importa gli altri file
+│   ├── css/style.css         # il CSS compilato, quello che usa davvero il sito
+│   ├── img/                  # foto profilo, favicon, immagini progetti
+│   ├── js/script.js          # unico script del sito, vedi sotto
+│   └── docs/                 # i PDF dei progetti scaricabili
+├── blog/                     # i tre articoli, uno per file
+├── index.html
+├── progetti.html
+├── cv.html
+├── blog.html
+├── contatti.html
+└── .nojekyll                 # dice a GitHub Pages di non processare il sito con Jekyll
 ```
 
-## Compilare il Sass
+## Perché quasi zero JavaScript
 
-Il file `assets/css/style.css` è già compilato e versionato, così il sito funziona
-anche senza toolchain. Se modifichi i `.scss`, rigeneralo:
+Il sito è fatto solo con HTML e CSS, com'era richiesto. L'unica eccezione è lo
+script per il form contatti, ed è lì solo perché la consegna nomina esplicitamente
+EmailJS come opzione facoltativa per inviare i messaggi via email. Anche quello
+comunque è disattivato di default: finché non lo attivo, il form si limita a
+validare i campi obbligatori nel browser e mostra un avviso che rimanda a
+LinkedIn.
+
+Anche il menu ad hamburger su mobile, che di solito si farebbe con qualche riga
+di JavaScript, qui è puro CSS: una checkbox nascosta collegata a una label,
+pilotata con il selettore `:checked`. Funziona esattamente come un menu normale,
+ma senza script.
+
+### Attivare EmailJS, se un giorno vorrò farlo
+
+1. In `contatti.html` scommentare nell'head la riga dello script EmailJS.
+2. In `assets/js/script.js` mettere `EMAILJS_ENABLED = true` e inserire le tre
+   chiavi (`EMAILJS_PUBLIC_KEY`, `EMAILJS_SERVICE_ID`, `EMAILJS_TEMPLATE_ID`).
+3. Nel template su EmailJS usare gli stessi nomi dei campi del form: `nome`,
+   `email`, `messaggio`.
+
+## Il resto delle scelte tecniche
+
+Bootstrap 5 caricato da CDN, usato solo per griglia e qualche utility di base,
+tutto l'aspetto è comunque riscritto in Sass così non sembra un template
+qualunque. Il sito è mobile-first con tre breakpoint (576, 768, 992px) e l'header
+resta sempre visibile durante lo scroll. La griglia dei progetti e quella delle
+competenze usano CSS Grid, altre sezioni usano Flexbox. Ogni pagina ha i meta tag
+Open Graph per quando il link viene condiviso sui social, e una favicon nell'head.
+Il form contatti ha i campi obbligatori marcati con `required`, e non c'è nessuna
+email o numero di telefono scritto in chiaro da qualche parte, per non farli
+raccogliere dai bot.
+
+## Ricompilare il CSS
+
+Il file `assets/css/style.css` è già compilato e caricato nel repository, quindi
+il sito funziona anche senza toolchain. Se tocco i file `.scss` devo
+ricordarmi di rigenerarlo:
 
 ```bash
-# con Dart Sass installato (npm i -g sass  oppure  brew install sass/sass/sass)
 sass assets/scss/style.scss assets/css/style.css --style=expanded
 
-# durante lo sviluppo, ricompilazione automatica:
+# oppure, mentre lavoro:
 sass --watch assets/scss/style.scss assets/css/style.css
 ```
-
-## Scelte tecniche
-
-- **Solo HTML e CSS**, senza eccezioni nell'interfaccia: il menu mobile si apre e si
-  chiude con la tecnica della checkbox nascosta (`input[type="checkbox"]` +
-  `label`, pilotati solo da CSS con il selettore `:checked`), niente JavaScript.
-  L'unico script del sito (`assets/js/script.js`) è la predisposizione
-  **disattivata** per l'invio del form contatti con EmailJS, prevista
-  esplicitamente come possibilità facoltativa dalla consegna.
-- **Bootstrap 5 via CDN**, limitato a griglia, utility e componenti di base. Tutto
-  l'aspetto visivo è ridefinito in Sass per non sembrare un template standard.
-- **Mobile-first**, responsive al 100% (breakpoint 576 / 768 / 992 px).
-- **Menu sticky**: l'header resta fisso su tutte le larghezze; su mobile il menu è
-  collassato e si apre con il pulsante hamburger, realizzato in puro CSS con
-  l'accoppiata checkbox nascosta + label, senza alcun JavaScript.
-- **Layout in CSS Grid**: la griglia progetti (`.project-grid`) e quella competenze
-  (`.skill-grid`). Diverse sezioni usano Flexbox.
-- **Meta tag Open Graph** (title, description, image, url) in ogni pagina.
-- **Favicon**: collegata nel `<head>` di ogni pagina puntando a
-  `assets/img/favicon-master-512.png`. Per un set completo (`.ico`, 16/32/180 px)
-  puoi generare i file da quel master e aggiungere i relativi `<link>`.
-- **Form contatti**: campi `nome`, `email`, `messaggio` tutti con attributo `required`;
-  nessun indirizzo email o numero di telefono scritto in pagina.
-
-## Attivare il form con EmailJS (opzionale)
-
-1. In `contatti.html`, decommenta nell'`<head>` la riga dello script EmailJS.
-2. In `assets/js/script.js` imposta `EMAILJS_ENABLED = true` e inserisci
-   `EMAILJS_PUBLIC_KEY`, `EMAILJS_SERVICE_ID`, `EMAILJS_TEMPLATE_ID`.
-3. Nel template EmailJS usa i nomi dei campi del form: `nome`, `email`, `messaggio`.
-
-Finché è disattivato, il form valida i campi obbligatori nel browser e mostra un
-avviso che rimanda a LinkedIn.
-
-## Pubblicazione su GitHub Pages
-
-Il sito è pubblicato su **https://renatovaligi.github.io/renato-valigi/**
-(repository `renatovaligi/renato-valigi`, branch `main`, cartella `/`, GitHub
-Pages attivo). I meta tag `og:image` e `og:url` di ogni pagina puntano già a
-questo indirizzo reale.
-
-## Checklist consegna
-
-- [x] Tutte le pagine si aprono e i link interni funzionano
-- [x] Responsive mobile / tablet / desktop, approccio mobile-first
-- [x] Menu sticky funzionante su mobile
-- [x] Campi obbligatori del form con `required`
-- [x] Meta tag Open Graph su ogni pagina
-- [x] Favicon collegata nel `<head>`
-- [x] Percorsi relativi, nessuna dipendenza server-side, pronto per GitHub Pages
