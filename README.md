@@ -53,20 +53,19 @@ di JavaScript, qui è puro CSS: una checkbox nascosta collegata a una label,
 pilotata con il selettore `:checked`. Funziona esattamente come un menu normale,
 ma senza script.
 
-### Come funziona EmailJS qui
+### EmailJS
 
 In `contatti.html` è caricato lo script di EmailJS, e in `assets/js/script.js`
 ci sono le chiavi (`EMAILJS_PUBLIC_KEY`, `EMAILJS_SERVICE_ID`,
 `EMAILJS_TEMPLATE_ID`) collegate al mio account. Il template su EmailJS usa gli
 stessi nomi dei campi del form, `nome`, `email` e `messaggio`, così i dati
-passano diretti senza bisogno di rinominare niente. Se in futuro volessi
-disattivarlo basta rimettere `EMAILJS_ENABLED = false` in script.js.
+passano diretti senza bisogno di rinominare niente.
 
 ## Il resto delle scelte tecniche
 
 Bootstrap 5 caricato da CDN, usato solo per griglia e qualche utility di base,
 tutto l'aspetto è comunque riscritto in Sass.
-qualunque. Il sito è mobile-first con tre breakpoint (576, 768, 992px) e l'header
+Il sito è mobile-first con tre breakpoint (576, 768, 992px) e l'header
 resta sempre visibile durante lo scroll. La griglia dei progetti e quella delle
 competenze usano CSS Grid, altre sezioni usano Flexbox. Ogni pagina ha i meta tag
 Open Graph per quando il link viene condiviso sui social, e una favicon nell'head.
