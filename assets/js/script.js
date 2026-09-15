@@ -44,7 +44,7 @@
         .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form, EMAILJS_PUBLIC_KEY)
         .then(function () {
           form.reset();
-          status.textContent = "Messaggio inviato, grazie! Ti rispondo al più presto.";
+          status.textContent = "Messaggio inviato, grazie! Ti risponderò al più presto.";
           status.style.color = "#1f3a3d";
         })
         .catch(function () {
