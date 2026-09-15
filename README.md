@@ -65,7 +65,7 @@ disattivarlo basta rimettere `EMAILJS_ENABLED = false` in script.js.
 ## Il resto delle scelte tecniche
 
 Bootstrap 5 caricato da CDN, usato solo per griglia e qualche utility di base,
-tutto l'aspetto è comunque riscritto in Sass così non sembra un template
+tutto l'aspetto è comunque riscritto in Sass.
 qualunque. Il sito è mobile-first con tre breakpoint (576, 768, 992px) e l'header
 resta sempre visibile durante lo scroll. La griglia dei progetti e quella delle
 competenze usano CSS Grid, altre sezioni usano Flexbox. Ogni pagina ha i meta tag
@@ -73,16 +73,3 @@ Open Graph per quando il link viene condiviso sui social, e una favicon nell'hea
 Il form contatti ha i campi obbligatori marcati con `required`, e non c'è nessuna
 email o numero di telefono scritto in chiaro da qualche parte, per non farli
 raccogliere dai bot.
-
-## Ricompilare il CSS
-
-Il file `assets/css/style.css` è già compilato e caricato nel repository, quindi
-il sito funziona anche senza toolchain. Se tocco i file `.scss` devo
-ricordarmi di rigenerarlo:
-
-```bash
-sass assets/scss/style.scss assets/css/style.css --style=expanded
-
-# oppure, mentre lavoro:
-sass --watch assets/scss/style.scss assets/css/style.css
-```
