@@ -51,9 +51,7 @@ ma senza script.
 
 ### EmailJS
 
-In `contatti.html` è caricato lo script di EmailJS, e in `assets/js/script.js`
-ci sono le chiavi (`EMAILJS_PUBLIC_KEY`, `EMAILJS_SERVICE_ID`,
-`EMAILJS_TEMPLATE_ID`) collegate al mio account. Il template su EmailJS usa gli
+In `contatti.html` è caricato lo script di EmailJS. Il template su EmailJS usa gli
 stessi nomi dei campi del form, `nome`, `email` e `messaggio`, così i dati
 passano diretti senza bisogno di rinominare niente.
 
