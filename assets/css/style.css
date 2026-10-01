@@ -606,6 +606,10 @@ hr {
   flex: 1;
 }
 
+.project-card__body .post-card__date {
+  flex: 0 0 auto;
+}
+
 .project-card__link {
   font-weight: 700;
   font-size: 0.9rem;

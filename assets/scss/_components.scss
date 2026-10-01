@@ -347,6 +347,7 @@
 
 .project-card__body h3 { margin: 0; }
 .project-card__body p { margin: 0; color: $color-ink-soft; font-size: 0.95rem; flex: 1; }
+.project-card__body .post-card__date { flex: 0 0 auto; }
 
 .project-card__link {
   font-weight: $fw-bold;
