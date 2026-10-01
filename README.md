@@ -66,3 +66,6 @@ Open Graph per quando il link viene condiviso sui social, e una favicon nell'hea
 Il form contatti ha i campi obbligatori marcati con `required`, e non c'è nessuna
 email o numero di telefono scritto in chiaro da qualche parte, per non farli
 raccogliere dai bot.
+
+Il file viene modificato nel tempo
+
