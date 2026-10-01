@@ -32,15 +32,20 @@
 
   if (form && status) {
     form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      // Il form ha novalidate (per gestire noi i messaggi di stato), quindi
+      // la validazione dei campi required va richiamata esplicitamente.
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
       if (!EMAILJS_ENABLED || typeof window.emailjs === "undefined") {
-        // Nessun backend attivo: lasciamo che il browser gestisca la
-        // validazione dei campi required e mostriamo un avviso.
-        event.preventDefault();
         setStatus("L'invio automatico non è ancora attivo. Scrivimi su LinkedIn nel frattempo.", "is-error");
         return;
       }
 
-      event.preventDefault();
       setStatus("Invio in corso…", "is-success");
 
       window.emailjs
