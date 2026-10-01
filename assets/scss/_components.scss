@@ -397,6 +397,28 @@
   li { font-size: 0.8rem; padding: 0.2rem 0.7rem; }
 }
 
+// --- Filtri categorie blog -----------------------------
+.blog-filter {
+  font-family: $font-body;
+  font-size: 0.9rem;
+  font-weight: $fw-medium;
+  color: $color-ink;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  cursor: pointer;
+  transition: background-color $transition, color $transition, border-color $transition;
+
+  &:hover { border-color: $color-accent; }
+
+  &.is-active {
+    background: $color-accent;
+    border-color: $color-accent;
+    color: $color-white;
+  }
+}
+
 
 // --- Articolo singolo --------------------------------
 .article {
@@ -545,6 +567,9 @@ textarea.form-control { min-height: 160px; resize: vertical; }
   margin-top: $space-sm;
   font-size: 0.95rem;
   font-weight: $fw-medium;
+
+  &.is-error { color: $color-accent-dark; }
+  &.is-success { color: $color-analyst; }
 }
 
 .social-links {
@@ -592,6 +617,8 @@ textarea.form-control { min-height: 160px; resize: vertical; }
   span { color: $color-accent; }
 }
 
+.footer-heading { color: $color-white; }
+
 .icon-row {
   display: flex;
   align-items: center;
@@ -628,6 +655,14 @@ textarea.form-control { min-height: 160px; resize: vertical; }
 .stack-md > * + * { margin-top: $space-md; }
 .text-center { text-align: center; }
 .mt-lg { margin-top: $space-lg; }
+.mt-xs { margin-top: $space-xs; }
+
+// Centra un blocco testo-misurato e la riga di azioni che lo segue
+// (usata nella CTA di chiusura della home, dentro un contenitore .text-center)
+.text-center-actions {
+  .text-measure { margin-inline: auto; }
+  .hero__actions { justify-content: center; }
+}
 
 // --- Rispetto delle preferenze di movimento --------
 @media (prefers-reduced-motion: reduce) {
