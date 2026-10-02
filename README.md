@@ -6,7 +6,7 @@ le due anime del mio lavoro: comunicazione sportiva e digital marketing da un
 lato, coaching di basket dall'altro. Nella pratica di solito finiscono per
 intrecciarsi, e ho provato a farlo vedere anche nel sito.
 
-È online qui: **https://renatovaligi.github.io/renato-valigi/**
+È online qui: **https://renatovaligi.com**
 
 ## Cosa c'è dentro
 
