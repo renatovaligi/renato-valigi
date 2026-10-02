@@ -61,47 +61,6 @@
           <button type="button" class="blog-filter" data-filter="life">Life</button>
         </div>
 
-        <div class="newsletter-box mt-lg" id="newsletter">
-          <h2>Niente spam, solo nuovi articoli</h2>
-          <p class="form-hint text-measure">
-            Iscriviti per ricevere una email quando pubblico un nuovo articolo sul blog. Ti arriverà prima
-            un'email di conferma: senza quel click l'iscrizione non si attiva. Puoi cancellarti quando vuoi
-            dal link in fondo a ogni email.
-          </p>
-
-          <!--
-            Form newsletter (Brevo / Sendinblue) — COMPLETARE PRIMA DI PUBBLICARE:
-            1. Crea un account gratuito su brevo.com e una Lista contatti dedicata al blog.
-            2. In Brevo vai su Campagne > Moduli > crea un "Modulo classico" collegato a quella lista
-               e attiva la "doppia conferma" (double opt-in) nelle impostazioni del modulo.
-            3. Brevo genera un blocco <form> con action e alcuni <input type="hidden">: copia qui SOLO
-               il valore reale dell'attributo action e degli hidden che propone (listIds, locale, ecc.),
-               sostituendo i placeholder "PLACEHOLDER..." qui sotto. Il resto del markup (classi, label,
-               checkbox di consenso) va lasciato com'è per restare coerente con lo stile del sito.
-          -->
-          <form id="newsletter-form" class="newsletter-form" action="https://PLACEHOLDER.sibforms.com/serve/PLACEHOLDER" method="POST" target="_blank">
-            <input type="hidden" name="locale" value="it">
-
-            <div class="form-field">
-              <label for="newsletter-email">Email <span class="req" aria-hidden="true">*</span></label>
-              <input class="form-control" type="email" id="newsletter-email" name="EMAIL" required>
-            </div>
-
-            <div class="form-field form-consent">
-              <label>
-                <input type="checkbox" id="newsletter-consent" name="newsletter-consent" required>
-                <span>
-                  Acconsento a ricevere email con i nuovi articoli del blog, secondo l'
-                  <a href="privacy.html#newsletter" target="_blank" rel="noopener">informativa privacy</a>.
-                  Posso cancellarmi quando voglio. <span class="req" aria-hidden="true">*</span>
-                </span>
-              </label>
-            </div>
-
-            <button class="btn btn--primary" type="submit">Iscrivimi</button>
-          </form>
-        </div>
-
         <div class="post-list mt-lg">
 
           <article class="post-card" data-categories="comunicazione sport">
@@ -158,6 +117,48 @@
         </div>
 
         <p class="form-hint mt-lg blog-empty" hidden>Nessun articolo in questa categoria, per ora.</p>
+
+        <div class="newsletter-box mt-lg" id="newsletter">
+          <h2>Niente spam, solo nuovi articoli</h2>
+          <p class="form-hint text-measure">
+            Iscriviti per ricevere una email quando pubblico un nuovo articolo sul blog. Ti arriverà prima
+            un'email di conferma: senza quel click l'iscrizione non si attiva. Puoi cancellarti quando vuoi
+            dal link in fondo a ogni email.
+          </p>
+
+          <!--
+            Form newsletter (Brevo / Sendinblue) — COMPLETARE PRIMA DI PUBBLICARE:
+            1. Crea un account gratuito su brevo.com e una Lista contatti dedicata al blog.
+            2. In Brevo vai su Campagne > Moduli > crea un "Modulo classico" collegato a quella lista
+               e attiva la "doppia conferma" (double opt-in) nelle impostazioni del modulo.
+            3. Brevo genera un blocco <form> con action e alcuni <input type="hidden">: copia qui SOLO
+               il valore reale dell'attributo action e degli hidden che propone (listIds, locale, ecc.),
+               sostituendo i placeholder "PLACEHOLDER..." qui sotto in QUESTO form e in quello del popup
+               piu' in basso nella pagina. Il resto del markup (classi, label, checkbox di consenso) va
+               lasciato com'e' per restare coerente con lo stile del sito.
+          -->
+          <form id="newsletter-form" class="newsletter-form" action="https://PLACEHOLDER.sibforms.com/serve/PLACEHOLDER" method="POST" target="_blank">
+            <input type="hidden" name="locale" value="it">
+
+            <div class="form-field">
+              <label for="newsletter-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input class="form-control" type="email" id="newsletter-email" name="EMAIL" required>
+            </div>
+
+            <div class="form-field form-consent">
+              <label>
+                <input type="checkbox" id="newsletter-consent" name="newsletter-consent" required>
+                <span>
+                  Acconsento a ricevere email con i nuovi articoli del blog, secondo l'
+                  <a href="privacy.html#newsletter" target="_blank" rel="noopener">informativa privacy</a>.
+                  Posso cancellarmi quando voglio. <span class="req" aria-hidden="true">*</span>
+                </span>
+              </label>
+            </div>
+
+            <button class="btn btn--primary" type="submit">Iscrivimi</button>
+          </form>
+        </div>
 
       </div>
     </section>
@@ -216,6 +217,46 @@
       </div>
     </div>
   </footer>
+
+  <!--
+    Popup newsletter — si apre da solo poco dopo il caricamento della pagina (vedi script.js),
+    solo se l'utente non l'ha gia' chiusa in precedenza su questo browser. Stesso form Brevo del
+    box in fondo alla pagina: ricordarsi di aggiornare ANCHE questo action/hidden quando si
+    sostituiscono i placeholder (vedi istruzioni sopra al form in fondo alla pagina).
+  -->
+  <div class="newsletter-modal" id="newsletter-modal" hidden>
+    <div class="newsletter-modal__backdrop" data-close></div>
+    <div class="newsletter-modal__card" role="dialog" aria-modal="true" aria-labelledby="newsletter-modal-title">
+      <button type="button" class="newsletter-modal__close" data-close aria-label="Chiudi">&times;</button>
+      <h2 id="newsletter-modal-title">Niente spam, solo nuovi articoli</h2>
+      <p class="form-hint text-measure">
+        Iscriviti per ricevere una email quando pubblico un nuovo articolo sul blog. Puoi cancellarti
+        quando vuoi dal link in fondo a ogni email.
+      </p>
+
+      <form id="newsletter-modal-form" class="newsletter-form" action="https://PLACEHOLDER.sibforms.com/serve/PLACEHOLDER" method="POST" target="_blank">
+        <input type="hidden" name="locale" value="it">
+
+        <div class="form-field">
+          <label for="newsletter-modal-email">Email <span class="req" aria-hidden="true">*</span></label>
+          <input class="form-control" type="email" id="newsletter-modal-email" name="EMAIL" required>
+        </div>
+
+        <div class="form-field form-consent">
+          <label>
+            <input type="checkbox" id="newsletter-modal-consent" name="newsletter-consent" required>
+            <span>
+              Acconsento a ricevere email con i nuovi articoli del blog, secondo l'
+              <a href="privacy.html#newsletter" target="_blank" rel="noopener">informativa privacy</a>.
+              Posso cancellarmi quando voglio. <span class="req" aria-hidden="true">*</span>
+            </span>
+          </label>
+        </div>
+
+        <button class="btn btn--primary" type="submit">Iscrivimi</button>
+      </form>
+    </div>
+  </div>
 
   <script src="assets/js/script.js"></script>
 </body>

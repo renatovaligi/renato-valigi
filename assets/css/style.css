@@ -637,6 +637,61 @@ hr {
   max-width: 28rem;
 }
 
+.newsletter-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.newsletter-modal[hidden] {
+  display: none;
+}
+
+.newsletter-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 17, 15, 0.55);
+}
+
+.newsletter-modal__card {
+  position: relative;
+  background: #f7f5f2;
+  border: 1px solid rgba(20, 17, 15, 0.12);
+  border-left: 4px solid #1f3a3d;
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 26rem;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 48px rgba(20, 17, 15, 0.14);
+}
+.newsletter-modal__card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  padding-right: 4rem;
+}
+
+.newsletter-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #3a3532;
+}
+.newsletter-modal__close:hover {
+  color: #14110f;
+}
+
 .post-list {
   display: flex;
   flex-direction: column;

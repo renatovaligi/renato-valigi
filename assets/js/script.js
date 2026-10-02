@@ -1,9 +1,8 @@
 /* =============================================================
    script.js
-   Unico uso di JavaScript nel sito: la predisposizione (disattivata
-   di default) per l'invio del form contatti con EmailJS, come da
-   requisito facoltativo del progetto. Il menu mobile e tutto il
-   resto dell'interfaccia funzionano con solo HTML e CSS.
+   Invio del form contatti con EmailJS, filtro categorie del blog
+   e popup di iscrizione alla newsletter. Il menu mobile resta
+   invece gestito con solo HTML e CSS (checkbox hack).
    ============================================================= */
 
 (function () {
@@ -88,5 +87,51 @@
         if (emptyNotice) emptyNotice.hidden = visibleCount !== 0;
       });
     });
+  }
+
+  /* ----- Popup newsletter (blog, progetti) ------------------ */
+  var modal = document.getElementById("newsletter-modal");
+
+  if (modal) {
+    var DISMISS_KEY = "newsletter-popup-dismissed";
+    var modalForm = document.getElementById("newsletter-modal-form");
+
+    var alreadyDismissed = false;
+    try {
+      alreadyDismissed = window.localStorage.getItem(DISMISS_KEY) === "1";
+    } catch (e) {
+      // Storage non disponibile (es. navigazione privata): mostriamo comunque il popup.
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      try {
+        window.localStorage.setItem(DISMISS_KEY, "1");
+      } catch (e) {
+        // Niente di grave se non si può salvare: il popup si riaprirà alla prossima visita.
+      }
+    }
+
+    if (!alreadyDismissed) {
+      window.setTimeout(function () {
+        modal.hidden = false;
+      }, 2500);
+    }
+
+    modal.querySelectorAll("[data-close]").forEach(function (el) {
+      el.addEventListener("click", closeModal);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !modal.hidden) closeModal();
+    });
+
+    if (modalForm) {
+      modalForm.addEventListener("submit", function () {
+        // Il form invia davvero a Brevo (target="_blank"): chiudiamo il popup per
+        // non mostrarlo di nuovo a chi si è appena iscritto.
+        window.setTimeout(closeModal, 300);
+      });
+    }
   }
 })();
