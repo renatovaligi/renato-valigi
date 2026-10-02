@@ -94,7 +94,6 @@
 
   if (modal) {
     var DISMISS_KEY = "newsletter-popup-dismissed";
-    var modalForm = document.getElementById("newsletter-modal-form");
 
     var alreadyDismissed = false;
     try {
@@ -125,13 +124,24 @@
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape" && !modal.hidden) closeModal();
     });
-
-    if (modalForm) {
-      modalForm.addEventListener("submit", function () {
-        // Il form invia davvero a Brevo (target="_blank"): chiudiamo il popup per
-        // non mostrarlo di nuovo a chi si è appena iscritto.
-        window.setTimeout(closeModal, 300);
-      });
-    }
   }
+
+  /* ----- Sblocco iframe newsletter dopo il consenso ---------- *
+   * L'iscrizione passa dal modulo ospitato da Brevo (iframe), che non
+   * possiamo validare lato nostro: il consenso alla privacy resta
+   * obbligatorio sbloccando l'iframe solo dopo averlo spuntato.
+   */
+  document.querySelectorAll(".newsletter-gate").forEach(function (checkbox) {
+    var container = checkbox.closest(".newsletter-box, .newsletter-modal__card");
+    var embed = container ? container.querySelector(".newsletter-embed") : null;
+    if (!embed) return;
+
+    function sync() {
+      if (checkbox.checked) embed.removeAttribute("data-locked");
+      else embed.setAttribute("data-locked", "");
+    }
+
+    checkbox.addEventListener("change", sync);
+    sync();
+  });
 })();

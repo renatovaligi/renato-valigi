@@ -127,8 +127,13 @@
           </p>
 
           <!--
-            Form newsletter collegato a Brevo (account/lista configurati). Resta da impostare, nel
-            modulo su Brevo:
+            Iscrizione gestita dal modulo ospitato da Brevo (iframe): un form HTML "nudo" costruito a
+            mano puntando alla stessa action va in errore, perche' Brevo si aspetta che l'invio passi
+            dal loro script (sibforms.com/forms/end-form/build/main.js), legato a id/classi specifiche
+            del loro markup, non riproducibili in modo affidabile qui. L'iframe resta bloccato (sfocato,
+            non cliccabile) finche' non si spunta il consenso qui sotto - vedi script.js.
+
+            Resta da impostare, nel modulo su Brevo:
             1. "Pagina di reindirizzamento dopo l'invio" (subito dopo il submit, PRIMA che l'utente
                clicchi il link nell'email - con la doppia conferma l'iscrizione non e' ancora attiva):
                https://renatovaligi.com/controlla-email.html
@@ -136,41 +141,23 @@
                link di conferma (quando l'iscrizione diventa davvero attiva):
                https://renatovaligi.com/benvenuto.html
             Nessuna delle due pagine e' collegata da un menu del sito: ci si arriva solo passando dal
-            form. Lo stesso action/campo honeypot va mantenuto identico in tutti e tre i form del sito
-            (questo, il popup piu' in basso in questa pagina, e il popup in progetti.html).
+            form. Lo stesso iframe va mantenuto identico negli altri due punti del sito (il popup piu'
+            in basso in questa pagina, e il popup in progetti.html).
           -->
-          <form id="newsletter-form" class="newsletter-form" action="https://f58fb543.sibforms.com/v2/serve/MUIFAP4xHOO9W2M3UQmrVTvsQSJD6jXFIcpTfkdQOgROkP9H70NnOTgG-XE9TAUOj_pwhzcImLkYU7l46ij6i21Ksz2U0hFq6OLr4TLDSctaTkjoV7fs_JsWqPO5dgVQA80GkphhulSARKldLvHb3FX-WLjhI4U63cKxLTHhc1oEhCcLupgC6GsVmDYbH4KdsRrpOpd65-AOxvDStg==" method="POST" target="_blank">
-            <input type="hidden" name="locale" value="it">
-            <input type="text" name="email_address_check" value="" class="newsletter-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-field form-consent">
+            <label>
+              <input type="checkbox" class="newsletter-gate">
+              <span>
+                Ho letto l'<a href="privacy.html#newsletter" target="_blank" rel="noopener">informativa privacy</a>
+                e acconsento al trattamento dei miei dati per ricevere la newsletter.
+              </span>
+            </label>
+          </div>
 
-            <div class="form-field">
-              <label for="newsletter-nome">Nome <span class="req" aria-hidden="true">*</span></label>
-              <input class="form-control" type="text" id="newsletter-nome" name="NOME" autocomplete="given-name" required>
-            </div>
-
-            <div class="form-field">
-              <label for="newsletter-cognome">Cognome <span class="req" aria-hidden="true">*</span></label>
-              <input class="form-control" type="text" id="newsletter-cognome" name="COGNOME" autocomplete="family-name" required>
-            </div>
-
-            <div class="form-field">
-              <label for="newsletter-email">Email <span class="req" aria-hidden="true">*</span></label>
-              <input class="form-control" type="email" id="newsletter-email" name="EMAIL" required>
-            </div>
-
-            <div class="form-field form-consent">
-              <label>
-                <input type="checkbox" id="newsletter-consent" name="newsletter-consent" required>
-                <span>
-                  Acconsento a ricevere email con i nuovi articoli del blog, secondo l'
-                  <a href="privacy.html#newsletter" target="_blank" rel="noopener">informativa privacy</a>.
-                  Posso cancellarmi quando voglio. <span class="req" aria-hidden="true">*</span>
-                </span>
-              </label>
-            </div>
-
-            <button class="btn btn--primary" type="submit">Iscrivimi</button>
-          </form>
+          <div class="newsletter-embed" data-locked>
+            <p class="newsletter-embed__lock">Spunta il consenso qui sopra per iscriverti.</p>
+            <iframe width="540" height="460" src="https://f58fb543.sibforms.com/v2/serve/MUIFAP4xHOO9W2M3UQmrVTvsQSJD6jXFIcpTfkdQOgROkP9H70NnOTgG-XE9TAUOj_pwhzcImLkYU7l46ij6i21Ksz2U0hFq6OLr4TLDSctaTkjoV7fs_JsWqPO5dgVQA80GkphhulSARKldLvHb3FX-WLjhI4U63cKxLTHhc1oEhCcLupgC6GsVmDYbH4KdsRrpOpd65-AOxvDStg==" frameborder="0" scrolling="auto" allowfullscreen title="Modulo di iscrizione alla newsletter"></iframe>
+          </div>
         </div>
 
       </div>
@@ -226,9 +213,9 @@
 
   <!--
     Popup newsletter - si apre da solo poco dopo il caricamento della pagina (vedi script.js),
-    solo se l'utente non l'ha gia' chiusa in precedenza su questo browser. Stesso form Brevo del
-    box in fondo alla pagina: ricordarsi di aggiornare ANCHE questo action/hidden quando si
-    sostituiscono i placeholder (vedi istruzioni sopra al form in fondo alla pagina).
+    solo se l'utente non l'ha gia' chiusa in precedenza su questo browser. Stesso iframe Brevo del
+    box in fondo alla pagina - vedi le note li' sul perche' e' un iframe e non un form HTML nudo,
+    e sui due URL di redirect ancora da impostare su Brevo.
   -->
   <div class="newsletter-modal" id="newsletter-modal" hidden>
     <div class="newsletter-modal__backdrop" data-close></div>
@@ -240,38 +227,20 @@
         quando vuoi dal link in fondo a ogni email.
       </p>
 
-      <form id="newsletter-modal-form" class="newsletter-form" action="https://f58fb543.sibforms.com/v2/serve/MUIFAP4xHOO9W2M3UQmrVTvsQSJD6jXFIcpTfkdQOgROkP9H70NnOTgG-XE9TAUOj_pwhzcImLkYU7l46ij6i21Ksz2U0hFq6OLr4TLDSctaTkjoV7fs_JsWqPO5dgVQA80GkphhulSARKldLvHb3FX-WLjhI4U63cKxLTHhc1oEhCcLupgC6GsVmDYbH4KdsRrpOpd65-AOxvDStg==" method="POST" target="_blank">
-        <input type="hidden" name="locale" value="it">
-        <input type="text" name="email_address_check" value="" class="newsletter-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form-field form-consent">
+        <label>
+          <input type="checkbox" class="newsletter-gate">
+          <span>
+            Ho letto l'<a href="privacy.html#newsletter" target="_blank" rel="noopener">informativa privacy</a>
+            e acconsento al trattamento dei miei dati per ricevere la newsletter.
+          </span>
+        </label>
+      </div>
 
-        <div class="form-field">
-          <label for="newsletter-modal-nome">Nome <span class="req" aria-hidden="true">*</span></label>
-          <input class="form-control" type="text" id="newsletter-modal-nome" name="NOME" autocomplete="given-name" required>
-        </div>
-
-        <div class="form-field">
-          <label for="newsletter-modal-cognome">Cognome <span class="req" aria-hidden="true">*</span></label>
-          <input class="form-control" type="text" id="newsletter-modal-cognome" name="COGNOME" autocomplete="family-name" required>
-        </div>
-
-        <div class="form-field">
-          <label for="newsletter-modal-email">Email <span class="req" aria-hidden="true">*</span></label>
-          <input class="form-control" type="email" id="newsletter-modal-email" name="EMAIL" required>
-        </div>
-
-        <div class="form-field form-consent">
-          <label>
-            <input type="checkbox" id="newsletter-modal-consent" name="newsletter-consent" required>
-            <span>
-              Acconsento a ricevere email con i nuovi articoli del blog, secondo l'
-              <a href="privacy.html#newsletter" target="_blank" rel="noopener">informativa privacy</a>.
-              Posso cancellarmi quando voglio. <span class="req" aria-hidden="true">*</span>
-            </span>
-          </label>
-        </div>
-
-        <button class="btn btn--primary" type="submit">Iscrivimi</button>
-      </form>
+      <div class="newsletter-embed" data-locked>
+        <p class="newsletter-embed__lock">Spunta il consenso qui sopra per iscriverti.</p>
+        <iframe width="540" height="460" src="https://f58fb543.sibforms.com/v2/serve/MUIFAP4xHOO9W2M3UQmrVTvsQSJD6jXFIcpTfkdQOgROkP9H70NnOTgG-XE9TAUOj_pwhzcImLkYU7l46ij6i21Ksz2U0hFq6OLr4TLDSctaTkjoV7fs_JsWqPO5dgVQA80GkphhulSARKldLvHb3FX-WLjhI4U63cKxLTHhc1oEhCcLupgC6GsVmDYbH4KdsRrpOpd65-AOxvDStg==" frameborder="0" scrolling="auto" allowfullscreen title="Modulo di iscrizione alla newsletter"></iframe>
+      </div>
     </div>
   </div>
 

@@ -449,9 +449,9 @@
 
   <!--
     Popup newsletter - si apre da solo poco dopo il caricamento della pagina (vedi script.js),
-    solo se l'utente non l'ha gia' chiusa in precedenza su questo browser. Stesso form Brevo
-    (action/honeypot) di blog.html: vedi le note li' per i due URL di reindirizzamento da
-    impostare su Brevo (dopo l'invio e dopo la conferma via email).
+    solo se l'utente non l'ha gia' chiusa in precedenza su questo browser. Stesso iframe Brevo di
+    blog.html: vedi le note li' sul perche' e' un iframe e non un form HTML nudo, e sui due URL di
+    redirect ancora da impostare su Brevo.
   -->
   <div class="newsletter-modal" id="newsletter-modal" hidden>
     <div class="newsletter-modal__backdrop" data-close></div>
@@ -463,38 +463,20 @@
         blog. Puoi cancellarti quando vuoi dal link in fondo a ogni email.
       </p>
 
-      <form id="newsletter-modal-form" class="newsletter-form" action="https://f58fb543.sibforms.com/v2/serve/MUIFAP4xHOO9W2M3UQmrVTvsQSJD6jXFIcpTfkdQOgROkP9H70NnOTgG-XE9TAUOj_pwhzcImLkYU7l46ij6i21Ksz2U0hFq6OLr4TLDSctaTkjoV7fs_JsWqPO5dgVQA80GkphhulSARKldLvHb3FX-WLjhI4U63cKxLTHhc1oEhCcLupgC6GsVmDYbH4KdsRrpOpd65-AOxvDStg==" method="POST" target="_blank">
-        <input type="hidden" name="locale" value="it">
-        <input type="text" name="email_address_check" value="" class="newsletter-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form-field form-consent">
+        <label>
+          <input type="checkbox" class="newsletter-gate">
+          <span>
+            Ho letto l'<a href="privacy.html#newsletter" target="_blank" rel="noopener">informativa privacy</a>
+            e acconsento al trattamento dei miei dati per ricevere la newsletter.
+          </span>
+        </label>
+      </div>
 
-        <div class="form-field">
-          <label for="newsletter-modal-nome">Nome <span class="req" aria-hidden="true">*</span></label>
-          <input class="form-control" type="text" id="newsletter-modal-nome" name="NOME" autocomplete="given-name" required>
-        </div>
-
-        <div class="form-field">
-          <label for="newsletter-modal-cognome">Cognome <span class="req" aria-hidden="true">*</span></label>
-          <input class="form-control" type="text" id="newsletter-modal-cognome" name="COGNOME" autocomplete="family-name" required>
-        </div>
-
-        <div class="form-field">
-          <label for="newsletter-modal-email">Email <span class="req" aria-hidden="true">*</span></label>
-          <input class="form-control" type="email" id="newsletter-modal-email" name="EMAIL" required>
-        </div>
-
-        <div class="form-field form-consent">
-          <label>
-            <input type="checkbox" id="newsletter-modal-consent" name="newsletter-consent" required>
-            <span>
-              Acconsento a ricevere email con i nuovi articoli e progetti, secondo l'
-              <a href="privacy.html#newsletter" target="_blank" rel="noopener">informativa privacy</a>.
-              Posso cancellarmi quando voglio. <span class="req" aria-hidden="true">*</span>
-            </span>
-          </label>
-        </div>
-
-        <button class="btn btn--primary" type="submit">Iscrivimi</button>
-      </form>
+      <div class="newsletter-embed" data-locked>
+        <p class="newsletter-embed__lock">Spunta il consenso qui sopra per iscriverti.</p>
+        <iframe width="540" height="460" src="https://f58fb543.sibforms.com/v2/serve/MUIFAP4xHOO9W2M3UQmrVTvsQSJD6jXFIcpTfkdQOgROkP9H70NnOTgG-XE9TAUOj_pwhzcImLkYU7l46ij6i21Ksz2U0hFq6OLr4TLDSctaTkjoV7fs_JsWqPO5dgVQA80GkphhulSARKldLvHb3FX-WLjhI4U63cKxLTHhc1oEhCcLupgC6GsVmDYbH4KdsRrpOpd65-AOxvDStg==" frameborder="0" scrolling="auto" allowfullscreen title="Modulo di iscrizione alla newsletter"></iframe>
+      </div>
     </div>
   </div>
 
