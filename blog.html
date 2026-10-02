@@ -139,6 +139,11 @@
                genera con questi nomi solo se l'account e' in italiano, altrimenti usa FIRSTNAME/LASTNAME
                - allinea i name a quelli che Brevo mostra nel suo codice. Il resto del markup (classi,
                label, checkbox di consenso) va lasciato com'e' per restare coerente con lo stile del sito.
+            4. Nelle impostazioni della doppia conferma (stesso modulo, sezione "Pagina/email di conferma"),
+               imposta come URL di reindirizzamento dopo la conferma:
+               https://renatovaligi.com/iscrizione-confermata.html
+               Questa e' una pagina del sito non collegata da nessun menu: ci si arriva solo cliccando il
+               link di conferma nell'email di doppio opt-in.
           -->
           <form id="newsletter-form" class="newsletter-form" action="https://PLACEHOLDER.sibforms.com/serve/PLACEHOLDER" method="POST" target="_blank">
             <input type="hidden" name="locale" value="it">
