@@ -419,6 +419,13 @@ hr {
   color: #14110f;
 }
 
+.section--ink .btn--primary {
+  color: #ffffff;
+}
+.section--ink .btn--primary:hover, .section--ink .btn--primary:focus {
+  color: #ffffff;
+}
+
 .hero {
   background: #14110f;
   color: #f7f5f2;

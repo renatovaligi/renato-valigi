@@ -200,6 +200,13 @@
   &:focus { background: $color-paper; color: $color-ink; }
 }
 
+.section--ink .btn--primary {
+  color: $color-white;
+
+  &:hover,
+  &:focus { color: $color-white; }
+}
+
 // --- Hero -----------------------------------------------
 .hero {
   background: $color-ink;
