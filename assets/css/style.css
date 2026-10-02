@@ -644,6 +644,15 @@ hr {
   max-width: 28rem;
 }
 
+.newsletter-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .newsletter-modal {
   position: fixed;
   inset: 0;

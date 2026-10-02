@@ -381,6 +381,17 @@
   max-width: 28rem;
 }
 
+// Campo anti-spam di Brevo: deve restare nel form e vuoto, ma invisibile
+// e non raggiungibile da tastiera per chi naviga normalmente.
+.newsletter-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .newsletter-modal {
   position: fixed;
   inset: 0;

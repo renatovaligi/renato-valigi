@@ -127,32 +127,21 @@
           </p>
 
           <!--
-            Form newsletter (Brevo / Sendinblue) - COMPLETARE PRIMA DI PUBBLICARE:
-            1. Crea un account gratuito su brevo.com e una Lista contatti dedicata al blog.
-            2. In Brevo vai su Campagne > Moduli > crea un "Modulo classico" collegato a quella lista,
-               aggiungi i campi Nome e Cognome oltre all'Email, e attiva la "doppia conferma"
-               (double opt-in) nelle impostazioni del modulo.
-            3. Brevo genera un blocco <form> con action e alcuni <input type="hidden">: copia qui SOLO
-               il valore reale dell'attributo action e degli hidden che propone (listIds, locale, ecc.),
-               sostituendo i placeholder "PLACEHOLDER..." qui sotto in QUESTO form e in quello del popup
-               piu' in basso nella pagina. Controlla anche i name="NOME"/"COGNOME" qui sotto: Brevo li
-               genera con questi nomi solo se l'account e' in italiano, altrimenti usa FIRSTNAME/LASTNAME
-               - allinea i name a quelli che Brevo mostra nel suo codice. Il resto del markup (classi,
-               label, checkbox di consenso) va lasciato com'e' per restare coerente con lo stile del sito.
-            4. Nelle impostazioni del modulo, sezione "Pagina di reindirizzamento dopo l'invio" (quella
-               subito dopo il submit, NON quella dopo il click sul link nell'email - con la doppia
-               conferma l'iscrizione non e' ancora attiva a questo punto), imposta:
+            Form newsletter collegato a Brevo (account/lista configurati). Resta da impostare, nel
+            modulo su Brevo:
+            1. "Pagina di reindirizzamento dopo l'invio" (subito dopo il submit, PRIMA che l'utente
+               clicchi il link nell'email - con la doppia conferma l'iscrizione non e' ancora attiva):
                https://renatovaligi.com/controlla-email.html
-               Questa e' una pagina del sito non collegata da nessun menu: dice all'utente di controllare
-               la posta (anche lo spam) per completare l'iscrizione cliccando il link di conferma.
-            5. Nelle impostazioni della doppia conferma (template email di conferma), c'e' un secondo
-               campo di reindirizzamento per DOPO che l'utente clicca il link nell'email, quando
-               l'iscrizione diventa davvero attiva. Imposta quello su:
+            2. Nel template email di doppia conferma, l'URL di reindirizzamento per DOPO il click sul
+               link di conferma (quando l'iscrizione diventa davvero attiva):
                https://renatovaligi.com/benvenuto.html
-               Anche questa non e' collegata da nessun menu: ci si arriva solo completando l'iscrizione.
+            Nessuna delle due pagine e' collegata da un menu del sito: ci si arriva solo passando dal
+            form. Lo stesso action/campo honeypot va mantenuto identico in tutti e tre i form del sito
+            (questo, il popup piu' in basso in questa pagina, e il popup in progetti.html).
           -->
-          <form id="newsletter-form" class="newsletter-form" action="https://PLACEHOLDER.sibforms.com/serve/PLACEHOLDER" method="POST" target="_blank">
+          <form id="newsletter-form" class="newsletter-form" action="https://f58fb543.sibforms.com/v2/serve/MUIFAP4xHOO9W2M3UQmrVTvsQSJD6jXFIcpTfkdQOgROkP9H70NnOTgG-XE9TAUOj_pwhzcImLkYU7l46ij6i21Ksz2U0hFq6OLr4TLDSctaTkjoV7fs_JsWqPO5dgVQA80GkphhulSARKldLvHb3FX-WLjhI4U63cKxLTHhc1oEhCcLupgC6GsVmDYbH4KdsRrpOpd65-AOxvDStg==" method="POST" target="_blank">
             <input type="hidden" name="locale" value="it">
+            <input type="text" name="email_address_check" value="" class="newsletter-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
 
             <div class="form-field">
               <label for="newsletter-nome">Nome <span class="req" aria-hidden="true">*</span></label>
@@ -251,8 +240,9 @@
         quando vuoi dal link in fondo a ogni email.
       </p>
 
-      <form id="newsletter-modal-form" class="newsletter-form" action="https://PLACEHOLDER.sibforms.com/serve/PLACEHOLDER" method="POST" target="_blank">
+      <form id="newsletter-modal-form" class="newsletter-form" action="https://f58fb543.sibforms.com/v2/serve/MUIFAP4xHOO9W2M3UQmrVTvsQSJD6jXFIcpTfkdQOgROkP9H70NnOTgG-XE9TAUOj_pwhzcImLkYU7l46ij6i21Ksz2U0hFq6OLr4TLDSctaTkjoV7fs_JsWqPO5dgVQA80GkphhulSARKldLvHb3FX-WLjhI4U63cKxLTHhc1oEhCcLupgC6GsVmDYbH4KdsRrpOpd65-AOxvDStg==" method="POST" target="_blank">
         <input type="hidden" name="locale" value="it">
+        <input type="text" name="email_address_check" value="" class="newsletter-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="form-field">
           <label for="newsletter-modal-nome">Nome <span class="req" aria-hidden="true">*</span></label>
