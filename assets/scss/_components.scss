@@ -689,11 +689,12 @@ textarea.form-control { min-height: 160px; resize: vertical; }
 .site-footer a { color: rgba(247, 245, 242, 0.9); }
 .site-footer a:hover { color: $color-white; }
 
-.footer-grid {
-  display: grid;
-  gap: $space-md;
-
-  @include from($bp-md) { grid-template-columns: 2fr 1fr 1fr; }
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-sm $space-md;
 }
 
 .footer-brand {
@@ -702,8 +703,6 @@ textarea.form-control { min-height: 160px; resize: vertical; }
   color: $color-white;
   span { color: $color-accent; }
 }
-
-.footer-heading { color: $color-white; }
 
 .icon-row {
   display: flex;
@@ -719,11 +718,12 @@ textarea.form-control { min-height: 160px; resize: vertical; }
 
 .footer-nav {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: $space-sm 0 0;
+  margin: $space-md 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
 }
 
 .footer-bottom {

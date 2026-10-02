@@ -1005,14 +1005,12 @@ textarea.form-control {
   color: #ffffff;
 }
 
-.footer-grid {
-  display: grid;
-  gap: 2rem;
-}
-@media (min-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 2fr 1fr 1fr;
-  }
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
 }
 
 .footer-brand {
@@ -1022,10 +1020,6 @@ textarea.form-control {
 }
 .footer-brand span {
   color: #c1121f;
-}
-
-.footer-heading {
-  color: #ffffff;
 }
 
 .icon-row {
@@ -1045,11 +1039,12 @@ textarea.form-control {
 
 .footer-nav {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: 1rem 0 0;
+  margin: 2rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
 }
 
 .footer-bottom {
