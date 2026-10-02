@@ -358,6 +358,22 @@
   &::after { content: " \2192"; }
 }
 
+// --- Newsletter -----------------------------------------
+.newsletter-box {
+  background: $color-paper-dim;
+  border: 1px solid $color-border;
+  border-left: 4px solid $color-analyst;
+  border-radius: $radius-lg;
+  padding: $space-md;
+
+  h2 { margin: 0 0 0.5rem; font-size: 1.3rem; }
+}
+
+.newsletter-form {
+  margin-top: $space-sm;
+  max-width: 28rem;
+}
+
 // --- Blog ---------------------------------------------
 .post-list {
   display: flex;

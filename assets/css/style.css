@@ -620,6 +620,23 @@ hr {
   content: " →";
 }
 
+.newsletter-box {
+  background: #ece8e2;
+  border: 1px solid rgba(20, 17, 15, 0.12);
+  border-left: 4px solid #1f3a3d;
+  border-radius: 10px;
+  padding: 2rem;
+}
+.newsletter-box h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+.newsletter-form {
+  margin-top: 1rem;
+  max-width: 28rem;
+}
+
 .post-list {
   display: flex;
   flex-direction: column;
