@@ -129,16 +129,29 @@
           <!--
             Form newsletter (Brevo / Sendinblue) — COMPLETARE PRIMA DI PUBBLICARE:
             1. Crea un account gratuito su brevo.com e una Lista contatti dedicata al blog.
-            2. In Brevo vai su Campagne > Moduli > crea un "Modulo classico" collegato a quella lista
-               e attiva la "doppia conferma" (double opt-in) nelle impostazioni del modulo.
+            2. In Brevo vai su Campagne > Moduli > crea un "Modulo classico" collegato a quella lista,
+               aggiungi i campi Nome e Cognome oltre all'Email, e attiva la "doppia conferma"
+               (double opt-in) nelle impostazioni del modulo.
             3. Brevo genera un blocco <form> con action e alcuni <input type="hidden">: copia qui SOLO
                il valore reale dell'attributo action e degli hidden che propone (listIds, locale, ecc.),
                sostituendo i placeholder "PLACEHOLDER..." qui sotto in QUESTO form e in quello del popup
-               piu' in basso nella pagina. Il resto del markup (classi, label, checkbox di consenso) va
-               lasciato com'e' per restare coerente con lo stile del sito.
+               piu' in basso nella pagina. Controlla anche i name="NOME"/"COGNOME" qui sotto: Brevo li
+               genera con questi nomi solo se l'account e' in italiano, altrimenti usa FIRSTNAME/LASTNAME
+               — allinea i name a quelli che Brevo mostra nel suo codice. Il resto del markup (classi,
+               label, checkbox di consenso) va lasciato com'e' per restare coerente con lo stile del sito.
           -->
           <form id="newsletter-form" class="newsletter-form" action="https://PLACEHOLDER.sibforms.com/serve/PLACEHOLDER" method="POST" target="_blank">
             <input type="hidden" name="locale" value="it">
+
+            <div class="form-field">
+              <label for="newsletter-nome">Nome <span class="req" aria-hidden="true">*</span></label>
+              <input class="form-control" type="text" id="newsletter-nome" name="NOME" autocomplete="given-name" required>
+            </div>
+
+            <div class="form-field">
+              <label for="newsletter-cognome">Cognome <span class="req" aria-hidden="true">*</span></label>
+              <input class="form-control" type="text" id="newsletter-cognome" name="COGNOME" autocomplete="family-name" required>
+            </div>
 
             <div class="form-field">
               <label for="newsletter-email">Email <span class="req" aria-hidden="true">*</span></label>
@@ -236,6 +249,16 @@
 
       <form id="newsletter-modal-form" class="newsletter-form" action="https://PLACEHOLDER.sibforms.com/serve/PLACEHOLDER" method="POST" target="_blank">
         <input type="hidden" name="locale" value="it">
+
+        <div class="form-field">
+          <label for="newsletter-modal-nome">Nome <span class="req" aria-hidden="true">*</span></label>
+          <input class="form-control" type="text" id="newsletter-modal-nome" name="NOME" autocomplete="given-name" required>
+        </div>
+
+        <div class="form-field">
+          <label for="newsletter-modal-cognome">Cognome <span class="req" aria-hidden="true">*</span></label>
+          <input class="form-control" type="text" id="newsletter-modal-cognome" name="COGNOME" autocomplete="family-name" required>
+        </div>
 
         <div class="form-field">
           <label for="newsletter-modal-email">Email <span class="req" aria-hidden="true">*</span></label>

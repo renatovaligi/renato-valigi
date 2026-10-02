@@ -458,7 +458,8 @@
     Popup newsletter — si apre da solo poco dopo il caricamento della pagina (vedi script.js),
     solo se l'utente non l'ha gia' chiusa in precedenza su questo browser. Stesso form Brevo usato
     nella pagina Blog: quando sostituisci i placeholder dell'action con i valori reali del modulo
-    Brevo, aggiornali in TUTTI i form del sito (blog.html ne ha due, questo e' il terzo).
+    Brevo, aggiornali in TUTTI i form del sito (blog.html ne ha due, questo e' il terzo). Controlla
+    anche i name="NOME"/"COGNOME" qui sotto rispetto a quelli generati da Brevo (vedi nota in blog.html).
   -->
   <div class="newsletter-modal" id="newsletter-modal" hidden>
     <div class="newsletter-modal__backdrop" data-close></div>
@@ -472,6 +473,16 @@
 
       <form id="newsletter-modal-form" class="newsletter-form" action="https://PLACEHOLDER.sibforms.com/serve/PLACEHOLDER" method="POST" target="_blank">
         <input type="hidden" name="locale" value="it">
+
+        <div class="form-field">
+          <label for="newsletter-modal-nome">Nome <span class="req" aria-hidden="true">*</span></label>
+          <input class="form-control" type="text" id="newsletter-modal-nome" name="NOME" autocomplete="given-name" required>
+        </div>
+
+        <div class="form-field">
+          <label for="newsletter-modal-cognome">Cognome <span class="req" aria-hidden="true">*</span></label>
+          <input class="form-control" type="text" id="newsletter-modal-cognome" name="COGNOME" autocomplete="family-name" required>
+        </div>
 
         <div class="form-field">
           <label for="newsletter-modal-email">Email <span class="req" aria-hidden="true">*</span></label>
