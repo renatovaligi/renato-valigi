@@ -644,6 +644,49 @@ hr {
   margin-top: 1rem;
 }
 
+.newsletter-steps {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0 0;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .newsletter-steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.newsletter-steps li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.newsletter-steps__num {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: #1f3a3d;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.newsletter-steps__title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.newsletter-steps__desc {
+  margin: 0.15rem 0 0;
+  font-size: 0.9rem;
+  color: #3a3532;
+}
+
 .newsletter-embed {
   position: relative;
   margin-top: 1rem;

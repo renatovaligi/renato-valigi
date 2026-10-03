@@ -381,6 +381,43 @@
   margin-top: $space-sm;
 }
 
+.newsletter-steps {
+  list-style: none;
+  display: grid;
+  gap: $space-sm;
+  margin: $space-md 0 0;
+  padding: 0;
+
+  @include from($bp-md) { grid-template-columns: repeat(3, 1fr); }
+
+  li { display: flex; gap: 0.75rem; align-items: flex-start; }
+}
+
+.newsletter-steps__num {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: $color-analyst;
+  color: $color-white;
+  font-weight: $fw-bold;
+  font-size: 0.85rem;
+}
+
+.newsletter-steps__title {
+  margin: 0;
+  font-weight: $fw-bold;
+}
+
+.newsletter-steps__desc {
+  margin: 0.15rem 0 0;
+  font-size: 0.9rem;
+  color: $color-ink-soft;
+}
+
 .newsletter-embed {
   position: relative;
   margin-top: $space-sm;
