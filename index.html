@@ -21,10 +21,16 @@
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Stile personalizzato compilato da Sass -->
   <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Renato Valigi","url":"https://renatovaligi.com/","image":"https://renatovaligi.com/assets/img/foto-profilo.png","jobTitle":"Digital & Sports Communication Strategist","address":{"@type":"PostalAddress","addressLocality":"Perugia","addressCountry":"IT"},"sameAs":["https://www.linkedin.com/in/renatovaligi/","https://github.com/renatovaligi","https://www.instagram.com/valijao_meravigliao/"]}
+  </script>
+  <meta name="theme-color" content="#08080a">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="canonical" href="https://renatovaligi.com/">
 </head>
 <body>
   <a class="skip-link" href="#main">Salta al contenuto</a>
@@ -51,51 +57,85 @@
   <main id="main">
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" id="top">
+      <div class="hero__orb" aria-hidden="true"><canvas></canvas></div>
       <div class="container-tight">
         <div class="hero__inner">
-          <div>
-            <p class="section-label">Digital &amp; Sports Communication Strategist</p>
-            <h1 class="hero__title">Digitale e sport parlano la stessa lingua, <em>se sai ascoltarli.</em></h1>
-            <p class="hero__text">
-              Comunicazione, marketing digitale e sviluppo aziendale, tra analisi dei dati e strategia.
-              Un metodo allenato anche nel mondo sportivo, senza perdere la parte creativa.
-            </p>
-            <div class="hero__actions">
-              <a class="btn btn--primary" href="progetti.html">Guarda i miei progetti</a>
-              <a class="btn btn--ghost" href="contatti.html">Contattami</a>
-            </div>
+          <p class="status-chip"><i></i>Digital &amp; Sports Communication Strategist</p>
+          <h1 class="hero__title"><span class="w"><span style="--i:0">Digitale</span></span> <span class="w"><span style="--i:1">e</span></span> <span class="w"><span style="--i:2">sport</span></span> <span class="w"><span style="--i:3">parlano</span></span> <span class="w"><span style="--i:4">la</span></span> <span class="w"><span style="--i:5">stessa</span></span> <span class="w"><span style="--i:6">lingua,</span></span> <em><span class="w"><span style="--i:7">se</span></span> <span class="w"><span style="--i:8">sai</span></span> <span class="w"><span style="--i:9">ascoltarli.</span></span></em></h1>
+          <p class="hero__text">
+            Comunicazione, marketing digitale e sviluppo aziendale, tra analisi dei dati e strategia.
+            Un metodo allenato anche nel mondo sportivo, senza perdere la parte creativa.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="progetti.html">Guarda i miei progetti</a>
+            <a class="btn btn--ghost" href="contatti.html">Contattami</a>
           </div>
-          <figure class="hero__portrait">
-            <img src="assets/img/foto-profilo.png" alt="Ritratto di Renato Valigi" width="1017" height="1526">
-          </figure>
+        </div>
+      </div>
+      <span class="hero__scroll" aria-hidden="true">Scorri</span>
+    </section>
+
+    <!-- STRISCIA SCORREVOLE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <ul class="marquee__group"><li>Growth marketing</li><li>Comunicazione sportiva</li><li>Data analysis</li><li>Match analysis</li><li>Social media</li><li>UX/UI design</li><li>Coaching</li><li>Digital strategy</li></ul>
+        <ul class="marquee__group"><li>Growth marketing</li><li>Comunicazione sportiva</li><li>Data analysis</li><li>Match analysis</li><li>Social media</li><li>UX/UI design</li><li>Coaching</li><li>Digital strategy</li></ul>
+      </div>
+    </div>
+
+    <!-- NUMERI -->
+    <section class="section section--tight">
+      <div class="container-tight">
+        <div class="stats">
+          <div class="stat" data-reveal="fade">
+            <span class="stat__num"><span data-count="8">8</span><small>+</small></span>
+            <span class="stat__label">Anni in comunicazione digitale</span>
+          </div>
+          <div class="stat" data-reveal="fade">
+            <span class="stat__num"><span data-count="10">10</span><small>+</small></span>
+            <span class="stat__label">Anni in panchina</span>
+          </div>
+          <div class="stat" data-reveal="fade">
+            <span class="stat__num"><span data-count="10">10</span></span>
+            <span class="stat__label">Case study in portfolio</span>
+          </div>
+          <div class="stat" data-reveal="fade">
+            <span class="stat__num"><span data-count="110">110</span><small>L</small></span>
+            <span class="stat__label">Laurea in Comunicazione e Media Digitali</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- BIO -->
+    <!-- CHI SONO -->
     <section class="section" id="chi-sono">
       <div class="container-tight">
-        <p class="section-label">Chi sono</p>
-        <div class="text-measure stack-sm">
-          <p class="lead">
-            Mi chiamo Renato Valigi e lavoro nella comunicazione digitale e nel growth marketing,
-            con un metodo che unisce analisi dei dati, strategia, creatività e, spesso, sport.
-          </p>
-          <p>
+        <div class="about">
+          <figure class="about__media">
+            <div class="about__frame">
+              <img src="assets/img/foto-profilo.webp" alt="Ritratto di Renato Valigi" width="888" height="1338" loading="lazy">
+            </div>
+            <figcaption class="about__tag">Renato Valigi / Perugia</figcaption>
+          </figure>
+          <div class="about__text stack-sm">
+            <h2 class="section-label">Chi sono</h2>
+            <p class="lead" data-scrub>Mi chiamo Renato Valigi e lavoro nella comunicazione digitale e nel growth marketing,
+            con un metodo che unisce analisi dei dati, strategia, creatività e, spesso, sport.</p>
+            <p>
             In questi anni ho lavorato come freelance su ruoli diversi, spesso in parallelo:
             responsabile della comunicazione, creative communication designer, social media manager,
             fino a diventare Head of Communication, occupandomi di strategia digitale, contenuti,
             media relations e comunicazione con sponsor e partner.
           </p>
-          <p>
+            <p>
             Sul lato sportivo il percorso è stato altrettanto lungo: ho iniziato allenando le
             giovanili di categoria Eccellenza, sono diventato assistente allenatore e match analyst
             in Serie C, fino a diventare Capo Allenatore nel progetto Grypho Basket Perugia. Un
             percorso che mi ha insegnato a leggere i dati e le persone con lo stesso metodo con cui
             oggi analizzo un mercato o costruisco una strategia.
           </p>
-          <p>
+            <p>
             Mi sono laureato in Comunicazione e Media Digitali con 110 e lode e ho un diploma in
             Sports Communication &amp; Fan Engagement con la FC Barcelona (sì, quella del calcio)
             Innovation Hub. Ho le qualifiche FIP di Allenatore e Match Analyst avanzato, e sto
@@ -104,13 +144,39 @@
             analisi strategica, roadmap e strumenti di intelligenza artificiale applicati al
             marketing.
           </p>
-          <p><a href="cv.html">Scopri di più su di me &rarr;</a></p>
+            <p><a href="cv.html">Scopri di più su di me &rarr;</a></p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- METODO -->
+    <section class="section section--paper-dim" id="metodo">
+      <div class="container-tight">
+        <p class="section-label">Il metodo</p>
+        <h2>Un metodo in tre mosse, dal campo alla scrivania</h2>
+        <ol class="method">
+          <li>
+            <span class="method__num">01</span>
+            <h3>Capire il contesto</h3>
+            <p>Parto dal mercato, dai competitor e dalla presenza digitale del brand, per capire dove si gioca davvero la partita.</p>
+          </li>
+          <li>
+            <span class="method__num">02</span>
+            <h3>Leggere i dati</h3>
+            <p>Sondaggi, KPI, engagement, analisi video: leggo i dati e le persone con lo stesso metodo, per trasformare i numeri in decisioni.</p>
+          </li>
+          <li>
+            <span class="method__num">03</span>
+            <h3>Costruire la strategia</h3>
+            <p>Obiettivi SMART, roadmap, contenuti ed esperimenti da testare: una strategia concreta, non solo un contenuto.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
     <!-- COMPETENZE -->
-    <section class="section section--paper-dim">
+    <section class="section">
       <div class="container-tight">
         <p class="section-label">Competenze principali</p>
         <h2>Due identità che lavorano insieme, come un team</h2>
@@ -144,12 +210,17 @@
     </section>
 
     <!-- PROGETTI IN EVIDENZA -->
-    <section class="section">
+    <section class="section section--paper-dim">
       <div class="container-tight">
-        <p class="section-label">Progetti in evidenza</p>
-        <h2>Un assaggio del portfolio</h2>
+        <div class="section-head">
+          <div>
+            <p class="section-label">Progetti in evidenza</p>
+            <h2>Un assaggio del portfolio</h2>
+          </div>
+          <a class="link-arrow" href="progetti.html">Tutti i progetti</a>
+        </div>
         <div class="project-grid mt-lg">
-          <article class="project-card">
+          <article class="project-card project-card--link">
             <div class="project-card__media"><img src="assets/img/card-dott.webp" alt="Logo Dott" loading="lazy"></div>
             <div class="project-card__body">
               <h3>Growth Marketing e Brand Positioning per Dott</h3>
@@ -161,7 +232,7 @@
               <a class="project-card__link" href="progetti.html">Vai al portfolio</a>
             </div>
           </article>
-          <article class="project-card">
+          <article class="project-card project-card--link">
             <div class="project-card__media"><img src="assets/img/card-will-media.webp" alt="Logo Will Media" loading="lazy"></div>
             <div class="project-card__body">
               <h3>Social Media: Game Changer per Will Media</h3>
@@ -172,7 +243,7 @@
               <a class="project-card__link" href="progetti.html">Vai al portfolio</a>
             </div>
           </article>
-          <article class="project-card">
+          <article class="project-card project-card--link">
             <div class="project-card__media"><img src="assets/img/card-acumen-academy.webp" alt="Logo Acumen Academy" loading="lazy"></div>
             <div class="project-card__body">
               <h3>UX/UI Design: Acumen Academy</h3>
@@ -187,11 +258,41 @@
       </div>
     </section>
 
+    <!-- BLOG -->
+    <section class="section">
+      <div class="container-tight">
+        <div class="section-head">
+          <div>
+            <p class="section-label">Dal blog</p>
+            <h2>Gli ultimi appunti</h2>
+          </div>
+          <a class="link-arrow" href="blog.html">Tutti gli articoli</a>
+        </div>
+        <div class="blog-teaser">
+          <a class="blog-teaser__row" href="blog/mourinho-pozzecco.html">
+            <span class="blog-teaser__date">set 2026</span>
+            <span class="blog-teaser__title">Mourinho e Pozzecco: due estremi della comunicazione sportiva</span>
+            <span class="blog-teaser__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="blog-teaser__row" href="blog/jakarta-fast-fashion.html">
+            <span class="blog-teaser__date">ago 2026</span>
+            <span class="blog-teaser__title">Jakarta e i tuoi vestiti: il prezzo nascosto del fast fashion</span>
+            <span class="blog-teaser__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="blog-teaser__row" href="blog/vincere-o-sbagliare.html">
+            <span class="blog-teaser__date">mag 2025</span>
+            <span class="blog-teaser__title">Vincere o sbagliare: cosa conta davvero nel settore giovanile</span>
+            <span class="blog-teaser__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section class="section section--ink">
-      <div class="container-tight text-center stack-sm text-center-actions">
-        <h2>Lavori nella comunicazione, nel marketing o nello sport?</h2>
-        <p class="text-measure">
+      <div class="container-tight text-center stack-sm text-center-actions cta-magnet">
+        <h2 class="cta-title">Lavori nella comunicazione, nel marketing o nello sport?</h2>
+        <p class="text-measure lead">
           Se cerchi qualcuno che sappia raccontare un progetto e anche costruirlo, sono qui per questo.
         </p>
         <div class="hero__actions">
@@ -251,5 +352,6 @@
   </footer>
 
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/motion.js" defer></script>
 </body>
 </html>

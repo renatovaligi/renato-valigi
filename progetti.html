@@ -18,8 +18,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="theme-color" content="#08080a">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="canonical" href="https://renatovaligi.com/progetti.html">
 </head>
 <body>
   <a class="skip-link" href="#main">Salta al contenuto</a>
@@ -60,336 +63,164 @@
           <a href="privacy.html">Privacy</a>.
         </p>
 
-        <div class="project-grid mt-lg">
+        <div class="case-filters" role="group" aria-label="Filtra i progetti per categoria">
+          <button type="button" class="case-filter is-active" data-filter="tutti" aria-pressed="true">Tutti</button>
+          <button type="button" class="case-filter" data-filter="growth" aria-pressed="false">Growth marketing</button>
+          <button type="button" class="case-filter" data-filter="ux" aria-pressed="false">UX/UI</button>
+          <button type="button" class="case-filter" data-filter="comunicazione" aria-pressed="false">Comunicazione e design</button>
+        </div>
 
-          <!-- Progetto 1: Dott -->
-          <article class="project-card">
-            <div class="project-card__media"><img src="assets/img/card-dott.webp" alt="Logo Dott" loading="lazy"></div>
-            <div class="project-card__body">
+        <div class="case-grid">
+          <article class="case-card" data-categories="growth" data-reveal>
+            <div class="case-card__media">
+              <img src="assets/img/card-dott.webp" alt="Logo Dott" loading="lazy">
+              <span class="case-card__cat">Growth marketing</span>
+            </div>
+            <div class="case-card__body">
               <p class="post-card__date">giu 2026</p>
               <h3>Analisi Strategica: Growth Marketing e Brand Positioning per Dott</h3>
-              <p>
-                Consulenza strategica di growth marketing per Dott (TIER-Dott), operatore europeo di
-                micro-mobilità elettrica condivisa presente in oltre 400 città e 21 paesi, con più di
-                125 milioni di corse l'anno. Il progetto analizza mercato, competitor diretti e indiretti
-                (Lime, Voi, Bird, Uber, trasporto pubblico) e presenza digitale su sito, app e social, per
-                poi costruire un'analisi SWOT completa, tre buyer persona con KPI dedicati e una mappa di
-                posizionamento su prezzo e sostenibilità.
-              </p>
-              <p>
-                Il cuore del lavoro è un sondaggio primario su 50 rispondenti che ribalta il problema di
-                partenza: il prodotto è eccellente (4,7 stelle su App Store) e il prezzo è nel range
-                giusto, ma il 62% del campione non conosce Dott. Da qui l'obiettivo SMART scelto, portare
-                l'adozione del Minute Pass dal 12% al 22% in sei mesi, e il principio che guida tutta la
-                roadmap: prima esisti nella testa del target, poi converti, poi fidelizzi.
-              </p>
-              <p class="form-hint">
-                Master in Growth Marketing e Agenti AI, start2impact x Unimarconi -
-                modulo di Analisi Strategica
-              </p>
-              <a class="project-card__link" href="assets/docs/portfolio-analisi-strategica-dott.pdf" target="_blank" rel="noopener">
-                Scarica il progetto (PDF)
-              </a>
+              <p>Analisi di mercato, competitor e sondaggio su 50 persone: il prodotto convince, ma il 62% non conosce il brand. Da qui la roadmap: prima esisti, poi converti, poi fidelizzi.</p>
+              <div class="case-card__foot">
+                <button type="button" class="case-card__open" data-open-case="case-dott">Leggi il caso</button>
+                <a class="case-card__pdf" href="assets/docs/portfolio-analisi-strategica-dott.pdf" target="_blank" rel="noopener">PDF</a>
+              </div>
             </div>
           </article>
-
-          <!-- Progetto 2: Will Media -->
-          <article class="project-card">
-            <div class="project-card__media"><img src="assets/img/card-will-media.webp" alt="Logo Will Media" loading="lazy"></div>
-            <div class="project-card__body">
+          <article class="case-card" data-categories="comunicazione" data-reveal>
+            <div class="case-card__media">
+              <img src="assets/img/card-will-media.webp" alt="Logo Will Media" loading="lazy">
+              <span class="case-card__cat">Comunicazione e design</span>
+            </div>
+            <div class="case-card__body">
               <p class="post-card__date">lug 2026</p>
               <h3>Social Media: Game Changer per Will Media</h3>
-              <p>
-                Campagna social ideata per Will Media, la media company italiana con oltre 1,9 milioni
-                di follower su Instagram, sul tema AI e performance sportiva: scouting predittivo,
-                prevenzione infortuni, analisi tattica in tempo reale. Il progetto parte da un'analisi
-                del profilo (engagement rate dello 0,53%, sopra la media di piattaforma) e costruisce
-                quattro obiettivi SMART, un piano di quattro contenuti tra post e caroselli, e una
-                tabella di KPI prioritizzati, con i sends per post individuati come principale segnale
-                algoritmico su Instagram.
-              </p>
-              <p>
-                Il concept nasce da un'idea originale, senza appoggiarsi a citazioni altrui: l'algoritmo
-                non tifa nessuno, ma sa già chi vincerà. Da qui lo slogan della campagna, #GameChanger:
-                quando i dati diventano campioni.
-              </p>
-              <p class="form-hint">
-                Master in Growth Marketing e Agenti AI, start2impact x Unimarconi - modulo di Social Media.
-              </p>
-              <a class="project-card__link" href="assets/docs/portfolio-social-media-will-media.pdf" target="_blank" rel="noopener">
-                Scarica il progetto (PDF)
-              </a>
+              <p>Campagna social sul tema AI e sport per una media company da 1,9 milioni di follower: obiettivi SMART, concept #GameChanger e piano contenuti.</p>
+              <div class="case-card__foot">
+                <button type="button" class="case-card__open" data-open-case="case-will-media">Leggi il caso</button>
+                <a class="case-card__pdf" href="assets/docs/portfolio-social-media-will-media.pdf" target="_blank" rel="noopener">PDF</a>
+              </div>
             </div>
           </article>
-
-          <!-- Progetto 3: Acumen Academy -->
-          <article class="project-card">
-            <div class="project-card__media"><img src="assets/img/card-acumen-academy.webp" alt="Logo Acumen Academy" loading="lazy"></div>
-            <div class="project-card__body">
+          <article class="case-card" data-categories="ux" data-reveal>
+            <div class="case-card__media">
+              <img src="assets/img/card-acumen-academy.webp" alt="Logo Acumen Academy" loading="lazy">
+              <span class="case-card__cat">UX/UI</span>
+            </div>
+            <div class="case-card__body">
               <p class="post-card__date">ago 2026</p>
               <h3>UX/UI Design: Acumen Academy</h3>
-              <p>
-                Analisi as-is e ricerca utente per il redesign UX/UI di Acumen Academy, "the world's
-                school for social change", il ramo formativo del fondo di venture philanthropy Acumen.
-                Il progetto copre analisi euristica secondo le 10 euristiche di Nielsen su desktop,
-                tablet e smartphone reali, alberatura dell'information architecture attuale, benchmark
-                su cinque competitor diretti e uno indiretto con features inventory, e un sondaggio
-                primario a 40 rispondenti validi.
-              </p>
-              <p>
-                Insight chiave: il 90% del campione non conosceva il brand prima del sondaggio, e il
-                principale ostacolo all'iscrizione a un corso gratuito non è la mancanza di tempo, ma
-                la difficoltà a mantenere la motivazione. Un sito usabile ma frammentato su più domini,
-                con margini di miglioramento su orientamento e coerenza dei dati.
-              </p>
-              <p class="form-hint">
-                Master in Growth Marketing e Agenti AI, start2impact x Unimarconi - modulo Discovery
-              </p>
-              <a class="project-card__link" href="assets/docs/portfolio-ux-discovery-acumen-academy.pdf" target="_blank" rel="noopener">
-                Scarica il progetto (PDF)
-              </a>
+              <p>Analisi euristica, benchmark e sondaggio su 40 rispondenti per il redesign UX/UI della scuola del fondo Acumen: il 90% del campione non conosceva il brand.</p>
+              <div class="case-card__foot">
+                <button type="button" class="case-card__open" data-open-case="case-acumen-academy">Leggi il caso</button>
+                <a class="case-card__pdf" href="assets/docs/portfolio-ux-discovery-acumen-academy.pdf" target="_blank" rel="noopener">PDF</a>
+              </div>
             </div>
           </article>
-
-          <!-- Progetto 4: Alaska - Breaking Bad -->
-          <article class="project-card">
-            <div class="project-card__media"><img src="assets/img/card-alaska.webp" alt="Alaska, progetto di design trasmediale" loading="lazy"></div>
-            <div class="project-card__body">
+          <article class="case-card" data-categories="comunicazione" data-reveal>
+            <div class="case-card__media">
+              <img src="assets/img/card-alaska.webp" alt="Alaska, progetto di design trasmediale" loading="lazy">
+              <span class="case-card__cat">Comunicazione e design</span>
+            </div>
+            <div class="case-card__body">
               <p class="post-card__date">ago 2025</p>
               <h3>Design Trasmediale: Alaska, l'espansione dell'universo Breaking Bad</h3>
-              <p>
-                Progetto di design trasmediale che mappa ed espande l'universo narrativo di Breaking
-                Bad, nato nel 2008 dalla serie di Vince Gilligan e già allargato con lo spin-off
-                Better Call Saul e il film El Camino. Il lavoro parte da una mappa trasmediale
-                illustrata, costruita come una città divisa in distretti: dalla Old Town della serie
-                madre al Legal District di Saul Goodman, fino al Salamanca District, dove vivono
-                community, fan art e Breaking Bad Wiki. Da qui analizza i prodotti già esistenti tra
-                serie, film, merchandising e contenuti online.
-              </p>
-              <p>
-                Il cuore del progetto sono quattro nuovi prodotti collegati tra loro. Alaska è un
-                film on the road in cui Kim Wexler e l'investigatore privato Ray Delgado cercano Jesse
-                Pinkman. The Bell è un podcast noir da 10 minuti a episodio in cui Delgado interroga i
-                personaggi secondari. Si aggiungono una linea di collab merchandising, con un kit
-                audio che sblocca un episodio esclusivo tramite QR code, e il profilo social di Ray,
-                pensato come un diario investigativo interattivo. Ogni prodotto cambia registro
-                rispetto ai precedenti: il freddo dell'Alaska al posto del deserto di Albuquerque,
-                l'ascolto in un franchise nato per essere guardato.
-              </p>
-              <p class="form-hint">
-                Corso di Laurea in Comunicazione e Media Digitali (L-20), Università Marconi -
-                progetto di Design Trasmediale
-              </p>
-              <a class="project-card__link" href="assets/docs/portfolio-design-trasmediale-alaska.pdf" target="_blank" rel="noopener">
-                Scarica il progetto (PDF)
-              </a>
+              <p>Mappa trasmediale dell'universo di Breaking Bad e quattro nuovi prodotti collegati: un film, un podcast noir, una linea di merchandising e un profilo social.</p>
+              <div class="case-card__foot">
+                <button type="button" class="case-card__open" data-open-case="case-alaska">Leggi il caso</button>
+                <a class="case-card__pdf" href="assets/docs/portfolio-design-trasmediale-alaska.pdf" target="_blank" rel="noopener">PDF</a>
+              </div>
             </div>
           </article>
-
-          <!-- Progetto 5: DnA -->
-          <article class="project-card">
-            <div class="project-card__media"><img src="assets/img/card-dna.webp" alt="Logo DnA" loading="lazy"></div>
-            <div class="project-card__body">
+          <article class="case-card" data-categories="growth" data-reveal>
+            <div class="case-card__media">
+              <img src="assets/img/card-dna.webp" alt="Logo DnA" loading="lazy">
+              <span class="case-card__cat">Growth marketing</span>
+            </div>
+            <div class="case-card__body">
               <p class="post-card__date">ago 2026</p>
               <h3>Growth Marketing: Strategia di Go-to-Market per DnA</h3>
-              <p>
-                Strategia go-to-market per DnA, testata di divulgazione scientifica fondata da due
-                ricercatori. Il modello comprende una rivista cartacea, una testata online attiva da
-                quattro anni con approfondimenti in abbonamento e una sezione gratuita per scuole e
-                docenti. Il progetto accompagna il lancio del programma di abbonamento verso il
-                product-market fit. Si parte dalla scelta di un modello di crescita product-led,
-                messo a confronto con quello sales-driven. Seguono una North Star Metric (contenuti
-                di approfondimento fruiti al mese), OKR e KPI per i primi tre mesi, growth loop,
-                value proposition canvas, positioning statement e customer journey map.
-              </p>
-              <p>
-                In fase pre-PMF non conta ancora il fatturato ma la prova che i lettori tornano. Per
-                questo la strategia si traduce in una roadmap sperimentale di cinque test, ordinati
-                con la matrice ICE, dal paywall soft con anteprima gratuita ai docenti ambassador. Il
-                primo da lanciare è il paywall soft, perché incide direttamente sulla conversione da
-                lettore gratuito ad abbonato. Attorno ai test ci sono una strategia Instagram
-                costruita sui pain point dei lettori e un programma referral legato alla mission, che
-                destina l'1% dei ricavi alla ricerca. Tutto ruota intorno a una tagline: "La scienza,
-                fatta da chi la fa."
-              </p>
-              <p class="form-hint">
-                Master in Growth Marketing e Agenti AI, start2impact x Unimarconi - modulo di Growth
-                Marketing
-              </p>
-              <a class="project-card__link" href="assets/docs/portfolio-growth-marketing-dna.pdf" target="_blank" rel="noopener">
-                Scarica il progetto (PDF)
-              </a>
+              <p>Strategia go-to-market per una testata di divulgazione scientifica: modello product-led, North Star Metric, OKR e una roadmap di cinque test ordinati con la matrice ICE.</p>
+              <div class="case-card__foot">
+                <button type="button" class="case-card__open" data-open-case="case-dna">Leggi il caso</button>
+                <a class="case-card__pdf" href="assets/docs/portfolio-growth-marketing-dna.pdf" target="_blank" rel="noopener">PDF</a>
+              </div>
             </div>
           </article>
-
-          <!-- Progetto 6: Tongue -->
-          <article class="project-card">
-            <div class="project-card__media"><img src="assets/img/card-tongue.webp" alt="Logo Tongue" loading="lazy"></div>
-            <div class="project-card__body">
+          <article class="case-card" data-categories="growth" data-reveal>
+            <div class="case-card__media">
+              <img src="assets/img/card-tongue.webp" alt="Logo Tongue" loading="lazy">
+              <span class="case-card__cat">Growth marketing</span>
+            </div>
+            <div class="case-card__body">
               <p class="post-card__date">lug 2026</p>
               <h3>Funnel Marketing: un funnel AAARRR per Tongue</h3>
-              <p>
-                Funnel di marketing per Tongue, media company d'informazione nata su Instagram da una
-                giornalista e uno YouTuber. Oggi conta circa 3 milioni di follower, oltre 50
-                collaboratori e organizza eventi a impatto sociale come swap party e conferenze
-                plastic-free. Il progetto parte dall'analisi del mercato e dei competitor (Will Media,
-                Fanpage, TPI) e da tre buyer persona con relativa customer journey. Su questa base
-                costruisce un funnel AAARRR con canali, touchpoint e KPI per ogni fase: dal format "3
-                notizie in 60 secondi" alla landing page con lead magnet, dalla sequenza di benvenuto
-                via email fino alla meccanica "invita un amico". Completano il lavoro segmentazione
-                con liste dinamiche, una dashboard KPI per canale e tre A/B test messi in ordine di
-                priorità.
-              </p>
-              <p>
-                L'idea chiave nasce dall'analisi competitor: nessuno presidia con la stessa forza il
-                formato ibrido tra digitale ed eventi fisici. Per questo il lead magnet unisce una
-                guida settimanale all'accesso prioritario agli eventi, e il funnel mette la retention
-                prima dei follower. L'obiettivo è trasformare lo scroll in community e la community in
-                azione.
-              </p>
-              <p class="form-hint">
-                Master in Growth Marketing e Agenti AI, start2impact x Unimarconi - modulo di Funnel
-                Marketing
-              </p>
-              <a class="project-card__link" href="assets/docs/portfolio-funnel-marketing-tongue.pdf" target="_blank" rel="noopener">
-                Scarica il progetto (PDF)
-              </a>
+              <p>Funnel AAARRR per una media company da circa 3 milioni di follower: dal format &quot;3 notizie in 60 secondi&quot; alla community, con la retention prima dei follower.</p>
+              <div class="case-card__foot">
+                <button type="button" class="case-card__open" data-open-case="case-tongue">Leggi il caso</button>
+                <a class="case-card__pdf" href="assets/docs/portfolio-funnel-marketing-tongue.pdf" target="_blank" rel="noopener">PDF</a>
+              </div>
             </div>
           </article>
-
-          <!-- Progetto 7: IncluDO -->
-          <article class="project-card">
-            <div class="project-card__media"><img src="assets/img/card-includo.webp" alt="Logo IncluDO" loading="lazy"></div>
-            <div class="project-card__body">
+          <article class="case-card" data-categories="comunicazione" data-reveal>
+            <div class="case-card__media">
+              <img src="assets/img/card-includo.webp" alt="Logo IncluDO" loading="lazy">
+              <span class="case-card__cat">Comunicazione e design</span>
+            </div>
+            <div class="case-card__body">
               <p class="post-card__date">lug 2026</p>
               <h3>Grafica per Social Media: identità visiva per IncluDO</h3>
-              <p>
-                Progetto di grafica social per IncluDO, realtà nata da due fondatori che hanno visto
-                il proprio paese svuotarsi con la chiusura delle botteghe storiche. IncluDO offre
-                percorsi di formazione artigianale gratuiti per migranti e persone svantaggiate,
-                insieme ad artigiani locali che rischiano di restare senza successore. Il lavoro
-                definisce prima il sistema visivo: una palette di terracotta, verde salvia, crema
-                avorio e marrone scuro, l'abbinamento tra Playfair Display per i titoli e Nunito per
-                i testi, e forme organiche che richiamano l'imperfezione del lavoro manuale. Da qui
-                nascono i contenuti per tre piattaforme: foto profilo, carosello, post e story su
-                Instagram, copertina e post di lead generation su LinkedIn, banner e thumbnail su
-                YouTube. Ogni formato ha dimensioni, safe area, caption e CTA dedicate.
-              </p>
-              <p>
-                Il principio guida è la coerenza: lo stesso sistema cromatico si adatta al linguaggio
-                di ogni piattaforma senza perdere riconoscibilità. Su Instagram si parla a chi vuole
-                ricominciare, su LinkedIn alle aziende che investono in RSI e welfare, su YouTube si
-                raccontano storie vere di mani e mestieri.
-              </p>
-              <p class="form-hint">
-                Master in Growth Marketing e Agenti AI, start2impact x Unimarconi - modulo di Grafica
-                per Social Media
-              </p>
-              <a class="project-card__link" href="assets/docs/portfolio-grafica-social-includo.pdf" target="_blank" rel="noopener">
-                Scarica il progetto (PDF)
-              </a>
+              <p>Identità visiva e contenuti social per tre piattaforme: palette, tipografia e formati dedicati a un progetto di formazione artigianale gratuita.</p>
+              <div class="case-card__foot">
+                <button type="button" class="case-card__open" data-open-case="case-includo">Leggi il caso</button>
+                <a class="case-card__pdf" href="assets/docs/portfolio-grafica-social-includo.pdf" target="_blank" rel="noopener">PDF</a>
+              </div>
             </div>
           </article>
-
-          <!-- Progetto 8: Last Minute Sotto Casa -->
-          <article class="project-card">
-            <div class="project-card__media"><img src="assets/img/card-last-minute.webp" alt="Logo Last Minute Sotto Casa" loading="lazy"></div>
-            <div class="project-card__body">
+          <article class="case-card" data-categories="ux" data-reveal>
+            <div class="case-card__media">
+              <img src="assets/img/card-last-minute.webp" alt="Logo Last Minute Sotto Casa" loading="lazy">
+              <span class="case-card__cat">UX/UI</span>
+            </div>
+            <div class="case-card__body">
               <p class="post-card__date">mag 2026</p>
               <h3>UX/UI Design: Last Minute Sotto Casa</h3>
-              <p>
-                Redesign UX/UI della landing page di Last Minute Sotto Casa, piattaforma contro lo
-                spreco alimentare che mette in contatto consumatori e negozi di quartiere (panifici,
-                supermercati, bar, ristoranti) con offerte last minute sull'invenduto. Il progetto
-                parte da un'analisi della pagina attuale: una missione chiara e un brand coerente con
-                la sostenibilità, ma anche una value proposition poco immediata, gerarchia visiva
-                debole, troppo testo e poca social proof. Su questa base, applicando principi come la
-                legge di Jakob, di Hick e di Fitts, costruisce una nuova hero section, CTA orientate al
-                beneficio, una sezione "Come funziona" visuale e un'ottimizzazione mobile con layout
-                verticale e card design. Il tutto è raccolto in un wireframe su Figma.
-              </p>
-              <p>
-                Il problema principale era la confusione tra due pubblici diversi che condividevano lo
-                stesso percorso. Il redesign separa il flusso di chi compra da quello di chi vende e
-                aggiunge recensioni, numeri della piattaforma e impatto ambientale, per trasformare
-                una buona idea in un'esperienza più chiara e credibile.
-              </p>
-              <p class="form-hint">
-                Master in Growth Marketing e Agenti AI, start2impact x Unimarconi - modulo di
-                Introduzione alla UX/UI
-              </p>
-              <a class="project-card__link" href="assets/docs/portfolio-ux-ui-last-minute-sotto-casa.pdf" target="_blank" rel="noopener">
-                Scarica il progetto (PDF)
-              </a>
+              <p>Redesign UX/UI della landing di una piattaforma contro lo spreco alimentare: nuova hero, flussi separati per chi compra e chi vende, wireframe su Figma.</p>
+              <div class="case-card__foot">
+                <button type="button" class="case-card__open" data-open-case="case-last-minute">Leggi il caso</button>
+                <a class="case-card__pdf" href="assets/docs/portfolio-ux-ui-last-minute-sotto-casa.pdf" target="_blank" rel="noopener">PDF</a>
+              </div>
             </div>
           </article>
-
-          <!-- Progetto 9: AcadeME -->
-          <article class="project-card">
-            <div class="project-card__media"><img src="assets/img/card-academe.webp" alt="Logo AcadeME" loading="lazy"></div>
-            <div class="project-card__body">
+          <article class="case-card" data-categories="growth" data-reveal>
+            <div class="case-card__media">
+              <img src="assets/img/card-academe.webp" alt="Logo AcadeME" loading="lazy">
+              <span class="case-card__cat">Growth marketing</span>
+            </div>
+            <div class="case-card__body">
               <p class="post-card__date">lug 2026</p>
               <h3>Growth Marketing: il dopo-conversione di AcadeME</h3>
-              <p>
-                Consulenza per AcadeME, l'academy di formazione digitale nata dentro l'agenzia
-                Marketing Espresso, con una community di oltre 133 mila follower su Instagram.
-                L'analisi parte da un'esplorazione diretta di tutti i touchpoint: sito, pagine corso,
-                materiali gratuiti, gioco "Gira la ruota", profilo Instagram e iscrizione reale alla
-                newsletter. Ne escono tre criticità di peso diverso. La ruota promette sconti ma non
-                raccoglie mai un contatto, e il link alla privacy policy nel form non porta da nessuna
-                parte. La più rilevante è la mail di benvenuto: un solo messaggio di cortesia, senza
-                contenuti né segmentazione.
-              </p>
-              <p>
-                Il punto chiave è che la vetrina è curata, ma il primo minuto dopo l'iscrizione no. La
-                newsletter è l'unico canale che AcadeME controlla al cento per cento, quindi al posto
-                della mail singola ho scritto una sequenza di tre email. La prima segmenta con una
-                scelta a bottoni, la seconda costruisce autorità raccontando l'agenzia dietro la
-                scuola, la terza propone il corso più adatto solo dopo aver dato valore senza chiedere
-                nulla.
-              </p>
-              <p class="form-hint">
-                Consulenza per AcadeME su commissione come prova pratica richiesta nell'ambito di un colloquio di lavoro - analisi e redesign di un touchpoint reale
-              </p>
-              <a class="project-card__link" href="assets/docs/portfolio-growth-marketing-academe.pdf" target="_blank" rel="noopener">
-                Scarica il progetto (PDF)
-              </a>
+              <p>Audit dei touchpoint di un'academy da 133 mila follower: la vetrina è curata, il primo minuto dopo l'iscrizione no. Al posto di una mail, una sequenza di tre.</p>
+              <div class="case-card__foot">
+                <button type="button" class="case-card__open" data-open-case="case-academe">Leggi il caso</button>
+                <a class="case-card__pdf" href="assets/docs/portfolio-growth-marketing-academe.pdf" target="_blank" rel="noopener">PDF</a>
+              </div>
             </div>
           </article>
-
-          <!-- Progetto 10: Macalù Skincare -->
-          <article class="project-card">
-            <div class="project-card__media"><img src="assets/img/card-macalu.webp" alt="Logo Macalù" loading="lazy"></div>
-            <div class="project-card__body">
+          <article class="case-card" data-categories="growth" data-reveal>
+            <div class="case-card__media">
+              <img src="assets/img/card-macalu.webp" alt="Logo Macalù" loading="lazy">
+              <span class="case-card__cat">Growth marketing</span>
+            </div>
+            <div class="case-card__body">
               <p class="post-card__date">lug 2026</p>
               <h3>Growth Marketing: audit e roadmap per Macalù Skincare</h3>
-              <p>
-                Audit di growth marketing per Macalù Skincare, brand umbro di cosmesi naturale alla
-                bava di lumaca con allevamento proprio di 6.000 mq e filiera tracciata al 100%.
-                L'analisi parte da un audit diretto del sito Shopify, dai dati Instagram, da Google
-                Trends e dal confronto con cinque competitor italiani. Da qui costruisce SWOT, buyer
-                personas e una strategia di go-to-market completa: modello di crescita, North Star
-                Metric, growth loop, positioning statement, message house, OKR per i primi 90 giorni,
-                programma di referral e cinque esperimenti di growth. Chiudono il lavoro una roadmap
-                con KPI e un elenco di errori da correggere, ordinati per urgenza.
-              </p>
-              <p>
-                Il punto di partenza è chiaro: il problema non è il prodotto, ma la distanza tra
-                quello che il brand è davvero e quello che comunica online. Instagram ha un
-                engagement del 29,21%, sopra la media di settore, ma il link sul sito porta a un
-                profilo sbagliato e il negozio non ha ancora nessuna recensione. Per questo le prime
-                mosse sono interventi a costo zero, che riparano il loop prima di spingere la
-                crescita.
-              </p>
-              <p class="form-hint">
-                Consulenza per Macalù Skincare - luglio 2026
-              </p>
-              <a class="project-card__link" href="assets/docs/portfolio-growth-marketing-macalu.pdf" target="_blank" rel="noopener">
-                Scarica il progetto (PDF)
-              </a>
+              <p>Audit e roadmap di crescita per un brand umbro di cosmesi naturale: il problema non è il prodotto, ma la distanza tra ciò che è e ciò che comunica online.</p>
+              <div class="case-card__foot">
+                <button type="button" class="case-card__open" data-open-case="case-macalu">Leggi il caso</button>
+                <a class="case-card__pdf" href="assets/docs/portfolio-growth-marketing-macalu.pdf" target="_blank" rel="noopener">PDF</a>
+              </div>
             </div>
           </article>
-
         </div>
 
         <p class="mt-lg">
@@ -398,6 +229,167 @@
         </p>
       </div>
     </section>
+
+    <dialog class="case-dialog" id="case-dott" aria-labelledby="case-dott-title">
+      <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
+      <div class="case-dialog__scroll">
+        <div class="case-dialog__media"><img src="assets/img/card-dott.webp" alt="Logo Dott" loading="lazy"></div>
+        <div class="case-dialog__content">
+          <p class="post-card__date">giu 2026</p>
+          <h3 id="case-dott-title">Analisi Strategica: Growth Marketing e Brand Positioning per Dott</h3>
+      <p> Consulenza strategica di growth marketing per Dott (TIER-Dott), operatore europeo di micro-mobilità elettrica condivisa presente in oltre 400 città e 21 paesi, con più di 125 milioni di corse l'anno. Il progetto analizza mercato, competitor diretti e indiretti (Lime, Voi, Bird, Uber, trasporto pubblico) e presenza digitale su sito, app e social, per poi costruire un'analisi SWOT completa, tre buyer persona con KPI dedicati e una mappa di posizionamento su prezzo e sostenibilità. </p>
+      <p> Il cuore del lavoro è un sondaggio primario su 50 rispondenti che ribalta il problema di partenza: il prodotto è eccellente (4,7 stelle su App Store) e il prezzo è nel range giusto, ma il 62% del campione non conosce Dott. Da qui l'obiettivo SMART scelto, portare l'adozione del Minute Pass dal 12% al 22% in sei mesi, e il principio che guida tutta la roadmap: prima esisti nella testa del target, poi converti, poi fidelizzi. </p>
+      <p class="form-hint"> Master in Growth Marketing e Agenti AI, start2impact x Unimarconi - modulo di Analisi Strategica </p>
+          <div class="case-dialog__actions">
+            <a class="btn btn--primary" href="assets/docs/portfolio-analisi-strategica-dott.pdf" target="_blank" rel="noopener">Scarica il progetto (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="case-dialog" id="case-will-media" aria-labelledby="case-will-media-title">
+      <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
+      <div class="case-dialog__scroll">
+        <div class="case-dialog__media"><img src="assets/img/card-will-media.webp" alt="Logo Will Media" loading="lazy"></div>
+        <div class="case-dialog__content">
+          <p class="post-card__date">lug 2026</p>
+          <h3 id="case-will-media-title">Social Media: Game Changer per Will Media</h3>
+      <p> Campagna social ideata per Will Media, la media company italiana con oltre 1,9 milioni di follower su Instagram, sul tema AI e performance sportiva: scouting predittivo, prevenzione infortuni, analisi tattica in tempo reale. Il progetto parte da un'analisi del profilo (engagement rate dello 0,53%, sopra la media di piattaforma) e costruisce quattro obiettivi SMART, un piano di quattro contenuti tra post e caroselli, e una tabella di KPI prioritizzati, con i sends per post individuati come principale segnale algoritmico su Instagram. </p>
+      <p> Il concept nasce da un'idea originale, senza appoggiarsi a citazioni altrui: l'algoritmo non tifa nessuno, ma sa già chi vincerà. Da qui lo slogan della campagna, #GameChanger: quando i dati diventano campioni. </p>
+      <p class="form-hint"> Master in Growth Marketing e Agenti AI, start2impact x Unimarconi - modulo di Social Media. </p>
+          <div class="case-dialog__actions">
+            <a class="btn btn--primary" href="assets/docs/portfolio-social-media-will-media.pdf" target="_blank" rel="noopener">Scarica il progetto (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="case-dialog" id="case-acumen-academy" aria-labelledby="case-acumen-academy-title">
+      <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
+      <div class="case-dialog__scroll">
+        <div class="case-dialog__media"><img src="assets/img/card-acumen-academy.webp" alt="Logo Acumen Academy" loading="lazy"></div>
+        <div class="case-dialog__content">
+          <p class="post-card__date">ago 2026</p>
+          <h3 id="case-acumen-academy-title">UX/UI Design: Acumen Academy</h3>
+      <p> Analisi as-is e ricerca utente per il redesign UX/UI di Acumen Academy, "the world's school for social change", il ramo formativo del fondo di venture philanthropy Acumen. Il progetto copre analisi euristica secondo le 10 euristiche di Nielsen su desktop, tablet e smartphone reali, alberatura dell'information architecture attuale, benchmark su cinque competitor diretti e uno indiretto con features inventory, e un sondaggio primario a 40 rispondenti validi. </p>
+      <p> Insight chiave: il 90% del campione non conosceva il brand prima del sondaggio, e il principale ostacolo all'iscrizione a un corso gratuito non è la mancanza di tempo, ma la difficoltà a mantenere la motivazione. Un sito usabile ma frammentato su più domini, con margini di miglioramento su orientamento e coerenza dei dati. </p>
+      <p class="form-hint"> Master in Growth Marketing e Agenti AI, start2impact x Unimarconi - modulo Discovery </p>
+          <div class="case-dialog__actions">
+            <a class="btn btn--primary" href="assets/docs/portfolio-ux-discovery-acumen-academy.pdf" target="_blank" rel="noopener">Scarica il progetto (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="case-dialog" id="case-alaska" aria-labelledby="case-alaska-title">
+      <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
+      <div class="case-dialog__scroll">
+        <div class="case-dialog__media"><img src="assets/img/card-alaska.webp" alt="Alaska, progetto di design trasmediale" loading="lazy"></div>
+        <div class="case-dialog__content">
+          <p class="post-card__date">ago 2025</p>
+          <h3 id="case-alaska-title">Design Trasmediale: Alaska, l'espansione dell'universo Breaking Bad</h3>
+      <p> Progetto di design trasmediale che mappa ed espande l'universo narrativo di Breaking Bad, nato nel 2008 dalla serie di Vince Gilligan e già allargato con lo spin-off Better Call Saul e il film El Camino. Il lavoro parte da una mappa trasmediale illustrata, costruita come una città divisa in distretti: dalla Old Town della serie madre al Legal District di Saul Goodman, fino al Salamanca District, dove vivono community, fan art e Breaking Bad Wiki. Da qui analizza i prodotti già esistenti tra serie, film, merchandising e contenuti online. </p>
+      <p> Il cuore del progetto sono quattro nuovi prodotti collegati tra loro. Alaska è un film on the road in cui Kim Wexler e l'investigatore privato Ray Delgado cercano Jesse Pinkman. The Bell è un podcast noir da 10 minuti a episodio in cui Delgado interroga i personaggi secondari. Si aggiungono una linea di collab merchandising, con un kit audio che sblocca un episodio esclusivo tramite QR code, e il profilo social di Ray, pensato come un diario investigativo interattivo. Ogni prodotto cambia registro rispetto ai precedenti: il freddo dell'Alaska al posto del deserto di Albuquerque, l'ascolto in un franchise nato per essere guardato. </p>
+      <p class="form-hint"> Corso di Laurea in Comunicazione e Media Digitali (L-20), Università Marconi - progetto di Design Trasmediale </p>
+          <div class="case-dialog__actions">
+            <a class="btn btn--primary" href="assets/docs/portfolio-design-trasmediale-alaska.pdf" target="_blank" rel="noopener">Scarica il progetto (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="case-dialog" id="case-dna" aria-labelledby="case-dna-title">
+      <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
+      <div class="case-dialog__scroll">
+        <div class="case-dialog__media"><img src="assets/img/card-dna.webp" alt="Logo DnA" loading="lazy"></div>
+        <div class="case-dialog__content">
+          <p class="post-card__date">ago 2026</p>
+          <h3 id="case-dna-title">Growth Marketing: Strategia di Go-to-Market per DnA</h3>
+      <p> Strategia go-to-market per DnA, testata di divulgazione scientifica fondata da due ricercatori. Il modello comprende una rivista cartacea, una testata online attiva da quattro anni con approfondimenti in abbonamento e una sezione gratuita per scuole e docenti. Il progetto accompagna il lancio del programma di abbonamento verso il product-market fit. Si parte dalla scelta di un modello di crescita product-led, messo a confronto con quello sales-driven. Seguono una North Star Metric (contenuti di approfondimento fruiti al mese), OKR e KPI per i primi tre mesi, growth loop, value proposition canvas, positioning statement e customer journey map. </p>
+      <p> In fase pre-PMF non conta ancora il fatturato ma la prova che i lettori tornano. Per questo la strategia si traduce in una roadmap sperimentale di cinque test, ordinati con la matrice ICE, dal paywall soft con anteprima gratuita ai docenti ambassador. Il primo da lanciare è il paywall soft, perché incide direttamente sulla conversione da lettore gratuito ad abbonato. Attorno ai test ci sono una strategia Instagram costruita sui pain point dei lettori e un programma referral legato alla mission, che destina l'1% dei ricavi alla ricerca. Tutto ruota intorno a una tagline: "La scienza, fatta da chi la fa." </p>
+      <p class="form-hint"> Master in Growth Marketing e Agenti AI, start2impact x Unimarconi - modulo di Growth Marketing </p>
+          <div class="case-dialog__actions">
+            <a class="btn btn--primary" href="assets/docs/portfolio-growth-marketing-dna.pdf" target="_blank" rel="noopener">Scarica il progetto (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="case-dialog" id="case-tongue" aria-labelledby="case-tongue-title">
+      <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
+      <div class="case-dialog__scroll">
+        <div class="case-dialog__media"><img src="assets/img/card-tongue.webp" alt="Logo Tongue" loading="lazy"></div>
+        <div class="case-dialog__content">
+          <p class="post-card__date">lug 2026</p>
+          <h3 id="case-tongue-title">Funnel Marketing: un funnel AAARRR per Tongue</h3>
+      <p> Funnel di marketing per Tongue, media company d'informazione nata su Instagram da una giornalista e uno YouTuber. Oggi conta circa 3 milioni di follower, oltre 50 collaboratori e organizza eventi a impatto sociale come swap party e conferenze plastic-free. Il progetto parte dall'analisi del mercato e dei competitor (Will Media, Fanpage, TPI) e da tre buyer persona con relativa customer journey. Su questa base costruisce un funnel AAARRR con canali, touchpoint e KPI per ogni fase: dal format "3 notizie in 60 secondi" alla landing page con lead magnet, dalla sequenza di benvenuto via email fino alla meccanica "invita un amico". Completano il lavoro segmentazione con liste dinamiche, una dashboard KPI per canale e tre A/B test messi in ordine di priorità. </p>
+      <p> L'idea chiave nasce dall'analisi competitor: nessuno presidia con la stessa forza il formato ibrido tra digitale ed eventi fisici. Per questo il lead magnet unisce una guida settimanale all'accesso prioritario agli eventi, e il funnel mette la retention prima dei follower. L'obiettivo è trasformare lo scroll in community e la community in azione. </p>
+      <p class="form-hint"> Master in Growth Marketing e Agenti AI, start2impact x Unimarconi - modulo di Funnel Marketing </p>
+          <div class="case-dialog__actions">
+            <a class="btn btn--primary" href="assets/docs/portfolio-funnel-marketing-tongue.pdf" target="_blank" rel="noopener">Scarica il progetto (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="case-dialog" id="case-includo" aria-labelledby="case-includo-title">
+      <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
+      <div class="case-dialog__scroll">
+        <div class="case-dialog__media"><img src="assets/img/card-includo.webp" alt="Logo IncluDO" loading="lazy"></div>
+        <div class="case-dialog__content">
+          <p class="post-card__date">lug 2026</p>
+          <h3 id="case-includo-title">Grafica per Social Media: identità visiva per IncluDO</h3>
+      <p> Progetto di grafica social per IncluDO, realtà nata da due fondatori che hanno visto il proprio paese svuotarsi con la chiusura delle botteghe storiche. IncluDO offre percorsi di formazione artigianale gratuiti per migranti e persone svantaggiate, insieme ad artigiani locali che rischiano di restare senza successore. Il lavoro definisce prima il sistema visivo: una palette di terracotta, verde salvia, crema avorio e marrone scuro, l'abbinamento tra Playfair Display per i titoli e Nunito per i testi, e forme organiche che richiamano l'imperfezione del lavoro manuale. Da qui nascono i contenuti per tre piattaforme: foto profilo, carosello, post e story su Instagram, copertina e post di lead generation su LinkedIn, banner e thumbnail su YouTube. Ogni formato ha dimensioni, safe area, caption e CTA dedicate. </p>
+      <p> Il principio guida è la coerenza: lo stesso sistema cromatico si adatta al linguaggio di ogni piattaforma senza perdere riconoscibilità. Su Instagram si parla a chi vuole ricominciare, su LinkedIn alle aziende che investono in RSI e welfare, su YouTube si raccontano storie vere di mani e mestieri. </p>
+      <p class="form-hint"> Master in Growth Marketing e Agenti AI, start2impact x Unimarconi - modulo di Grafica per Social Media </p>
+          <div class="case-dialog__actions">
+            <a class="btn btn--primary" href="assets/docs/portfolio-grafica-social-includo.pdf" target="_blank" rel="noopener">Scarica il progetto (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="case-dialog" id="case-last-minute" aria-labelledby="case-last-minute-title">
+      <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
+      <div class="case-dialog__scroll">
+        <div class="case-dialog__media"><img src="assets/img/card-last-minute.webp" alt="Logo Last Minute Sotto Casa" loading="lazy"></div>
+        <div class="case-dialog__content">
+          <p class="post-card__date">mag 2026</p>
+          <h3 id="case-last-minute-title">UX/UI Design: Last Minute Sotto Casa</h3>
+      <p> Redesign UX/UI della landing page di Last Minute Sotto Casa, piattaforma contro lo spreco alimentare che mette in contatto consumatori e negozi di quartiere (panifici, supermercati, bar, ristoranti) con offerte last minute sull'invenduto. Il progetto parte da un'analisi della pagina attuale: una missione chiara e un brand coerente con la sostenibilità, ma anche una value proposition poco immediata, gerarchia visiva debole, troppo testo e poca social proof. Su questa base, applicando principi come la legge di Jakob, di Hick e di Fitts, costruisce una nuova hero section, CTA orientate al beneficio, una sezione "Come funziona" visuale e un'ottimizzazione mobile con layout verticale e card design. Il tutto è raccolto in un wireframe su Figma. </p>
+      <p> Il problema principale era la confusione tra due pubblici diversi che condividevano lo stesso percorso. Il redesign separa il flusso di chi compra da quello di chi vende e aggiunge recensioni, numeri della piattaforma e impatto ambientale, per trasformare una buona idea in un'esperienza più chiara e credibile. </p>
+      <p class="form-hint"> Master in Growth Marketing e Agenti AI, start2impact x Unimarconi - modulo di Introduzione alla UX/UI </p>
+          <div class="case-dialog__actions">
+            <a class="btn btn--primary" href="assets/docs/portfolio-ux-ui-last-minute-sotto-casa.pdf" target="_blank" rel="noopener">Scarica il progetto (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="case-dialog" id="case-academe" aria-labelledby="case-academe-title">
+      <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
+      <div class="case-dialog__scroll">
+        <div class="case-dialog__media"><img src="assets/img/card-academe.webp" alt="Logo AcadeME" loading="lazy"></div>
+        <div class="case-dialog__content">
+          <p class="post-card__date">lug 2026</p>
+          <h3 id="case-academe-title">Growth Marketing: il dopo-conversione di AcadeME</h3>
+      <p> Consulenza per AcadeME, l'academy di formazione digitale nata dentro l'agenzia Marketing Espresso, con una community di oltre 133 mila follower su Instagram. L'analisi parte da un'esplorazione diretta di tutti i touchpoint: sito, pagine corso, materiali gratuiti, gioco "Gira la ruota", profilo Instagram e iscrizione reale alla newsletter. Ne escono tre criticità di peso diverso. La ruota promette sconti ma non raccoglie mai un contatto, e il link alla privacy policy nel form non porta da nessuna parte. La più rilevante è la mail di benvenuto: un solo messaggio di cortesia, senza contenuti né segmentazione. </p>
+      <p> Il punto chiave è che la vetrina è curata, ma il primo minuto dopo l'iscrizione no. La newsletter è l'unico canale che AcadeME controlla al cento per cento, quindi al posto della mail singola ho scritto una sequenza di tre email. La prima segmenta con una scelta a bottoni, la seconda costruisce autorità raccontando l'agenzia dietro la scuola, la terza propone il corso più adatto solo dopo aver dato valore senza chiedere nulla. </p>
+      <p class="form-hint"> Consulenza per AcadeME su commissione come prova pratica richiesta nell'ambito di un colloquio di lavoro - analisi e redesign di un touchpoint reale </p>
+          <div class="case-dialog__actions">
+            <a class="btn btn--primary" href="assets/docs/portfolio-growth-marketing-academe.pdf" target="_blank" rel="noopener">Scarica il progetto (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="case-dialog" id="case-macalu" aria-labelledby="case-macalu-title">
+      <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
+      <div class="case-dialog__scroll">
+        <div class="case-dialog__media"><img src="assets/img/card-macalu.webp" alt="Logo Macalù" loading="lazy"></div>
+        <div class="case-dialog__content">
+          <p class="post-card__date">lug 2026</p>
+          <h3 id="case-macalu-title">Growth Marketing: audit e roadmap per Macalù Skincare</h3>
+      <p> Audit di growth marketing per Macalù Skincare, brand umbro di cosmesi naturale alla bava di lumaca con allevamento proprio di 6.000 mq e filiera tracciata al 100%. L'analisi parte da un audit diretto del sito Shopify, dai dati Instagram, da Google Trends e dal confronto con cinque competitor italiani. Da qui costruisce SWOT, buyer personas e una strategia di go-to-market completa: modello di crescita, North Star Metric, growth loop, positioning statement, message house, OKR per i primi 90 giorni, programma di referral e cinque esperimenti di growth. Chiudono il lavoro una roadmap con KPI e un elenco di errori da correggere, ordinati per urgenza. </p>
+      <p> Il punto di partenza è chiaro: il problema non è il prodotto, ma la distanza tra quello che il brand è davvero e quello che comunica online. Instagram ha un engagement del 29,21%, sopra la media di settore, ma il link sul sito porta a un profilo sbagliato e il negozio non ha ancora nessuna recensione. Per questo le prime mosse sono interventi a costo zero, che riparano il loop prima di spingere la crescita. </p>
+      <p class="form-hint"> Consulenza per Macalù Skincare - luglio 2026 </p>
+          <div class="case-dialog__actions">
+            <a class="btn btn--primary" href="assets/docs/portfolio-growth-marketing-macalu.pdf" target="_blank" rel="noopener">Scarica il progetto (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </dialog>
   </main>
 
   <footer class="site-footer">
@@ -481,5 +473,6 @@
   </div>
 
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/motion.js" defer></script>
 </body>
 </html>
