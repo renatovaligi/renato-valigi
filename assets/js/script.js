@@ -112,8 +112,20 @@
     }
 
     if (!alreadyDismissed) {
-      window.setTimeout(function () {
+      var openModal = function () {
         modal.hidden = false;
+      };
+
+      window.setTimeout(function () {
+        // Se il banner dei cookie e' ancora aperto aspetto la scelta,
+        // così i due messaggi non si sovrappongono.
+        if (document.querySelector(".consent-banner")) {
+          document.addEventListener("consent:decided", function () {
+            window.setTimeout(openModal, 1200);
+          }, { once: true });
+        } else {
+          openModal();
+        }
       }, 2500);
     }
 

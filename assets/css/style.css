@@ -1323,6 +1323,63 @@ textarea.form-control { min-height: 170px; resize: vertical; }
 .icon-row a:hover { background: var(--accent); border-color: var(--accent); color: #0a0a0c; transform: translateY(-4px); }
 .icon-row svg { display: block; }
 .footer-nav { list-style: none; padding: 1.5rem 0 0; margin: 3rem 0 0; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; }
+.link-button {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--text-2);
+  cursor: pointer;
+}
+.link-button:hover { color: var(--accent-2); }
+
+/* Tabella cookie (informativa) */
+.table-wrap { overflow-x: auto; margin: 1.25rem 0 1.5rem; border: 1px solid var(--line); border-radius: 14px; }
+.cookie-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 520px; }
+.cookie-table th, .cookie-table td { text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.cookie-table th { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.cookie-table tr:last-child td { border-bottom: 0; }
+.cookie-table code { font-family: var(--font-mono); color: var(--accent-3); }
+
+/* Banner consenso cookie */
+.consent-banner {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1400;
+  max-width: 460px;
+  padding: 1.25rem 1.35rem 1.15rem;
+  background: rgba(18, 18, 22, 0.97);
+  border: 1px solid var(--line-2);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  color: var(--text-2);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  animation: pop-in 0.5s var(--ease) both;
+}
+.consent-banner__title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--text); margin: 0 0 0.4rem; }
+.consent-banner__text { margin: 0 0 1rem; }
+.consent-banner__text a { color: var(--accent-2); text-decoration: underline; text-underline-offset: 3px; }
+.consent-banner__actions { display: flex; gap: 0.75rem; }
+.consent-banner__btn {
+  flex: 1;
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-2);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.consent-banner__btn:hover { border-color: var(--accent); color: var(--accent-2); }
+.consent-banner__btn:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; }
+@media (min-width: 640px) { .consent-banner { left: 1.5rem; right: auto; bottom: 1.5rem; } }
+
 .footer-bottom { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: space-between; font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.06em; }
 
 /* ---------- 8. ANIMAZIONI ---------- */
