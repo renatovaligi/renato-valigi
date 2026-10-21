@@ -258,81 +258,41 @@
     var N = 1250;
     var GOLD = Math.PI * (3 - Math.sqrt(5));
 
-    /* quattro forme: sfera, toro, onda, pallone da basket */
-    function sphere() {
-      var pts = [];
-      for (var i = 0; i < N; i++) {
-        var y = 1 - (i / (N - 1)) * 2;
-        var r = Math.sqrt(1 - y * y);
-        var th = GOLD * i;
-        pts.push([Math.cos(th) * r, y, Math.sin(th) * r]);
+    /* le forme (sfera, pallone, canestro, lavagna tattica, megafono, grafico, logo)
+       arrivano da orb-shapes.js; se manca resta la sola sfera */
+    var defs = (window.OrbShapes && window.OrbShapes.build(N)) || null;
+    if (!defs) {
+      var fallback = [];
+      for (var q = 0; q < N; q++) {
+        var fy = 1 - (q / (N - 1)) * 2, fr = Math.sqrt(1 - fy * fy), fth = GOLD * q;
+        fallback.push([Math.cos(fth) * fr, fy, Math.sin(fth) * fr]);
       }
-      return pts;
+      defs = [{ label: "", flat: false, pts: fallback }];
     }
-    function torus() {
-      var pts = [];
-      for (var i = 0; i < N; i++) {
-        var u = (i / N) * Math.PI * 2 * 1;
-        var v = ((i * 0.61803398875) % 1) * Math.PI * 2;
-        var R = 0.72, r = 0.3;
-        pts.push([(R + r * Math.cos(v)) * Math.cos(u), r * Math.sin(v) * 1.4, (R + r * Math.cos(v)) * Math.sin(u)]);
-      }
-      return pts;
-    }
-    function wave() {
-      var pts = [];
-      var side = Math.ceil(Math.sqrt(N));
-      for (var i = 0; i < N; i++) {
-        var gx = i % side, gz = Math.floor(i / side);
-        var x = (gx / (side - 1)) * 2 - 1;
-        var z = (gz / (side - 1)) * 2 - 1;
-        var y = Math.sin(x * 4.2) * Math.cos(z * 4.2) * 0.32;
-        pts.push([x * 1.05, y, z * 1.05]);
-      }
-      return pts;
-    }
-    function ball() {
-      /* sfera con le cuciture del pallone: parte dei punti si addensa su cerchi massimi */
-      var pts = [];
-      var seam = Math.floor(N * 0.55);
-      var per = Math.floor(seam / 4);
-      var k, t;
-      for (k = 0; k < per; k++) { // equatore
-        t = (k / per) * Math.PI * 2;
-        pts.push([Math.cos(t), 0, Math.sin(t)]);
-      }
-      for (k = 0; k < per; k++) { // meridiano
-        t = (k / per) * Math.PI * 2;
-        pts.push([0, Math.cos(t), Math.sin(t)]);
-      }
-      for (k = 0; k < per; k++) { // due archi laterali
-        t = (k / per) * Math.PI * 2;
-        var cx = 0.56, rr = Math.sqrt(1 - cx * cx);
-        pts.push([cx + 0 * Math.cos(t), rr * Math.cos(t), rr * Math.sin(t)]);
-      }
-      for (k = 0; k < per; k++) {
-        t = (k / per) * Math.PI * 2;
-        var cx2 = -0.56, rr2 = Math.sqrt(1 - cx2 * cx2);
-        pts.push([cx2, rr2 * Math.cos(t), rr2 * Math.sin(t)]);
-      }
-      var rest = N - pts.length;
-      for (var i = 0; i < rest; i++) {
-        var y = 1 - (i / (rest - 1)) * 2;
-        var r = Math.sqrt(1 - y * y);
-        var th = GOLD * i;
-        pts.push([Math.cos(th) * r, y, Math.sin(th) * r]);
-      }
-      return pts;
-    }
-
-    var shapes = [sphere(), ball(), torus(), wave()];
+    var shapes = defs.map(function (d) { return d.pts; });
     var cur = shapes[0].map(function (p) { return p.slice(); });
     var from = cur.map(function (p) { return p.slice(); });
     var target = 0;
     var morphStart = 0;
-    var MORPH = 2400;      // durata morph
-    var HOLD = 5200;       // pausa tra forme
+    var MORPH = 2300;      // durata morph
+    var HOLD = 3600;       // pausa tra forme
     var nextSwitch = 0;
+
+    /* etichetta: numero e nome della forma corrente */
+    var labelEl = null;
+    if (defs.length > 1) {
+      labelEl = doc.createElement("p");
+      labelEl.className = "hero__orb-label";
+      canvas.parentNode.appendChild(labelEl);
+    }
+    function setLabel(i, animate) {
+      if (!labelEl) return;
+      var txt = (i + 1 < 10 ? "0" : "") + (i + 1) + " / " + (defs.length < 10 ? "0" : "") + defs.length + "  " + defs[i].label;
+      if (!animate) { labelEl.textContent = txt; return; }
+      labelEl.classList.add("is-swap");
+      window.setTimeout(function () { labelEl.textContent = txt; labelEl.classList.remove("is-swap"); }, 420);
+    }
+    setLabel(0, false);
 
     /* sprite luminoso pre-renderizzato: molto piu' veloce di gradienti per punto */
     var sprite = doc.createElement("canvas");
@@ -360,6 +320,7 @@
     window.addEventListener("resize", function () { resize(); if (reduceMotion) draw(0); });
 
     var mx = 0, my = 0, smx = 0, smy = 0;
+    var lastT = 0, angBase = 0, flatAmt = 0;
     if (finePointer) {
       window.addEventListener("pointermove", function (e) {
         mx = (e.clientX / window.innerWidth - 0.5) * 2;
@@ -378,6 +339,7 @@
           from = cur.map(function (p) { return p.slice(); });
           target = (target + 1) % shapes.length;
           morphStart = time;
+          setLabel(target, true);
         }
         if (morphStart !== 0) {
           var t = Math.min((time - morphStart) / MORPH, 1);
@@ -395,8 +357,16 @@
       smx += (mx - smx) * 0.05;
       smy += (my - smy) * 0.05;
 
-      var ang = reduceMotion ? 0.6 : time * 0.00022 + smx * 0.6;
-      var tilt = 0.38 + smy * 0.25;
+      // forme tridimensionali: rotazione continua. Forme piatte (logo, lavagna):
+      // si girano di fronte e oscillano piano, cosi' restano leggibili.
+      var dt = lastT ? Math.min(time - lastT, 60) : 16;
+      lastT = time;
+      var wantFlat = defs[target].flat && !reduceMotion ? 1 : 0;
+      flatAmt += (wantFlat - flatAmt) * Math.min(1, dt * 0.0035);
+      angBase += dt * 0.00022 * (1 - flatAmt);
+      var front = Math.round(angBase / (Math.PI * 2)) * Math.PI * 2 + Math.sin(time * 0.0007) * 0.38;
+      var ang = reduceMotion ? 0.6 : angBase * (1 - flatAmt) + front * flatAmt + smx * 0.6 * (1 - flatAmt * 0.6);
+      var tilt = (0.38 + smy * 0.25) * (1 - flatAmt * 0.8) + flatAmt * 0.04;
       var ca = Math.cos(ang), sa = Math.sin(ang), ct = Math.cos(tilt), st = Math.sin(tilt);
       var cx = w / 2, cy = h / 2;
       var R = Math.min(w, h) * 0.34;

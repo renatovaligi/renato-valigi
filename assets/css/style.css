@@ -518,6 +518,21 @@ body:has(.nav-toggle-checkbox:checked) { overflow: hidden; }
   mask-image: linear-gradient(90deg, transparent 4%, #000 38%);
 }
 .hero__orb canvas { width: 100%; height: 100%; display: block; }
+.hero__orb-label {
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  margin: 0;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: pre;
+  color: var(--accent-2);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.hero__orb-label.is-swap { opacity: 0; transform: translateX(-50%) translateY(6px); }
 @media (max-width: 899px) {
   .hero__orb {
     right: -38%;
@@ -527,6 +542,7 @@ body:has(.nav-toggle-checkbox:checked) { overflow: hidden; }
     mask-image: none;
     opacity: calc(var(--orb-fade, 1) * 0.3);
   }
+  .hero__orb-label { display: none; }
 }
 
 .hero__inner {
