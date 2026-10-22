@@ -117,10 +117,10 @@
     banner.setAttribute("role", "region");
     banner.setAttribute("aria-label", "Preferenze cookie");
     banner.innerHTML =
-      '<p class="consent-banner__title">Statistiche anonime, solo se vuoi</p>' +
-      '<p class="consent-banner__text">Uso Google Analytics per capire quali pagine e quali articoli vengono letti. ' +
-      "Lo attivo solo se accetti: finché non scegli, non parte nessun tracciamento. " +
-      'Puoi cambiare idea quando vuoi da "Gestisci cookie" in fondo alla pagina. ' +
+      '<p class="consent-banner__title">Cookie e statistiche</p>' +
+      '<p class="consent-banner__text">Questo sito usa Google Analytics per misurare in forma aggregata le visite e la lettura degli articoli, ' +
+      "ma solo con il tuo consenso. Se rifiuti, non viene installato nessun cookie di analisi. " +
+      'Puoi cambiare scelta in qualsiasi momento da "Gestisci cookie" in fondo alla pagina. ' +
       '<a href="' + PRIVACY_URL + '">Informativa</a></p>' +
       '<div class="consent-banner__actions">' +
       '<button type="button" class="consent-banner__btn" data-consent="denied">Rifiuta</button>' +
