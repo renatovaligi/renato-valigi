@@ -503,6 +503,20 @@
     });
   }
 
+  /* ----- Chiusura: wipe arancio quando entra nello schermo -- */
+  function initInkWipe() {
+    var ink = $(".section--ink");
+    if (!ink) return;
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      ink.classList.add("is-wiped");
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { ink.classList.add("is-wiped"); io.disconnect(); }
+    }, { threshold: 0.25 });
+    io.observe(ink);
+  }
+
   /* ----- Avvio -------------------------------------------- */
   markReveal();
   observeReveal();
@@ -514,5 +528,6 @@
   initHero();
   initOrb();
   initCases();
+  initInkWipe();
   onScroll();
 })();
