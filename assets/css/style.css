@@ -1896,3 +1896,63 @@ blockquote::before { content: ""; position: absolute; left: 0; top: 0; width: 56
   .status-chip { font-size: 0.68rem; letter-spacing: 0.12em; padding: 0; }
   .cta-title { font-size: clamp(2.6rem, 13vw, 3.8rem); }
 }
+
+/* ---------- 13. TAG E CHIUSURA ----------
+   Etichette di sezione come fasce oblique arancioni, niente X e O prima
+   dei titoli, e l'arancio della chiusura che entra con un wipe diagonale. */
+
+/* niente segni X/O prima dei titoli */
+.section-label::before,
+.skill-card h3::before { content: none; }
+.skill-card h3 { gap: 0; }
+
+/* etichette: fascia obliqua arancio con testo scuro */
+.section-label {
+  position: relative;
+  isolation: isolate;
+  padding: 0.5rem 0.95rem 0.45rem;
+  color: var(--bg);
+  line-height: 1;
+}
+.section-label::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--accent);
+  transform: skewX(-14deg);
+}
+/* nelle sezioni la fascia arriva dal bordo dello schermo */
+.container-tight > .section-label::after,
+.section-head .section-label::after { left: -100vw; }
+
+/* chiusura: l'arancio entra con un wipe diagonale, poi il testo */
+.js .section--ink { background: var(--bg-2); }
+.js .section--ink::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: auto;
+  aspect-ratio: auto;
+  z-index: -1;
+  background: var(--accent);
+  transform: none;
+  clip-path: polygon(0 0, 0 0, -25% 100%, -25% 100%);
+  transition: clip-path 0.75s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.js .section--ink.is-wiped::before { clip-path: polygon(0 0, 125% 0, 100% 100%, 0 100%); }
+.js .section--ink [data-reveal] { transition-delay: calc(0.68s + var(--i, 0) * 70ms); }
+.js .section--ink .cta-title[data-reveal] { transition-delay: 0.5s; }
+
+/* niente X e O: separatori e segnaposto diventano una barretta obliqua arancio, come le etichette */
+.marquee__group li::after,
+.marquee__group li:nth-child(even)::after {
+  content: "";
+  width: 7px;
+  height: 0.7em;
+  border: 0;
+  border-radius: 0;
+  background: var(--accent);
+  transform: skewX(-14deg);
+}
+.status-chip i { width: 6px; height: 14px; border: 0; border-radius: 0; background: var(--accent); transform: skewX(-14deg); }
