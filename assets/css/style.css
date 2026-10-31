@@ -1615,7 +1615,7 @@ h4 { font-family: var(--font-ui); }
 .cookie-table th { font-family: var(--font-ui); }
 .consent-banner__title { font-family: var(--font-display); text-transform: uppercase; font-size: 1.3rem; letter-spacing: 0.02em; }
 
-/* etichette di sezione con il segno X delle lavagne */
+/* etichette di sezione: solo testo, nessun segno decorativo */
 .section-label {
   font-family: var(--font-ui);
   font-size: 0.74rem;
@@ -1627,14 +1627,7 @@ h4 { font-family: var(--font-ui); }
   margin-bottom: 1.1rem;
   line-height: 1;
 }
-.section-label::before {
-  content: "";
-  width: 11px;
-  height: 11px;
-  background:
-    linear-gradient(45deg, transparent 43%, currentColor 43% 57%, transparent 57%),
-    linear-gradient(-45deg, transparent 43%, currentColor 43% 57%, transparent 57%);
-}
+.section-label::before { content: none; }
 
 /* header */
 .site-header::before { background: rgba(20, 17, 14, 0.9); }
@@ -1708,7 +1701,7 @@ h4 { font-family: var(--font-ui); }
   color: var(--text-2);
   gap: 0.75rem;
 }
-.status-chip i { width: 10px; height: 10px; background: none; border: 2px solid var(--accent); box-shadow: none; animation: none; }
+.status-chip i { width: 26px; height: 2px; border-radius: 0; background: var(--accent); border: 0; box-shadow: none; animation: none; }
 .hero__title {
   font-size: clamp(3.5rem, 10.5vw, 8.4rem);
   font-weight: 800;
@@ -1721,19 +1714,17 @@ h4 { font-family: var(--font-ui); }
 .hero__orb-label { font-family: var(--font-ui); font-weight: 600; letter-spacing: 0.2em; }
 .hero__scroll { font-family: var(--font-ui); font-weight: 600; }
 
-/* striscia: tabellone con X e O alternati */
+/* striscia: tabellone con quadratini come separatori */
 .marquee { padding: 1.1rem 0; border-block: 2px solid var(--text); }
 .marquee__group li { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; -webkit-text-stroke: 1px rgba(241, 234, 223, 0.5); }
 .marquee__group li::after {
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 12px;
   clip-path: none;
   filter: none;
-  background:
-    linear-gradient(45deg, transparent 43%, var(--accent) 43% 57%, transparent 57%),
-    linear-gradient(-45deg, transparent 43%, var(--accent) 43% 57%, transparent 57%);
+  border-radius: 0;
+  background: var(--accent);
 }
-.marquee__group li:nth-child(even)::after { background: none; border: 2px solid var(--accent); border-radius: 50%; width: 16px; height: 16px; }
 
 /* numeri: tabellino */
 .stats { border: 0; border-top: 2px solid var(--text); border-bottom: 1px solid var(--line-2); border-radius: 0; background: none; gap: 0; }
@@ -1759,7 +1750,7 @@ h4 { font-family: var(--font-ui); }
 .about__text .lead { font-family: var(--font-body); font-weight: 500; font-size: clamp(1.55rem, 2.6vw, 2.25rem); line-height: 1.25; letter-spacing: -0.01em; }
 .scrub .sw { color: rgba(241, 234, 223, 0.24); }
 
-/* metodo: schema con cerchi collegati da una linea tratteggiata */
+/* metodo: schema con riquadri numerati collegati da una linea tratteggiata */
 .method { margin-top: 3.5rem; gap: 2.75rem; }
 .method::before { content: ""; position: absolute; left: 1.5rem; top: 1.5rem; bottom: 1.5rem; border-left: 1.5px dashed var(--line-2); }
 .method li { background: none; border: 0; border-radius: 0; padding: 0 0 0 4.25rem; overflow: visible; }
@@ -1775,7 +1766,7 @@ h4 { font-family: var(--font-ui); }
   height: 3rem;
   margin: 0;
   border: 1.5px solid var(--accent);
-  border-radius: 50%;
+  border-radius: 0;
   background: var(--bg-2);
   font-size: 1.5rem;
   font-weight: 800;
@@ -1793,20 +1784,11 @@ h4 { font-family: var(--font-ui); }
   .method h3 { margin-top: 0; }
 }
 
-/* competenze: due colonne, X per la comunicazione, O per il campo */
+/* competenze: due colonne, elenco aperto senza segni decorativi */
 .skill-grid { gap: 0; margin-top: 3rem; }
 .skill-card { padding: 1.5rem 0 1.75rem; border-top: 1px solid var(--line-2); }
 .skill-card h3 { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.7rem; }
-.skill-card h3::before {
-  content: "";
-  flex: none;
-  width: 13px;
-  height: 13px;
-  background:
-    linear-gradient(45deg, transparent 43%, var(--accent) 43% 57%, transparent 57%),
-    linear-gradient(-45deg, transparent 43%, var(--accent) 43% 57%, transparent 57%);
-}
-.skill-card--analyst h3::before { background: none; border: 2px solid var(--accent-2); border-radius: 50%; width: 12px; height: 12px; }
+.skill-card h3::before, .skill-card--analyst h3::before { content: none; }
 .skill-card p { font-size: 1.05rem; }
 @media (min-width: 760px) {
   .skill-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, auto); grid-auto-flow: column; }
@@ -1914,50 +1896,3 @@ blockquote::before { content: ""; position: absolute; left: 0; top: 0; width: 56
   .status-chip { font-size: 0.68rem; letter-spacing: 0.12em; padding: 0; }
   .cta-title { font-size: clamp(2.6rem, 13vw, 3.8rem); }
 }
-
-/* ---------- 13. TAG E CHIUSURA ----------
-   Etichette di sezione come fasce oblique arancioni, niente X e O prima
-   dei titoli, e l'arancio della chiusura che entra con un wipe diagonale. */
-
-/* niente segni X/O prima dei titoli */
-.section-label::before,
-.skill-card h3::before { content: none; }
-.skill-card h3 { gap: 0; }
-
-/* etichette: fascia obliqua arancio con testo scuro */
-.section-label {
-  position: relative;
-  isolation: isolate;
-  padding: 0.5rem 0.95rem 0.45rem;
-  color: var(--bg);
-  line-height: 1;
-}
-.section-label::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--accent);
-  transform: skewX(-14deg);
-}
-/* nelle sezioni la fascia arriva dal bordo dello schermo */
-.container-tight > .section-label::after,
-.section-head .section-label::after { left: -100vw; }
-
-/* chiusura: l'arancio entra con un wipe diagonale, poi il testo */
-.js .section--ink { background: var(--bg-2); }
-.js .section--ink::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  width: auto;
-  aspect-ratio: auto;
-  z-index: -1;
-  background: var(--accent);
-  transform: none;
-  clip-path: polygon(0 0, 0 0, -25% 100%, -25% 100%);
-  transition: clip-path 0.75s cubic-bezier(0.77, 0, 0.175, 1);
-}
-.js .section--ink.is-wiped::before { clip-path: polygon(0 0, 125% 0, 100% 100%, 0 100%); }
-.js .section--ink [data-reveal] { transition-delay: calc(0.68s + var(--i, 0) * 70ms); }
-.js .section--ink .cta-title[data-reveal] { transition-delay: 0.5s; }
