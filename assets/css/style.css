@@ -1961,3 +1961,16 @@ blockquote::before { content: ""; position: absolute; left: 0; top: 0; width: 56
 .js .section--ink.is-wiped::before { clip-path: polygon(0 0, 125% 0, 100% 100%, 0 100%); }
 .js .section--ink [data-reveal] { transition-delay: calc(0.68s + var(--i, 0) * 70ms); }
 .js .section--ink .cta-title[data-reveal] { transition-delay: 0.5s; }
+
+/* niente X e O: separatori e segnaposto diventano una barretta obliqua arancio, come le etichette */
+.marquee__group li::after,
+.marquee__group li:nth-child(even)::after {
+  content: "";
+  width: 7px;
+  height: 0.7em;
+  border: 0;
+  border-radius: 0;
+  background: var(--accent);
+  transform: skewX(-14deg);
+}
+.status-chip i { width: 6px; height: 14px; border: 0; border-radius: 0; background: var(--accent); transform: skewX(-14deg); }
