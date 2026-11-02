@@ -11,7 +11,7 @@
   /* ----- Form contatti (EmailJS) --------------------------- *
    * DISATTIVATO. Per attivarlo:
    *  a) aggiungi nell'<head> di contatti.html:
-   *       <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+   *       <script src="assets/js/vendor/emailjs.min.js" defer></script>
    *  b) sostituisci le costanti qui sotto con le tue chiavi EmailJS
    *  c) imposta EMAILJS_ENABLED = true
    */
@@ -102,8 +102,11 @@
       // Storage non disponibile (es. navigazione privata): mostriamo comunque il popup.
     }
 
+    var lastFocus = null;
+
     function closeModal() {
       modal.hidden = true;
+      if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
       try {
         window.localStorage.setItem(DISMISS_KEY, "1");
       } catch (e) {
@@ -113,7 +116,10 @@
 
     if (!alreadyDismissed) {
       var openModal = function () {
+        lastFocus = document.activeElement;
         modal.hidden = false;
+        var first = modal.querySelector(".newsletter-modal__close");
+        if (first) first.focus();
       };
 
       window.setTimeout(function () {
@@ -135,6 +141,15 @@
 
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape" && !modal.hidden) closeModal();
+      // il focus resta dentro il popup finche' e' aperto
+      if (event.key === "Tab" && !modal.hidden) {
+        var items = modal.querySelectorAll('a[href], button, input, select, textarea, iframe');
+        var list = Array.prototype.filter.call(items, function (el) { return !el.disabled && el.offsetParent !== null; });
+        if (!list.length) return;
+        var firstEl = list[0], lastEl = list[list.length - 1];
+        if (event.shiftKey && document.activeElement === firstEl) { event.preventDefault(); lastEl.focus(); }
+        else if (!event.shiftKey && document.activeElement === lastEl) { event.preventDefault(); firstEl.focus(); }
+      }
     });
   }
 
@@ -149,8 +164,12 @@
     if (!embed) return;
 
     function sync() {
-      if (checkbox.checked) embed.removeAttribute("data-locked");
-      else embed.setAttribute("data-locked", "");
+      if (checkbox.checked) {
+        embed.removeAttribute("data-locked");
+        // il modulo di Brevo si carica solo dopo la spunta: prima non parte nessuna richiesta verso Brevo
+        var frame = embed.querySelector("iframe[data-src]");
+        if (frame && !frame.getAttribute("src")) frame.setAttribute("src", frame.getAttribute("data-src"));
+      } else embed.setAttribute("data-locked", "");
     }
 
     checkbox.addEventListener("change", sync);

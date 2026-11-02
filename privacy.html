@@ -18,9 +18,8 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Big+Shoulders+Display:wght@700;800;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&amp;display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/archivo-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <meta name="theme-color" content="#08080a">
   <script>document.documentElement.classList.add("js")</script>
@@ -55,23 +54,24 @@
           <header class="article__header">
             <p class="section-label">Informativa</p>
             <h1>Privacy</h1>
-            <p class="article__meta">Ultimo aggiornamento: 17 ottobre 2026</p>
+            <p class="article__meta">Ultimo aggiornamento: 2 novembre 2026</p>
           </header>
 
           <div class="article__body">
             <h2>1. Titolare del trattamento</h2>
             <p>
-              Il titolare del trattamento dei dati raccolti tramite questo sito è Renato Valigi. Per
-              esercitare i diritti descritti al punto 8, o per qualsiasi richiesta relativa ai tuoi dati,
+              Il titolare del trattamento dei dati raccolti tramite questo sito è Renato Valigi, Perugia
+              (Italia). I dati professionali sono nella pagina <a href="note-legali.html">Note legali</a>.
+              Per esercitare i diritti descritti al punto 8, o per qualsiasi richiesta relativa ai tuoi dati,
               puoi scrivere utilizzando il form nella pagina <a href="contatti.html">Contatti</a>.
             </p>
 
-            <h2>2. Dati trattati e finalità</h2>
+            <h2 id="dati">2. Dati trattati e finalità</h2>
             <p>
               <strong>Dati forniti volontariamente.</strong> Se compili il form nella pagina Contatti, i
               dati richiesti (nome, indirizzo email, contenuto del messaggio) vengono trattati
               esclusivamente per rispondere alla tua richiesta. Non vengono utilizzati per finalità di
-              marketing né ceduti a terzi per scopi diversi dall'invio del messaggio stesso.
+              marketing né ceduti a terzi per scopi diversi dall'invio del messaggio stesso. Il form non raccoglie altri dati oltre a questi tre campi.
             </p>
             <p>
               <strong>Dati raccolti in modo passivo.</strong> Come qualsiasi sito web, alcune informazioni
@@ -117,73 +117,38 @@
             </p>
 
             <h2>4. Base giuridica del trattamento</h2>
-            <p>
-              Il trattamento dei dati inseriti nel form di contatto si fonda sul consenso liberamente
-              prestato al momento dell'invio (art. 6, par. 1, lett. a, Regolamento UE 2016/679, "GDPR").
-              L'invio del form è facoltativo: se preferisci non fornire i tuoi dati, puoi contattarmi
-              tramite i profili social indicati sul sito. Allo stesso modo, l'iscrizione alla newsletter si
-              fonda sul consenso specifico espresso con la checkbox dedicata al momento dell'iscrizione,
-              distinto dal consenso prestato nel form contatti, e revocabile in ogni momento con la
-              cancellazione dalla lista. Le statistiche di navigazione con Google Analytics si fondano
-              anch'esse sul tuo consenso (art. 6, par. 1, lett. a, GDPR e art. 122 del Codice privacy),
-              che puoi dare, rifiutare o revocare in qualsiasi momento con il link "Gestisci cookie" in
-              fondo a ogni pagina; rifiutare non limita in alcun modo l'uso del sito.
-            </p>
+            <ul>
+              <li><strong>Form contatti.</strong> Il trattamento è necessario per rispondere a una richiesta che mi rivolgi tu (art. 6, par. 1, lett. b, Regolamento UE 2016/679, "GDPR", misure precontrattuali su tua richiesta) e, per le richieste generiche, per il mio legittimo interesse a risponderti (art. 6, par. 1, lett. f). Per questo il form non richiede un consenso separato. Fornire i dati è facoltativo, ma senza di essi non posso risponderti: se preferisci, puoi contattarmi tramite i profili social indicati sul sito.</li>
+              <li><strong>Newsletter.</strong> Il consenso specifico che esprimi con la spunta e con la doppia conferma via email (art. 6, par. 1, lett. a, GDPR). Puoi revocarlo in ogni momento cancellandoti dalla lista.</li>
+              <li><strong>Statistiche con Google Analytics.</strong> Il tuo consenso (art. 6, par. 1, lett. a, GDPR e art. 122 del Codice privacy), che puoi dare, rifiutare o revocare in qualsiasi momento dal link "Gestisci cookie" in fondo a ogni pagina. Rifiutare non limita in alcun modo l'uso del sito.</li>
+              <li><strong>Dati tecnici di navigazione.</strong> Il legittimo interesse a far funzionare il sito e a proteggerlo (art. 6, par. 1, lett. f, GDPR).</li>
+            </ul>
 
             <h2>5. Servizi di terze parti e trasferimento dei dati</h2>
             <p>
-              Per funzionare, il sito si appoggia ad alcuni servizi esterni, ciascuno dei quali tratta i
-              dati secondo la propria informativa:
+              Per funzionare, il sito si appoggia ad alcuni servizi esterni, ciascuno dei quali tratta i dati secondo la propria informativa:
             </p>
+            <ul>
+              <li>
+                <strong>EmailJS</strong>, il servizio che recapita via email i messaggi inviati dal form contatti. La libreria è ospitata su questo sito: nessuna richiesta parte verso EmailJS finché non premi "Invia messaggio". Il servizio è fornito da EmailJS Pte. Ltd., società con sede a Singapore, che si appoggia a server situati negli Stati Uniti (infrastruttura Amazon Web Services). Per i trasferimenti di dati da utenti europei, EmailJS dichiara di adottare le Clausole Contrattuali Standard della Commissione Europea. Informativa completa: <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener">emailjs.com/legal/privacy-policy</a>.
+              </li>
+              <li>
+                <strong>Brevo</strong> (già Sendinblue), il servizio che gestisce l'iscrizione, la doppia conferma e l'invio della newsletter. Il modulo di iscrizione viene caricato solo dopo che hai spuntato il consenso: prima non parte nessuna richiesta verso Brevo. È fornito da Brevo SA, società con sede in Francia; i dati dei contatti sono trattati all'interno dell'Unione Europea. Informativa completa: <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener">brevo.com/legal/privacypolicy</a>.
+              </li>
+              <li>
+                <strong>Google Analytics 4</strong>, servizio di statistica fornito da Google Ireland Limited (Gordon House, Barrow Street, Dublino). Viene caricato solo dopo il tuo consenso. Ho disattivato i segnali Google (Google Signals) e la personalizzazione degli annunci, e Google Analytics 4 non registra né conserva gli indirizzi IP. I dati possono essere trattati anche da Google LLC negli Stati Uniti: il trasferimento avviene con le garanzie previste dal GDPR, tra cui le Clausole Contrattuali Standard e il EU-US Data Privacy Framework. Informativa completa: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>. Puoi anche impedire la raccolta con il <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">componente aggiuntivo del browser</a> per la disattivazione di Google Analytics.
+              </li>
+              <li>
+                <strong>GitHub Pages</strong>, il servizio di hosting (GitHub, Inc., gruppo Microsoft) su cui è ospitato il sito, raggiungibile anche tramite il dominio personale collegato. Come qualunque hosting, GitHub Pages riceve necessariamente l'indirizzo IP e i dati tecnici di chi visita il sito per poter erogare le pagine, e può trattarli negli Stati Uniti. Informativa completa: <a href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">docs.github.com/site-policy/privacy-policies/github-privacy-statement</a>.
+              </li>
+            </ul>
             <p>
-              <strong>EmailJS</strong>, il servizio che recapita via email i messaggi inviati dal form
-              contatti. È fornito da EmailJS Pte. Ltd., società con sede a Singapore, che si appoggia a
-              server situati negli Stati Uniti (infrastruttura Amazon Web Services). Per i trasferimenti di
-              dati da utenti europei, EmailJS dichiara di adottare le Clausole Contrattuali Standard della
-              Commissione Europea. Informativa completa:
-              <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener">emailjs.com/legal/privacy-policy</a>.
-            </p>
-            <p>
-              <strong>Brevo</strong> (già Sendinblue), il servizio che gestisce l'iscrizione, la doppia
-              conferma e l'invio della newsletter. È fornito da Brevo SA, società con sede in Francia; i dati
-              dei contatti sono trattati all'interno dell'Unione Europea. Informativa completa:
-              <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener">brevo.com/legal/privacypolicy</a>.
-            </p>
-            <p>
-              <strong>Google Analytics 4</strong>, servizio di statistica fornito da Google Ireland Limited
-              (Gordon House, Barrow Street, Dublino). Viene caricato solo dopo il tuo consenso. Ho
-              disattivato i segnali Google (Google Signals) e la personalizzazione degli annunci, e Google
-              Analytics 4 non registra né conserva gli indirizzi IP. I dati possono essere trattati anche da
-              Google LLC negli Stati Uniti: il trasferimento avviene con le garanzie previste dal GDPR, tra
-              cui le Clausole Contrattuali Standard e il EU-US Data Privacy Framework. Informativa completa:
-              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.
-              Puoi anche impedire la raccolta con il componente aggiuntivo del browser per la disattivazione
-              di Google Analytics
-              (<a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">tools.google.com/dlpage/gaoptout</a>).
-            </p>
-            <p>
-              <strong>Google Fonts</strong>, per il caricamento dei caratteri tipografici del sito (Bricolage
-              Grotesque, Inter e JetBrains Mono), erogato dai domini fonts.googleapis.com e fonts.gstatic.com. Questa richiesta non
-              installa alcun cookie sul tuo dispositivo; resta però necessaria una richiesta ai server di
-              Google, che comporta la condivisione del tuo indirizzo IP secondo l'informativa di Google.
-            </p>
-            <p>
-              <strong>GitHub Pages</strong>, il servizio di hosting (GitHub, Inc., gruppo Microsoft) su cui è
-              ospitato il sito, raggiungibile anche tramite il dominio personale collegato. Come qualunque
-              hosting, GitHub Pages riceve necessariamente l'indirizzo IP e i dati tecnici di chi visita il
-              sito per poter erogare le pagine. Informativa completa:
-              <a href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">docs.github.com/site-policy/privacy-policies/github-privacy-statement</a>.
+              I caratteri tipografici (Archivo, Big Shoulders Display e Newsreader) sono ospitati sul sito stesso: per i font non viene fatta nessuna richiesta a server di terzi. Le pagine non incorporano video, mappe o pulsanti dei social network: i link ai profili social e alle fonti citate negli articoli aprono siti esterni, che trattano i dati secondo le proprie informative solo se li visiti.
             </p>
 
             <h2>6. Periodo di conservazione</h2>
             <p>
-              I messaggi inviati tramite il form contatti vengono conservati nella mia casella di posta per
-              il tempo necessario a gestire la richiesta e, successivamente, secondo le mie normali pratiche
-              di archiviazione della corrispondenza. Per i tempi di conservazione lato EmailJS, si rimanda
-              alla loro informativa privacy. Gli indirizzi email iscritti alla newsletter vengono conservati
-              fino alla cancellazione da parte tua o, in assenza di interazione con le email inviate, per il
-              tempo previsto dalle normali pratiche di pulizia della lista lato Brevo. I dati statistici di
-              Google Analytics vengono conservati per 14 mesi, poi eliminati automaticamente.
+              I messaggi inviati tramite il form contatti vengono conservati per il tempo necessario a gestire la richiesta e, se ne nasce un rapporto di lavoro, per la durata del rapporto e degli obblighi di legge collegati; in assenza di seguito li cancello entro 24 mesi dall'ultimo scambio. Per i tempi di conservazione lato EmailJS, si rimanda alla loro informativa privacy. Gli indirizzi email iscritti alla newsletter vengono conservati fino alla tua cancellazione o alla revoca del consenso; la prova del consenso resta conservata per il tempo necessario a difendermi da eventuali contestazioni. I dati statistici di Google Analytics vengono conservati per 14 mesi, poi eliminati automaticamente.
             </p>
 
             <h2 id="cookie">7. Cookie e strumenti simili</h2>
@@ -193,7 +158,7 @@
               installato nessun cookie di analisi e non parte nessuna richiesta verso i server di Google
               Analytics.
             </p>
-            <div class="table-wrap">
+            <div class="table-wrap" role="region" aria-label="Elenco dei cookie" tabindex="0">
               <table class="cookie-table">
                 <thead>
                   <tr><th>Nome</th><th>Fornitore</th><th>Scopo</th><th>Durata</th></tr>
@@ -206,7 +171,7 @@
             </div>
             <p>
               Il sito usa inoltre la memoria locale del browser (localStorage) solo per ricordare la tua
-              scelta sui cookie e il fatto di aver chiuso il popup della newsletter. Sono dati tecnici che
+              scelta sui cookie e il fatto di aver chiuso il popup della newsletter (e, quando invii un messaggio, la libreria del form può salvare un dato tecnico di servizio). Sono dati tecnici che
               restano sul tuo dispositivo e non vengono inviati a nessuno.
             </p>
             <p>
@@ -298,6 +263,7 @@
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contatti.html">Contatti</a></li>
         <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="note-legali.html">Note legali</a></li>
         <li><a href="https://account.start2impact.it/profile/renato-valigi" target="_blank" rel="noopener">start2impact</a></li>
       </ul>
 
