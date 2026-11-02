@@ -18,9 +18,17 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
+<<<<<<< HEAD
   <link rel="stylesheet" href="assets/css/style.css">
 
   <script src="assets/vendor/emailjs.min.js"></script>
+=======
+  <link rel="preload" href="assets/fonts/archivo-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script src="assets/js/vendor/emailjs.min.js" defer></script>
+>>>>>>> cb7a2bb22f9d308d9db914b059e077d9dc0cfdef
   <meta name="theme-color" content="#08080a">
   <script>document.documentElement.classList.add("js")</script>
   <link rel="canonical" href="https://renatovaligi.com/contatti.html">
@@ -59,24 +67,25 @@
         <div class="contact-layout mt-lg">
 
           <div>
-            <form id="contact-form" novalidate>
+            <form id="contact-form" novalidate aria-describedby="form-privacy">
               <div class="form-field">
                 <label for="nome">Nome <span class="req" aria-hidden="true">*</span></label>
-                <input class="form-control" type="text" id="nome" name="nome" autocomplete="name" required>
+                <input class="form-control" type="text" id="nome" name="nome" autocomplete="name" maxlength="100" required>
               </div>
 
               <div class="form-field">
                 <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
-                <input class="form-control" type="email" id="email" name="email" autocomplete="email" required>
+                <input class="form-control" type="email" id="email" name="email" autocomplete="email" maxlength="150" required>
               </div>
 
               <div class="form-field">
                 <label for="messaggio">Messaggio <span class="req" aria-hidden="true">*</span></label>
-                <textarea class="form-control" id="messaggio" name="messaggio" rows="6" required></textarea>
+                <textarea class="form-control" id="messaggio" name="messaggio" rows="6" maxlength="3000" required></textarea>
               </div>
 
               <p class="form-hint">I campi contrassegnati con <span class="req">*</span> sono obbligatori.</p>
 
+<<<<<<< HEAD
               <div class="form-privacy" id="form-privacy">
                 <p>
                   <strong>Come uso i tuoi dati.</strong> Renato Valigi (titolare del trattamento) usa nome, email e
@@ -88,6 +97,13 @@
                   <a href="privacy.html#contatti">Leggi l'informativa completa</a>.
                 </p>
               </div>
+=======
+              <p class="form-hint form-info" id="form-privacy">
+                Uso nome, email e messaggio solo per risponderti. Il messaggio viene recapitato tramite EmailJS
+                e lo conservo per il tempo necessario a gestire la richiesta. Titolare del trattamento: Renato Valigi.
+                Basi giuridiche, tempi di conservazione e diritti sono nell'<a href="privacy.html#dati">informativa privacy</a>.
+              </p>
+>>>>>>> cb7a2bb22f9d308d9db914b059e077d9dc0cfdef
 
               <button class="btn btn--primary" type="submit" aria-describedby="form-privacy">Invia messaggio</button>
               <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
@@ -165,7 +181,12 @@
         <li><a href="cv.html">Chi sono</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contatti.html">Contatti</a></li>
+<<<<<<< HEAD
         <li><a href="privacy.html">Privacy e cookie</a></li>
+=======
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="note-legali.html">Note legali</a></li>
+>>>>>>> cb7a2bb22f9d308d9db914b059e077d9dc0cfdef
         <li><a href="https://account.start2impact.it/profile/renato-valigi" target="_blank" rel="noopener">start2impact</a></li>
       </ul>
 
