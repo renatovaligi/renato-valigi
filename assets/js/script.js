@@ -9,11 +9,9 @@
   "use strict";
 
   /* ----- Form contatti (EmailJS) --------------------------- *
-   * DISATTIVATO. Per attivarlo:
-   *  a) aggiungi nell'<head> di contatti.html:
-   *       <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-   *  b) sostituisci le costanti qui sotto con le tue chiavi EmailJS
-   *  c) imposta EMAILJS_ENABLED = true
+   * La libreria EmailJS e' ospitata sul sito (assets/vendor/emailjs.min.js):
+   * il browser contatta i server di EmailJS solo quando l'utente invia il modulo.
+   * Le chiavi qui sotto sono pubbliche per progetto (non sono segreti).
    */
   var EMAILJS_ENABLED = true;
   var EMAILJS_PUBLIC_KEY = "SewHFgRaKh3bC7CTG";
@@ -70,9 +68,14 @@
 
   if (filters.length && posts.length) {
     filters.forEach(function (button) {
+      button.setAttribute("aria-pressed", button.classList.contains("is-active") ? "true" : "false");
       button.addEventListener("click", function () {
-        filters.forEach(function (btn) { btn.classList.remove("is-active"); });
+        filters.forEach(function (btn) {
+          btn.classList.remove("is-active");
+          btn.setAttribute("aria-pressed", "false");
+        });
         button.classList.add("is-active");
+        button.setAttribute("aria-pressed", "true");
 
         var filter = button.getAttribute("data-filter");
         var visibleCount = 0;
@@ -102,8 +105,11 @@
       // Storage non disponibile (es. navigazione privata): mostriamo comunque il popup.
     }
 
+    var lastFocus = null;
+
     function closeModal() {
       modal.hidden = true;
+      if (lastFocus && typeof lastFocus.focus === "function") { lastFocus.focus(); }
       try {
         window.localStorage.setItem(DISMISS_KEY, "1");
       } catch (e) {
@@ -113,7 +119,12 @@
 
     if (!alreadyDismissed) {
       var openModal = function () {
+        lastFocus = document.activeElement;
         modal.hidden = false;
+        var card = modal.querySelector(".newsletter-modal__card");
+        var firstFocus = modal.querySelector(".newsletter-modal__close");
+        if (card) card.setAttribute("tabindex", "-1");
+        window.setTimeout(function () { (firstFocus || card).focus(); }, 30);
       };
 
       window.setTimeout(function () {
@@ -134,23 +145,51 @@
     });
 
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && !modal.hidden) closeModal();
+      if (modal.hidden) return;
+      if (event.key === "Escape") { closeModal(); return; }
+      if (event.key !== "Tab") return;
+      // tiene il focus dentro il popup finche' e' aperto
+      var items = modal.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])');
+      if (!items.length) return;
+      var first = items[0], last = items[items.length - 1];
+      if (event.shiftKey && (document.activeElement === first || !modal.contains(document.activeElement))) {
+        event.preventDefault(); last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault(); first.focus();
+      }
     });
   }
 
-  /* ----- Sblocco iframe newsletter dopo il consenso ---------- *
-   * L'iscrizione passa dal modulo ospitato da Brevo (iframe), che non
-   * possiamo validare lato nostro: il consenso alla privacy resta
-   * obbligatorio sbloccando l'iframe solo dopo averlo spuntato.
+  /* ----- Striscia scorrevole: pulsante di pausa ------------ */
+  var marquee = document.querySelector(".marquee");
+  var pauseBtn = marquee ? marquee.querySelector(".marquee__pause") : null;
+  if (marquee && pauseBtn) {
+    pauseBtn.addEventListener("click", function () {
+      var paused = marquee.classList.toggle("is-paused");
+      pauseBtn.setAttribute("aria-pressed", paused ? "true" : "false");
+      pauseBtn.setAttribute("aria-label", paused ? "Riprendi l'animazione" : "Metti in pausa l'animazione");
+      pauseBtn.textContent = paused ? "Riprendi" : "Pausa";
+    });
+  }
+
+  /* ----- Modulo newsletter: caricato solo dopo il consenso ---- *
+   * Il modulo di iscrizione e' ospitato da Brevo (iframe). Finche' l'utente
+   * non spunta la casella, l'iframe NON viene caricato (src vuoto): nessuna
+   * richiesta a Brevo parte all'apertura della pagina.
    */
   document.querySelectorAll(".newsletter-gate").forEach(function (checkbox) {
     var container = checkbox.closest(".newsletter-box, .newsletter-modal__card");
     var embed = container ? container.querySelector(".newsletter-embed") : null;
     if (!embed) return;
+    var frame = embed.querySelector("iframe[data-src]");
 
     function sync() {
-      if (checkbox.checked) embed.removeAttribute("data-locked");
-      else embed.setAttribute("data-locked", "");
+      if (checkbox.checked) {
+        embed.removeAttribute("data-locked");
+        if (frame && !frame.getAttribute("src")) { frame.setAttribute("src", frame.getAttribute("data-src")); }
+      } else {
+        embed.setAttribute("data-locked", "");
+      }
     }
 
     checkbox.addEventListener("change", sync);

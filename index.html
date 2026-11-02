@@ -21,9 +21,6 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
   <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Big+Shoulders+Display:wght@700;800;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&amp;display=swap" rel="stylesheet">
 
   <!-- Stile personalizzato compilato da Sass -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -79,8 +76,9 @@
     </section>
 
     <!-- STRISCIA SCORREVOLE -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__track">
+    <div class="marquee">
+      <button type="button" class="marquee__pause" aria-pressed="false" aria-label="Metti in pausa l'animazione">Pausa</button>
+      <div class="marquee__track" aria-hidden="true">
         <ul class="marquee__group"><li>Growth marketing</li><li>Comunicazione sportiva</li><li>Data analysis</li><li>Match analysis</li><li>Social media</li><li>UX/UI design</li><li>Coaching</li><li>Digital strategy</li></ul>
         <ul class="marquee__group"><li>Growth marketing</li><li>Comunicazione sportiva</li><li>Data analysis</li><li>Match analysis</li><li>Social media</li><li>UX/UI design</li><li>Coaching</li><li>Digital strategy</li></ul>
       </div>
@@ -139,8 +137,8 @@
           </p>
             <p>
             Mi sono laureato in Comunicazione e Media Digitali con 110 e lode e ho un diploma in
-            Sports Communication &amp; Fan Engagement con la FC Barcelona (sì, quella del calcio)
-            Innovation Hub. Ho le qualifiche FIP di Allenatore e Match Analyst avanzato, e sto
+            Sports Communication &amp; Fan Engagement con la Barça Innovation Hub (sì, quella del
+            FC Barcelona). Ho le qualifiche FIP di Allenatore e Match Analyst avanzato, e sto
             completando un Master universitario di primo livello in Growth Marketing e Agenti AI:
             un percorso che mi ha portato a lavorare su progetti di crescita aziendale reali, tra
             analisi strategica, roadmap e strumenti di intelligenza artificiale applicati al
@@ -227,11 +225,12 @@
             <div class="project-card__body">
               <h3>Growth Marketing e Brand Positioning per Dott</h3>
               <p>
-                Consulenza strategica di growth marketing per l'operatore europeo di micro-mobilità
-                elettrica: analisi competitiva, SWOT e un sondaggio primario che ribalta il problema
-                di partenza. Il prodotto convince, ma il 62% del campione non conosce il brand.
+                Analisi strategica di growth marketing sull'operatore europeo di micro-mobilità
+                elettrica, svolta come esercitazione: analisi competitiva, SWOT e un sondaggio primario
+                che ribalta il problema di partenza. Il prodotto convince, ma il 62% del campione non
+                conosce il brand.
               </p>
-              <a class="project-card__link" href="progetti.html">Vai al portfolio</a>
+              <a class="project-card__link" href="progetti.html" aria-label="Vai al portfolio: Growth Marketing e Brand Positioning per Dott">Vai al portfolio</a>
             </div>
           </article>
           <article class="project-card project-card--link">
@@ -242,7 +241,7 @@
                 Campagna social sul tema AI e performance sportiva per la media company da 1,9M
                 di follower: obiettivi SMART, concept creativo e piano contenuti.
               </p>
-              <a class="project-card__link" href="progetti.html">Vai al portfolio</a>
+              <a class="project-card__link" href="progetti.html" aria-label="Vai al portfolio: Social Media: Game Changer per Will Media">Vai al portfolio</a>
             </div>
           </article>
           <article class="project-card project-card--link">
@@ -253,7 +252,7 @@
                 Analisi as-is e ricerca utente per il redesign UX/UI della scuola formativa del fondo
                 Acumen, tra analisi euristica, benchmark e sondaggio primario.
               </p>
-              <a class="project-card__link" href="progetti.html">Vai al portfolio</a>
+              <a class="project-card__link" href="progetti.html" aria-label="Vai al portfolio: UX/UI Design: Acumen Academy">Vai al portfolio</a>
             </div>
           </article>
         </div>
@@ -343,7 +342,7 @@
         <li><a href="cv.html">Chi sono</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contatti.html">Contatti</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="privacy.html">Privacy e cookie</a></li>
         <li><a href="https://account.start2impact.it/profile/renato-valigi" target="_blank" rel="noopener">start2impact</a></li>
       </ul>
 

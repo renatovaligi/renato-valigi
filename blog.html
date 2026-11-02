@@ -18,9 +18,6 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Big+Shoulders+Display:wght@700;800;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <meta name="theme-color" content="#08080a">
   <script>document.documentElement.classList.add("js")</script>
@@ -58,14 +55,15 @@
         </p>
 
         <div class="blog-filters tag-row mt-lg" role="group" aria-label="Filtra per categoria">
-          <button type="button" class="blog-filter is-active" data-filter="tutti">Tutti</button>
-          <button type="button" class="blog-filter" data-filter="comunicazione">Comunicazione</button>
-          <button type="button" class="blog-filter" data-filter="marketing">Marketing</button>
-          <button type="button" class="blog-filter" data-filter="sport">Sport</button>
-          <button type="button" class="blog-filter" data-filter="leadership">Leadership</button>
-          <button type="button" class="blog-filter" data-filter="life">Life</button>
+          <button type="button" class="blog-filter is-active" data-filter="tutti" aria-pressed="true">Tutti</button>
+          <button type="button" class="blog-filter" data-filter="comunicazione" aria-pressed="false">Comunicazione</button>
+          <button type="button" class="blog-filter" data-filter="marketing" aria-pressed="false">Marketing</button>
+          <button type="button" class="blog-filter" data-filter="sport" aria-pressed="false">Sport</button>
+          <button type="button" class="blog-filter" data-filter="leadership" aria-pressed="false">Leadership</button>
+          <button type="button" class="blog-filter" data-filter="life" aria-pressed="false">Life</button>
         </div>
 
+        <h2 class="visually-hidden">Elenco degli articoli</h2>
         <div class="post-list mt-lg">
 
           <article class="post-card" data-categories="comunicazione sport">
@@ -81,7 +79,7 @@
                 <li>Sport</li>
                 <li>Comunicazione</li>
               </ul>
-              <a class="project-card__link" href="blog/fan-engagement-basket.html">Leggi l'articolo</a>
+              <a class="project-card__link" aria-label="Leggi l'articolo: Dal matchday a ogni giorno: il fan engagement nel basket" href="blog/fan-engagement-basket.html">Leggi l'articolo</a>
             </div>
           </article>
 
@@ -98,7 +96,7 @@
                 <li>Comunicazione</li>
                 <li>Marketing</li>
               </ul>
-              <a class="project-card__link" href="blog/just-do-it-barilla.html">Leggi l'articolo</a>
+              <a class="project-card__link" aria-label="Leggi l'articolo: Just Do It e Barilla: la coerenza vale più dello slogan" href="blog/just-do-it-barilla.html">Leggi l'articolo</a>
             </div>
           </article>
 
@@ -115,7 +113,7 @@
                 <li>Comunicazione</li>
                 <li>Sport</li>
               </ul>
-              <a class="project-card__link" href="blog/mourinho-pozzecco.html">Leggi l'articolo</a>
+              <a class="project-card__link" aria-label="Leggi l'articolo: Mourinho e Pozzecco: due estremi della comunicazione sportiva" href="blog/mourinho-pozzecco.html">Leggi l'articolo</a>
             </div>
           </article>
 
@@ -132,7 +130,7 @@
                 <li>Life</li>
                 <li>Marketing</li>
               </ul>
-              <a class="project-card__link" href="blog/jakarta-fast-fashion.html">Leggi l'articolo</a>
+              <a class="project-card__link" aria-label="Leggi l'articolo: Jakarta e i tuoi vestiti: il prezzo nascosto del fast fashion" href="blog/jakarta-fast-fashion.html">Leggi l'articolo</a>
             </div>
           </article>
 
@@ -149,7 +147,7 @@
                 <li>Sport</li>
                 <li>Leadership</li>
               </ul>
-              <a class="project-card__link" href="blog/vincere-o-sbagliare.html">Leggi l'articolo</a>
+              <a class="project-card__link" aria-label="Leggi l'articolo: Vincere o sbagliare: cosa conta davvero nel settore giovanile" href="blog/vincere-o-sbagliare.html">Leggi l'articolo</a>
             </div>
           </article>
 
@@ -207,15 +205,16 @@
             <label>
               <input type="checkbox" class="newsletter-gate">
               <span>
-                Ho letto l'<a href="privacy.html#newsletter" target="_blank" rel="noopener">informativa privacy</a>
-                e acconsento al trattamento dei miei dati per ricevere la newsletter.
+                Acconsento a ricevere la newsletter di Renato Valigi (una email per ogni nuovo contenuto) e ho letto
+            l'<a href="privacy.html#newsletter" target="_blank" rel="noopener">informativa privacy</a>.
+            Il modulo di iscrizione si carica da Brevo (Francia) solo dopo che hai spuntato questa casella.
               </span>
             </label>
           </div>
 
           <div class="newsletter-embed" data-locked>
-            <p class="newsletter-embed__lock">Spunta il consenso qui sopra per iscriverti.</p>
-            <iframe width="540" height="460" src="https://f58fb543.sibforms.com/v2/serve/MUIFAP4xHOO9W2M3UQmrVTvsQSJD6jXFIcpTfkdQOgROkP9H70NnOTgG-XE9TAUOj_pwhzcImLkYU7l46ij6i21Ksz2U0hFq6OLr4TLDSctaTkjoV7fs_JsWqPO5dgVQA80GkphhulSARKldLvHb3FX-WLjhI4U63cKxLTHhc1oEhCcLupgC6GsVmDYbH4KdsRrpOpd65-AOxvDStg==" frameborder="0" scrolling="auto" allowfullscreen title="Modulo di iscrizione alla newsletter"></iframe>
+            <p class="newsletter-embed__lock">Spunta la casella qui sopra per mostrare il modulo di iscrizione.</p>
+            <iframe width="540" height="460" referrerpolicy="strict-origin-when-cross-origin" data-src="https://f58fb543.sibforms.com/v2/serve/MUIFAP4xHOO9W2M3UQmrVTvsQSJD6jXFIcpTfkdQOgROkP9H70NnOTgG-XE9TAUOj_pwhzcImLkYU7l46ij6i21Ksz2U0hFq6OLr4TLDSctaTkjoV7fs_JsWqPO5dgVQA80GkphhulSARKldLvHb3FX-WLjhI4U63cKxLTHhc1oEhCcLupgC6GsVmDYbH4KdsRrpOpd65-AOxvDStg==" frameborder="0" scrolling="auto" allowfullscreen title="Modulo di iscrizione alla newsletter"></iframe>
           </div>
         </div>
 
@@ -260,7 +259,7 @@
         <li><a href="cv.html">Chi sono</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contatti.html">Contatti</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="privacy.html">Privacy e cookie</a></li>
         <li><a href="https://account.start2impact.it/profile/renato-valigi" target="_blank" rel="noopener">start2impact</a></li>
       </ul>
 
@@ -290,15 +289,16 @@
         <label>
           <input type="checkbox" class="newsletter-gate">
           <span>
-            Ho letto l'<a href="privacy.html#newsletter" target="_blank" rel="noopener">informativa privacy</a>
-            e acconsento al trattamento dei miei dati per ricevere la newsletter.
+            Acconsento a ricevere la newsletter di Renato Valigi (una email per ogni nuovo contenuto) e ho letto
+            l'<a href="privacy.html#newsletter" target="_blank" rel="noopener">informativa privacy</a>.
+            Il modulo di iscrizione si carica da Brevo (Francia) solo dopo che hai spuntato questa casella.
           </span>
         </label>
       </div>
 
       <div class="newsletter-embed" data-locked>
-        <p class="newsletter-embed__lock">Spunta il consenso qui sopra per iscriverti.</p>
-        <iframe width="540" height="460" src="https://f58fb543.sibforms.com/v2/serve/MUIFAP4xHOO9W2M3UQmrVTvsQSJD6jXFIcpTfkdQOgROkP9H70NnOTgG-XE9TAUOj_pwhzcImLkYU7l46ij6i21Ksz2U0hFq6OLr4TLDSctaTkjoV7fs_JsWqPO5dgVQA80GkphhulSARKldLvHb3FX-WLjhI4U63cKxLTHhc1oEhCcLupgC6GsVmDYbH4KdsRrpOpd65-AOxvDStg==" frameborder="0" scrolling="auto" allowfullscreen title="Modulo di iscrizione alla newsletter"></iframe>
+        <p class="newsletter-embed__lock">Spunta la casella qui sopra per mostrare il modulo di iscrizione.</p>
+        <iframe width="540" height="460" referrerpolicy="strict-origin-when-cross-origin" data-src="https://f58fb543.sibforms.com/v2/serve/MUIFAP4xHOO9W2M3UQmrVTvsQSJD6jXFIcpTfkdQOgROkP9H70NnOTgG-XE9TAUOj_pwhzcImLkYU7l46ij6i21Ksz2U0hFq6OLr4TLDSctaTkjoV7fs_JsWqPO5dgVQA80GkphhulSARKldLvHb3FX-WLjhI4U63cKxLTHhc1oEhCcLupgC6GsVmDYbH4KdsRrpOpd65-AOxvDStg==" frameborder="0" scrolling="auto" allowfullscreen title="Modulo di iscrizione alla newsletter"></iframe>
       </div>
     </div>
   </div>
