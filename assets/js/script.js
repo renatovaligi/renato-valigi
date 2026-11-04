@@ -9,17 +9,9 @@
   "use strict";
 
   /* ----- Form contatti (EmailJS) --------------------------- *
-<<<<<<< HEAD
    * La libreria EmailJS e' ospitata sul sito (assets/vendor/emailjs.min.js):
    * il browser contatta i server di EmailJS solo quando l'utente invia il modulo.
    * Le chiavi qui sotto sono pubbliche per progetto (non sono segreti).
-=======
-   * DISATTIVATO. Per attivarlo:
-   *  a) aggiungi nell'<head> di contatti.html:
-   *       <script src="assets/js/vendor/emailjs.min.js" defer></script>
-   *  b) sostituisci le costanti qui sotto con le tue chiavi EmailJS
-   *  c) imposta EMAILJS_ENABLED = true
->>>>>>> cb7a2bb22f9d308d9db914b059e077d9dc0cfdef
    */
   var EMAILJS_ENABLED = true;
   var EMAILJS_PUBLIC_KEY = "SewHFgRaKh3bC7CTG";
@@ -117,11 +109,7 @@
 
     function closeModal() {
       modal.hidden = true;
-<<<<<<< HEAD
       if (lastFocus && typeof lastFocus.focus === "function") { lastFocus.focus(); }
-=======
-      if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
->>>>>>> cb7a2bb22f9d308d9db914b059e077d9dc0cfdef
       try {
         window.localStorage.setItem(DISMISS_KEY, "1");
       } catch (e) {
@@ -133,15 +121,10 @@
       var openModal = function () {
         lastFocus = document.activeElement;
         modal.hidden = false;
-<<<<<<< HEAD
         var card = modal.querySelector(".newsletter-modal__card");
         var firstFocus = modal.querySelector(".newsletter-modal__close");
         if (card) card.setAttribute("tabindex", "-1");
         window.setTimeout(function () { (firstFocus || card).focus(); }, 30);
-=======
-        var first = modal.querySelector(".newsletter-modal__close");
-        if (first) first.focus();
->>>>>>> cb7a2bb22f9d308d9db914b059e077d9dc0cfdef
       };
 
       window.setTimeout(function () {
@@ -162,7 +145,6 @@
     });
 
     document.addEventListener("keydown", function (event) {
-<<<<<<< HEAD
       if (modal.hidden) return;
       if (event.key === "Escape") { closeModal(); return; }
       if (event.key !== "Tab") return;
@@ -174,17 +156,6 @@
         event.preventDefault(); last.focus();
       } else if (!event.shiftKey && document.activeElement === last) {
         event.preventDefault(); first.focus();
-=======
-      if (event.key === "Escape" && !modal.hidden) closeModal();
-      // il focus resta dentro il popup finche' e' aperto
-      if (event.key === "Tab" && !modal.hidden) {
-        var items = modal.querySelectorAll('a[href], button, input, select, textarea, iframe');
-        var list = Array.prototype.filter.call(items, function (el) { return !el.disabled && el.offsetParent !== null; });
-        if (!list.length) return;
-        var firstEl = list[0], lastEl = list[list.length - 1];
-        if (event.shiftKey && document.activeElement === firstEl) { event.preventDefault(); lastEl.focus(); }
-        else if (!event.shiftKey && document.activeElement === lastEl) { event.preventDefault(); firstEl.focus(); }
->>>>>>> cb7a2bb22f9d308d9db914b059e077d9dc0cfdef
       }
     });
   }
@@ -215,17 +186,10 @@
     function sync() {
       if (checkbox.checked) {
         embed.removeAttribute("data-locked");
-<<<<<<< HEAD
         if (frame && !frame.getAttribute("src")) { frame.setAttribute("src", frame.getAttribute("data-src")); }
       } else {
         embed.setAttribute("data-locked", "");
       }
-=======
-        // il modulo di Brevo si carica solo dopo la spunta: prima non parte nessuna richiesta verso Brevo
-        var frame = embed.querySelector("iframe[data-src]");
-        if (frame && !frame.getAttribute("src")) frame.setAttribute("src", frame.getAttribute("data-src"));
-      } else embed.setAttribute("data-locked", "");
->>>>>>> cb7a2bb22f9d308d9db914b059e077d9dc0cfdef
     }
 
     checkbox.addEventListener("change", sync);

@@ -2013,7 +2013,6 @@ blockquote::before { content: ""; position: absolute; left: 0; top: 0; width: 56
 }
 .status-chip i { width: 6px; height: 14px; border: 0; border-radius: 0; background: var(--accent); transform: skewX(-14deg); }
 
-<<<<<<< HEAD
 /* =============================================================
    14. ACCESSIBILITA E INFORMATIVE
    Testo nascosto ma leggibile dagli screen reader, link
@@ -2090,14 +2089,3 @@ main a:not([class]),
 @media (prefers-reduced-motion: reduce) {
   .marquee__pause { display: none; }
 }
-=======
-
-/* ---------- Accessibilita e informative ---------- */
-.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-.form-hint a, .mt-lg a, .article__body p a, .article__body li a, .lead a, .newsletter-embed__lock a { text-decoration: underline; text-underline-offset: 0.18em; }
-.form-info { margin: 1.25rem 0 1.5rem; max-width: 52ch; line-height: 1.55; }
-.table-wrap:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; }
-/* testo che si illumina allo scorrimento: anche prima resta leggibile (contrasto oltre 4,5:1) */
-.scrub .sw { color: rgba(241, 234, 223, 0.56); }
-.scrub .sw.is-lit { color: var(--text); }
->>>>>>> cb7a2bb22f9d308d9db914b059e077d9dc0cfdef
