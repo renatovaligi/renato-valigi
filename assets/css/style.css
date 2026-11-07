@@ -1356,11 +1356,12 @@ textarea.form-control { min-height: 170px; resize: vertical; }
   color: var(--text);
 }
 .footer-brand span { color: var(--accent); }
-.footer-nav { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; margin: 3rem 0 0; padding: 1.5rem 0 0; border-top: 1px solid var(--line); }
-.footer-nav a, .link-button { font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer-nav { list-style: none; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1rem; margin: 3rem 0 0; padding: 1.5rem 0 0; border-top: 1px solid var(--line); }
+.footer-nav a, .link-button { font-family: var(--font-display); font-size: 0.98rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
 .link-button { padding: 0; color: var(--text-2); background: none; border: 0; cursor: pointer; }
 .link-button:hover { color: var(--accent-2); }
-.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; margin-top: 2rem; font-size: 0.88rem; }
+.footer-copy { font-size: 0.88rem; color: var(--muted); white-space: nowrap; }
+@media (min-width: 1100px) { .footer-copy { margin-left: auto; } }
 
 .consent-banner {
   position: fixed;

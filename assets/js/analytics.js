@@ -138,7 +138,8 @@
     if (!nav || nav.querySelector("[data-consent-open]")) return;
     var li = doc.createElement("li");
     li.innerHTML = '<button type="button" class="link-button" data-consent-open>Gestisci cookie</button>';
-    nav.appendChild(li);
+    var copy = nav.querySelector(".footer-copy");
+    if (copy) { nav.insertBefore(li, copy); } else { nav.appendChild(li); }
   }
 
   doc.addEventListener("click", function (e) {
