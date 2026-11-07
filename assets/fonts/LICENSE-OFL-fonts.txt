@@ -1,4 +1,11 @@
-Copyright 2020 The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo) Archivo-Italic[wdth,wght].ttf: Copyright 2020 The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo)
+Caratteri usati dal sito (tutti ospitati su questo dominio):
+
+Barlow Condensed: Copyright 2017 The Barlow Project Authors (https://github.com/jpt/barlow)
+Hanken Grotesk: Copyright 2021 The Hanken Grotesk Project Authors (https://github.com/marcologous/hanken-grotesk)
+
+Caratteri usati in precedenza e ancora presenti nella cartella, non piu collegati dal sito:
+Archivo: Copyright 2020 The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo)
+Big Shoulders Display e Newsreader: stessa licenza SIL OFL 1.1.
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
