@@ -223,6 +223,48 @@
     return P;
   }
 
+  // Jarvis: radar con tacchette, due anelli, palla da basket con cuciture, lancetta con ventaglio
+  // e il logo TagUp al centro (stessa geometria dell'animazione Jarvis, in unita' 0-400 centrate)
+  function jarvis(rand) {
+    var P = [], k, j, a, r, ang;
+    function pt(x, y, z) { return [x, y, (z || 0) + (rand() - 0.5) * 3]; }
+    function ring(rad, n) { for (k = 0; k < n; k++) { a = (k / n) * Math.PI * 2; P.push(pt(Math.cos(a) * rad, Math.sin(a) * rad)); } }
+    ring(150, 100);
+    ring(90, 60);
+    ring(120, 110);
+    // tacchette sul bordo: ogni quinta piu' lunga
+    for (k = 0; k < 60; k++) {
+      a = (k / 60) * Math.PI * 2;
+      var r0 = k % 5 === 0 ? 160 : 166, r1 = k % 5 === 0 ? 184 : 178;
+      for (j = 0; j < 3; j++) { r = r0 + (r1 - r0) * (j / 2); P.push(pt(Math.cos(a) * r, Math.sin(a) * r)); }
+    }
+    // cuciture del pallone
+    for (k = 0; k < 24; k++) { P.push(pt(0, -120 + 240 * (k / 23))); P.push(pt(-120 + 240 * (k / 23), 0)); }
+    var al = Math.asin(118 / 150);
+    for (k = 0; k < 34; k++) {
+      ang = -al + 2 * al * (k / 33);
+      // arco sinistro: centro a x = +28.6, arco destro: centro a x = -28.6
+      var Lx = 28.6 + Math.cos(Math.PI - ang) * 150, Ly = Math.sin(Math.PI - ang) * 150;
+      var Rx = -28.6 + Math.cos(ang) * 150, Ry = Math.sin(ang) * 150;
+      if (Lx * Lx + Ly * Ly <= 120 * 120) P.push(pt(Lx, Ly));
+      if (Rx * Rx + Ry * Ry <= 120 * 120) P.push(pt(Rx, Ry));
+    }
+    // lancetta e ventaglio del radar (dalle 12 verso le 1:30)
+    for (k = 0; k < 26; k++) P.push(pt(0, 180 * (k / 25)));
+    [82, 74, 66, 58].forEach(function (deg) {
+      var th = deg * Math.PI / 180;
+      for (k = 0; k < 12; k++) { r = 180 * (k / 11); P.push(pt(Math.cos(th) * r, Math.sin(th) * r)); }
+    });
+    // logo TagUp (stessa nuvola di punti, ridotta) in centro
+    var L = LOGOS.tagup;
+    if (L) {
+      var lg = logo(L, rand), i, e = L.e, want = 1250 - P.length, eN = Math.round(want * 0.78), dN = want - eN;
+      for (i = 0; i < eN; i++) { var s = lg[Math.floor(i * e / eN)]; P.push([s[0] * 97, s[1] * 97 - 4, s[2] * 48]); }
+      for (i = 0; i < dN; i++) { var d = lg[e + Math.floor(i * (lg.length - e) / dN)]; P.push([d[0] * 97, d[1] * 97 - 4, d[2] * 48]); }
+    }
+    return P;
+  }
+
   /* ----- elenco, nell'ordine in cui compaiono --------------- */
   window.OrbShapes = {
     build: function (N) {
@@ -231,7 +273,7 @@
         { label: "Idea", flat: false, pts: sphere(N) },
         { label: "Basket", flat: false, pts: ball(N) }
       ];
-      if (LOGOS.tagup) defs.push({ label: "TagUp", flat: true, pts: logo(LOGOS.tagup, rand) });
+      if (LOGOS.tagup) defs.push({ label: "Jarvis", flat: true, pts: jarvis(rand) });
       defs.push(
         { label: "Canestro", flat: false, pts: hoop() },
         { label: "Tattica", flat: true, pts: court() },

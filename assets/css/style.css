@@ -1038,61 +1038,10 @@ dialog.case-dialog::backdrop { background: rgba(5, 6, 8, 0.82); backdrop-filter:
   transition: border-color 0.3s ease;
 }
 .product-card:hover { border-color: var(--line-2); border-top-color: var(--accent); }
-@media (min-width: 860px) { .product-card { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); } }
-
-/* riquadro dell'animazione "Jarvis": nero del sito, niente blu */
-.product-card__media {
-  position: relative;
-  display: grid;
-  place-items: center;
-  min-height: 22rem;
-  padding: 2.5rem 1.5rem;
-  background: var(--bg);
-  border-bottom: 1px solid var(--line);
-  overflow: hidden;
-  cursor: pointer;
-}
-@media (min-width: 860px) { .product-card__media { min-height: 0; border-bottom: 0; border-right: 1px solid var(--line); } }
-
-/* animazione radar + logo che si disegna (stati iniziali; partono con .is-on, vedi jarvis.js) */
-.jarvis { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; }
-.jarvis svg { width: min(72vw, 19rem); height: auto; overflow: visible; }
-.jarvis__name {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 5vw, 2.3rem);
-  font-weight: 900;
-  letter-spacing: 0.16em;
-  line-height: 1;
-  text-transform: uppercase;
-  color: var(--text);
-  opacity: 0;
-}
-.jarvis .rrg { fill: none; stroke: #ff5a1f; stroke-width: 1; opacity: 0.5; }
-.jarvis .rtk { stroke: #ff5a1f; stroke-width: 2; opacity: 0; }
-.jarvis .rsw { transform-origin: 200px 200px; }
-.jarvis .rbl { fill: none; stroke: #ff5a1f; stroke-width: 3; opacity: 0; }
-.jarvis .rsm { fill: none; stroke: #ff5a1f; stroke-width: 1.8; opacity: 0; }
-.jarvis .lp { fill: rgba(255, 90, 31, 0); stroke: #ff5a1f; stroke-width: 4; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
-.jarvis.is-on .rtk { animation: jv-o 0.6s 0.2s forwards; }
-.jarvis.is-on .rsw { animation: jv-sp 1.6s 0.1s linear 2; }
-.jarvis.is-on .rbl { animation: jv-o 0.3s 0.5s forwards; }
-.jarvis.is-on .rsm { animation: jv-o 0.3s 0.8s forwards; }
-.jarvis.is-on .lp { animation: jv-d 1s 0.9s forwards, jv-lf 0.4s 1.8s forwards; }
-.jarvis.is-on .jarvis__name { animation: jv-o 0.5s 1.5s forwards; }
-@keyframes jv-o { to { opacity: 1; } }
-@keyframes jv-d { to { stroke-dashoffset: 0; } }
-@keyframes jv-sp { to { transform: rotate(360deg); } }
-@keyframes jv-lf { to { fill: rgba(244, 241, 234, 0.95); stroke: rgba(244, 241, 234, 0.95); } }
-/* senza JavaScript o con "riduci movimento": logo gia' disegnato, fermo */
-html:not(.js) .jarvis .rtk, html:not(.js) .jarvis .rbl, html:not(.js) .jarvis .rsm, html:not(.js) .jarvis__name { opacity: 1; }
-html:not(.js) .jarvis .lp { stroke-dashoffset: 0; fill: rgba(244, 241, 234, 0.95); stroke: rgba(244, 241, 234, 0.95); }
-@media (prefers-reduced-motion: reduce) {
-  .jarvis .rtk, .jarvis .rbl, .jarvis .rsm, .jarvis__name { opacity: 1; }
-  .jarvis .lp { stroke-dashoffset: 0; fill: rgba(244, 241, 234, 0.95); stroke: rgba(244, 241, 234, 0.95); }
-}
+.product-card--tagup { max-width: 44rem; }
 
 .product-card__body { display: flex; flex-direction: column; align-items: flex-start; gap: 0.9rem; padding: 1.75rem; }
-@media (min-width: 860px) { .product-card__body { padding: 2.75rem 3rem; justify-content: center; } }
+@media (min-width: 860px) { .product-card__body { padding: 3rem 3.25rem; } }
 
 /* scritta "A breve": tubo al neon che lampeggia piano (circa una volta ogni 2,4 secondi) */
 .neon-status {
