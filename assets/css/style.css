@@ -11,7 +11,7 @@
    ============================================================= */
 
 /* ---------- 0. CARATTERI OSPITATI SUL SITO ----------
-   Barlow Condensed (titoli) e Hanken Grotesk (testi), licenza SIL OFL 1.1,
+   Barlow Condensed (titoli) e Hanken Grotesk (testi), più Archivo solo per il logotipo di TagUp, licenza SIL OFL 1.1,
    serviti da questo stesso dominio: nessuna richiesta a Google Fonts,
    quindi nessun indirizzo IP dei visitatori inviato a terzi. */
 @font-face {
@@ -34,6 +34,14 @@
   font-weight: 100 900;
   font-display: swap;
   src: url("../fonts/hanken-grotesk-latin-wght-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/archivo-latin-wght-normal.woff2") format("woff2");
 }
 
 /* ---------- 1. BASE ---------- */
@@ -283,7 +291,7 @@ main > .section:first-child h1 { margin-bottom: 1.5rem; }
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-@media (min-width: 900px) { .nav-toggle-checkbox { display: none; } }
+@media (min-width: 1080px) { .nav-toggle-checkbox { display: none; } }
 
 .nav-toggle {
   position: relative;
@@ -307,7 +315,7 @@ main > .section:first-child h1 { margin-bottom: 1.5rem; }
   background: var(--text);
   transition: transform 0.3s var(--ease), opacity 0.2s ease;
 }
-@media (min-width: 900px) { .nav-toggle { display: none; } }
+@media (min-width: 1080px) { .nav-toggle { display: none; } }
 .nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(2) { opacity: 0; }
 .nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
@@ -356,10 +364,11 @@ main > .section:first-child h1 { margin-bottom: 1.5rem; }
 .nav-toggle-checkbox:checked ~ .nav-menu li:nth-child(3) a { transition-delay: 0.1s; }
 .nav-toggle-checkbox:checked ~ .nav-menu li:nth-child(4) a { transition-delay: 0.15s; }
 .nav-toggle-checkbox:checked ~ .nav-menu li:nth-child(5) a { transition-delay: 0.2s; }
+.nav-toggle-checkbox:checked ~ .nav-menu li:nth-child(6) a { transition-delay: 0.25s; }
 body:has(.nav-toggle-checkbox:checked) { overflow: hidden; }
 
 /* desktop: barra orizzontale, "Contatti" come pulsante */
-@media (min-width: 900px) {
+@media (min-width: 1080px) {
   .nav-menu {
     position: static;
     inset: auto;
@@ -378,6 +387,7 @@ body:has(.nav-toggle-checkbox:checked) { overflow: hidden; }
     padding: 0.5rem 0.95rem;
     font-size: 1.2rem;
     letter-spacing: 0.06em;
+    white-space: nowrap;
     color: var(--text-2);
     transform: none;
     transition: color 0.2s ease;
@@ -1036,59 +1046,101 @@ dialog.case-dialog::backdrop { background: rgba(5, 6, 8, 0.82); backdrop-filter:
   transition: border-color 0.3s ease;
 }
 .product-card:hover { border-color: var(--line-2); border-top-color: var(--accent); }
-@media (min-width: 860px) { .product-card { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
+@media (min-width: 860px) { .product-card { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); } }
 
-/* riquadro del logo: griglia e cerchio di centrocampo, come la schermata iniziale di TagUp */
+/* riquadro del logo: colori di marca TagUp (blu notte e arancio), griglia e cerchio di centrocampo */
 .product-card__media {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 15rem;
-  background-color: var(--bg);
+  min-height: 21rem;
+  padding: 2.5rem 1.5rem;
+  background-color: #13202f;
   background-image:
-    linear-gradient(rgba(244, 241, 234, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(244, 241, 234, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
+    radial-gradient(ellipse at 50% 55%, rgba(232, 80, 31, 0.2), transparent 62%),
+    linear-gradient(rgba(243, 239, 232, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(243, 239, 232, 0.045) 1px, transparent 1px);
+  background-size: auto, 40px 40px, 40px 40px;
   border-bottom: 1px solid var(--line);
   overflow: hidden;
 }
 .product-card__media::before {
   content: "";
   position: absolute;
-  width: 78%;
+  width: 88%;
   aspect-ratio: 1;
-  max-width: 22rem;
-  border: 1px solid rgba(244, 241, 234, 0.14);
+  max-width: 26rem;
+  border: 1px solid rgba(243, 239, 232, 0.12);
   border-radius: 50%;
 }
-.product-card__media img { position: relative; width: min(46%, 13rem); height: auto; }
 @media (min-width: 860px) { .product-card__media { min-height: 0; border-bottom: 0; border-right: 1px solid var(--line); } }
 
-.product-card__body { display: flex; flex-direction: column; align-items: flex-start; gap: 0.85rem; padding: 1.75rem; }
-@media (min-width: 860px) { .product-card__body { padding: 2.25rem 2.5rem; } }
-.product-card__status {
+/* marchio completo di TagUp: simbolo, logotipo in Archivo ExtraBold, sottotitolo spaziato */
+.brand-lockup { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.35rem; text-align: center; }
+.brand-lockup__mark { width: min(62vw, 14.5rem); height: auto; margin-bottom: 0.9rem; }
+.brand-lockup__word {
+  margin: 0;
+  font-family: "Archivo", var(--font-body);
+  font-size: clamp(3rem, 7vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: #f3efe8;
+}
+.brand-lockup__word span { color: #e8501f; }
+.brand-lockup__sub {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: #8a96a8;
+  padding-left: 0.34em;
+}
+
+.product-card__body { display: flex; flex-direction: column; align-items: flex-start; gap: 0.9rem; padding: 1.75rem; }
+@media (min-width: 860px) { .product-card__body { padding: 2.75rem 3rem; justify-content: center; } }
+
+/* scritta "A breve": tubo al neon che lampeggia piano (circa una volta ogni 2,4 secondi) */
+.neon-status {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  margin: 0;
-  padding: 0.35rem 0.95rem 0.35rem 0.75rem;
+  gap: 0.8rem;
+  margin: 0 0 0.35rem;
+  padding: 0.55rem 1.2rem 0.55rem 1rem;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
   font-weight: 900;
-  letter-spacing: 0.08em;
-  line-height: 1.1;
+  letter-spacing: 0.12em;
+  line-height: 1;
   text-transform: uppercase;
-  color: var(--text);
-  background: var(--bg);
-  box-shadow: inset 0 0 0 1px var(--line-2);
-  clip-path: var(--cut);
+  color: #ffe3d3;
+  background: rgba(255, 90, 31, 0.07);
+  border: 1px solid rgba(255, 90, 31, 0.75);
+  border-radius: 3px;
+  text-shadow: 0 0 0.12em #ff8a57, 0 0 0.45em #ff5a1f, 0 0 1em rgba(255, 90, 31, 0.8);
+  box-shadow: 0 0 1.1rem rgba(255, 90, 31, 0.45), inset 0 0 0.9rem rgba(255, 90, 31, 0.28);
+  animation: neon-blink 2.4s ease-in-out infinite;
 }
-.product-card__status::before { content: ""; width: 3px; height: 1.05em; background: var(--accent); }
-.product-card__body h3 { margin: 0.35rem 0 0; font-size: clamp(2.4rem, 4vw, 3.4rem); line-height: 0.95; }
-.product-card__body h3 span { color: var(--accent); }
+.neon-status__dot {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: #ff5a1f;
+  box-shadow: 0 0 0.35em #ff5a1f, 0 0 0.9em #ff5a1f;
+}
+@keyframes neon-blink {
+  0%, 38%, 58%, 100% { opacity: 1; }
+  44%, 52% { opacity: 0.22; }
+}
+@media (prefers-reduced-motion: reduce) { .neon-status { animation: none !important; opacity: 1; } }
+
+.product-card__body h2 { margin: 0.2rem 0 0; font-size: clamp(2.4rem, 4vw, 3.4rem); line-height: 0.95; }
+.product-card__body h2 span { color: var(--accent); }
 .product-card__tagline { margin: 0; font-size: 1.15rem; font-weight: 600; line-height: 1.4; color: var(--text); }
-.product-card__body p:not([class]) { margin: 0; max-width: 56ch; font-size: 1.02rem; }
-.product-card__link { margin-top: 0.6rem; }
+.product-card__body p:not([class]) { margin: 0; max-width: 52ch; font-size: 1.02rem; }
+.product-card__body .btn { margin-top: 0.8rem; }
 
 /* ---------- 8. BLOG E ARTICOLI ---------- */
 .post-list { display: flex; flex-direction: column; border-bottom: 1px solid var(--line); }
