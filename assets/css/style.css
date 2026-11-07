@@ -11,7 +11,7 @@
    ============================================================= */
 
 /* ---------- 0. CARATTERI OSPITATI SUL SITO ----------
-   Barlow Condensed (titoli) e Hanken Grotesk (testi), più Archivo solo per il logotipo di TagUp, licenza SIL OFL 1.1,
+   Barlow Condensed (titoli) e Hanken Grotesk (testi), licenza SIL OFL 1.1,
    serviti da questo stesso dominio: nessuna richiesta a Google Fonts,
    quindi nessun indirizzo IP dei visitatori inviato a terzi. */
 @font-face {
@@ -34,14 +34,6 @@
   font-weight: 100 900;
   font-display: swap;
   src: url("../fonts/hanken-grotesk-latin-wght-italic.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Archivo";
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url("../fonts/archivo-latin-wght-normal.woff2") format("woff2");
 }
 
 /* ---------- 1. BASE ---------- */
@@ -291,7 +283,7 @@ main > .section:first-child h1 { margin-bottom: 1.5rem; }
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-@media (min-width: 1080px) { .nav-toggle-checkbox { display: none; } }
+@media (min-width: 900px) { .nav-toggle-checkbox { display: none; } }
 
 .nav-toggle {
   position: relative;
@@ -315,7 +307,7 @@ main > .section:first-child h1 { margin-bottom: 1.5rem; }
   background: var(--text);
   transition: transform 0.3s var(--ease), opacity 0.2s ease;
 }
-@media (min-width: 1080px) { .nav-toggle { display: none; } }
+@media (min-width: 900px) { .nav-toggle { display: none; } }
 .nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(2) { opacity: 0; }
 .nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
@@ -368,7 +360,7 @@ main > .section:first-child h1 { margin-bottom: 1.5rem; }
 body:has(.nav-toggle-checkbox:checked) { overflow: hidden; }
 
 /* desktop: barra orizzontale, "Contatti" come pulsante */
-@media (min-width: 1080px) {
+@media (min-width: 900px) {
   .nav-menu {
     position: static;
     inset: auto;
@@ -1075,29 +1067,7 @@ dialog.case-dialog::backdrop { background: rgba(5, 6, 8, 0.82); backdrop-filter:
 }
 @media (min-width: 860px) { .product-card__media { min-height: 0; border-bottom: 0; border-right: 1px solid var(--line); } }
 
-/* marchio completo di TagUp: simbolo, logotipo in Archivo ExtraBold, sottotitolo spaziato */
-.brand-lockup { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.35rem; text-align: center; }
-.brand-lockup__mark { width: min(62vw, 14.5rem); height: auto; margin-bottom: 0.9rem; }
-.brand-lockup__word {
-  margin: 0;
-  font-family: "Archivo", var(--font-body);
-  font-size: clamp(3rem, 7vw, 4.2rem);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1;
-  color: #f3efe8;
-}
-.brand-lockup__word span { color: #e8501f; }
-.brand-lockup__sub {
-  margin: 0.25rem 0 0;
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  color: #8a96a8;
-  padding-left: 0.34em;
-}
+.product-card__logo { position: relative; width: min(64vw, 17rem); height: auto; }
 
 .product-card__body { display: flex; flex-direction: column; align-items: flex-start; gap: 0.9rem; padding: 1.75rem; }
 @media (min-width: 860px) { .product-card__body { padding: 2.75rem 3rem; justify-content: center; } }
