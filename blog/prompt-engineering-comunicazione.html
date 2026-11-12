@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt engineering per chi comunica: scrivi meglio all'AI - Blog di Renato Valigi</title>
+  <meta name="description" content="Come impostare un prompt, tre schemi semplici (R.I.S.E.N., R.O.S.E.S. e meta prompt) e un esempio pratico per una società sportiva. Un articolo di Renato Valigi.">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Prompt engineering per chi comunica: scrivi meglio all'AI">
+  <meta property="og:description" content="Ti è mai capitato di chiedere un post a un'intelligenza artificiale e di ottenere un testo che va bene per chiunque? Di solito il problema è la richiesta, non lo strumento.">
+  <meta property="og:image" content="https://renatovaligi.com/assets/img/foto-profilo.png">
+  <meta property="og:url" content="https://renatovaligi.com/blog/prompt-engineering-comunicazione.html">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/img/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <meta name="theme-color" content="#0b0d10">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="canonical" href="https://renatovaligi.com/blog/prompt-engineering-comunicazione.html">
+</head>
+<body>
+  <a class="skip-link" href="#main">Salta al contenuto</a>
+
+  <header class="site-header">
+    <div class="container-tight">
+      <nav class="site-nav" aria-label="Navigazione principale">
+        <a class="site-brand" href="../index.html">Renato <span>Valigi</span></a>
+        <input class="nav-toggle-checkbox" type="checkbox" id="nav-toggle" aria-label="Apri il menu">
+        <label class="nav-toggle" for="nav-toggle" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="../cv.html">Chi sono</a></li>
+          <li><a href="../progetti.html">Progetti</a></li>
+          <li><a href="../blog.html" aria-current="page">Blog</a></li>
+          <li><a href="../prodotti.html">I miei prodotti</a></li>
+          <li><a href="../contatti.html">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container-tight">
+        <article class="article">
+          <header class="article__header">
+            <p class="section-label"><a href="../blog.html">&larr; Tutti gli articoli</a></p>
+            <h1>Prompt engineering per chi comunica: scrivi meglio all'AI</h1>
+            <p class="article__meta">
+              di Renato Valigi - novembre 2026
+            </p>
+          </header>
+
+          <div class="article__body">
+            <p>
+              Ti è mai capitato di chiedere un post a un'intelligenza artificiale e di ottenere un testo
+              che potrebbe andare bene per chiunque? Succede a quasi tutti, e di solito il problema non è
+              lo strumento: è la richiesta.
+            </p>
+            <p>
+              In questo articolo ti spiego come impostare un prompt, quali schemi vale la pena conoscere
+              (tre, molto semplici) e un esempio pratico che puoi adattare al tuo lavoro. Non servono
+              competenze tecniche.
+            </p>
+
+            <h2>Perché non possiamo più ignorare il tema</h2>
+            <p>
+              Secondo il Work Trend Index 2024 di
+              <a href="https://blogs.microsoft.com/blog/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/" target="_blank" rel="noopener">Microsoft e LinkedIn</a>, realizzato su
+              31.000 persone in 31 Paesi, il 75% dei knowledge worker usava già l'AI sul lavoro. È un dato
+              del 2024, quindi oggi la fotografia sarà cambiata, ma il senso è chiaro: l'AI è entrata
+              negli uffici, nelle redazioni e anche nelle società sportive, spesso senza che nessuno abbia
+              spiegato come usarla.
+            </p>
+            <p>
+              Questo conta anche in Italia, per una ragione molto concreta. Il D.Lgs. 179/2026, entrato in
+              vigore il 23 ottobre 2026, riguarda anche le organizzazioni sportive. Secondo
+              <a href="https://acsi.it/articoli/il-d-lgs-179-2026-sulla-intelligenza-artificiale-interessa-anche-le-organizzazioni-sportive/" target="_blank" rel="noopener">l'articolo di ACSI</a> che lo commenta, chi
+              è datore di lavoro deve formare le persone che usano strumenti con IA, perché abbiano
+              un'adeguata alfabetizzazione digitale. Saper scrivere un buon prompt, e sapere cosa non
+              inserirci, diventa quindi una competenza di base.
+            </p>
+
+            <h2>Il prompt vago produce risposte vaghe</h2>
+            <p>
+              Un prompt è l'istruzione che dai all'AI. Può essere una domanda, un testo, un'immagine. La
+              differenza la fa quanto contesto riesci a dare.
+            </p>
+            <p>
+              Prendi questa richiesta: "Scrivi un post LinkedIn sull'AI". L'AI non sa chi sei, a chi
+              parli, cosa vuoi ottenere. Risultato: un contenuto standard, che non dice nulla di tuo.
+            </p>
+            <p>
+              Gli appunti del modulo del Master suggeriscono un approccio diverso: partire da una tua
+              bozza e chiedere suggerimenti precisi per migliorarla. In questo modo l'AI diventa un
+              supporto al ragionamento e non un generatore automatico. Il testo, le idee e le decisioni
+              restano tuoi.
+            </p>
+
+            <h2>Tre schemi che funzionano</h2>
+            <p>
+              Nel corso si insiste su un punto: non esiste una formula magica universale. Gli schemi
+              servono a non dimenticare pezzi, non a eseguire un rito. Questi sono i tre che mi sembrano
+              più utili.
+            </p>
+
+            <h3>1. Il metodo R.I.S.E.N.</h3>
+            <p>Sta per Role, Instructions, Steps, End goal, Narrowing. In italiano:</p>
+            <ul>
+              <li><strong>Ruolo:</strong> chi deve essere l'AI (per esempio un esperto di comunicazione sportiva).</li>
+              <li><strong>Istruzioni:</strong> cosa deve fare, spiegato con precisione.</li>
+              <li><strong>Passaggi:</strong> in che ordine procedere, utile per analisi e revisioni.</li>
+              <li><strong>Obiettivo finale:</strong> il risultato che vuoi ottenere.</li>
+              <li><strong>Restrizioni:</strong> limiti di lunghezza, tono, cose da evitare.</li>
+            </ul>
+
+            <h3>2. Il metodo R.O.S.E.S.</h3>
+            <p>
+              Role, Objective, Scenario, Expected Solution, Steps. La parte che cambia davvero le risposte
+              è lo scenario: target, problema, situazione reale. Senza contesto l'AI risponde in modo
+              generico. Con il contesto giusto, le risposte diventano concrete.
+            </p>
+
+            <h3>3. Il meta prompt</h3>
+            <p>
+              Qui chiedi all'AI di scrivere o migliorare il prompt al posto tuo. Per esempio: "Agisci come
+              un esperto di prompt engineering e trasforma questa richiesta in una versione più
+              dettagliata e mirata". È utile quando sai cosa vuoi ma non sai come dirlo.
+            </p>
+
+            <h2>Un esempio per una società sportiva</h2>
+            <p>
+              Immagina di dover preparare la newsletter della settimana per i tifosi di una squadra di
+              basket. Il prompt debole è: "Scrivi una newsletter per i tifosi".
+            </p>
+            <p>
+              Una versione più forte, costruita con R.O.S.E.S., potrebbe essere questa (è un esempio mio,
+              da adattare):
+            </p>
+            <ul>
+              <li><strong>Ruolo:</strong> sei un esperto di comunicazione sportiva.</li>
+              <li><strong>Obiettivo:</strong> scrivere la newsletter settimanale per i tifosi di una squadra di basket di serie minore.</li>
+              <li><strong>Scenario:</strong> pubblico fatto di famiglie, abbonati e ragazzi del settore giovanile; tono caldo e diretto; questa settimana c'è una partita in casa sabato e una raccolta fondi per il settore giovanile.</li>
+              <li><strong>Soluzione attesa:</strong> testo di circa 200 parole con un titolo, tre paragrafi brevi e un invito finale.</li>
+              <li><strong>Passaggi:</strong> prima proponi tre titoli, poi scrivi il testo con quello che ti indico.</li>
+            </ul>
+            <p>
+              Nota che non ho inserito nomi di persone, numeri di telefono o dati personali. È una regola
+              che vale sempre: nei prompt va solo ciò che sei sicuro di poter condividere con quello
+              strumento.
+            </p>
+
+            <h2>Dopo il prompt, il lavoro è tuo</h2>
+            <p>
+              C'è una parte che nessun framework risolve: la verifica. Gli appunti del corso lo ripetono
+              più volte. L'AI può sbagliare, soprattutto con dati incompleti, e affidarsi senza controllo
+              alle sue risposte indebolisce anche il nostro pensiero critico. Il metodo che suggerisco è
+              semplice:
+            </p>
+            <ol>
+              <li>Chiedi una prima versione.</li>
+              <li>Leggila come se l'avesse scritta qualcun altro.</li>
+              <li>Controlla dati, nomi e fatti con le fonti.</li>
+              <li>Riscrivi con parole tue ciò che non suona come te.</li>
+            </ol>
+            <p>Se il testo finale non sembra scritto da te, il prompt non era finito.</p>
+
+            <h2>In breve</h2>
+            <p>
+              Il prompt engineering, per chi comunica, è soprattutto un esercizio di chiarezza: sapere chi
+              sei, a chi parli e cosa vuoi ottenere prima di chiedere qualcosa a uno strumento. Gli schemi
+              come R.I.S.E.N. e R.O.S.E.S. aiutano a non dimenticare nulla, il meta prompt aiuta quando le
+              idee sono confuse, e la verifica finale resta una responsabilità umana.
+            </p>
+            <p>
+              E tu? Qual è l'attività di comunicazione per cui usi di più l'AI, e cosa ti delude di
+              solito nelle risposte? Scrivimelo nei commenti al post su
+              <a href="https://www.linkedin.com/in/renatovaligi/" target="_blank" rel="noopener">LinkedIn</a>
+              o <a href="../contatti.html">contattami direttamente</a>. Se l'articolo ti è stato utile,
+              condividilo con chi si occupa di comunicazione nella tua società.
+            </p>
+
+            <p class="form-hint">
+              Fonti: appunti del modulo AI e Prompt Engineering (Master in Growth Marketing e Agenti AI,
+              start2impact University e Unimarconi); Microsoft e LinkedIn,
+              <a href="https://blogs.microsoft.com/blog/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/" target="_blank" rel="noopener">"2024 Work Trend Index on the state of AI at work"</a>,
+              8 maggio 2024; ACSI,
+              <a href="https://acsi.it/articoli/il-d-lgs-179-2026-sulla-intelligenza-artificiale-interessa-anche-le-organizzazioni-sportive/" target="_blank" rel="noopener">"Il D.Lgs. 179/2026 sulla intelligenza artificiale interessa anche le organizzazioni sportive"</a>,
+              28 ottobre 2026.
+            </p>
+          </div>
+
+          <hr>
+          <p><a href="../blog.html">&larr; Torna al blog</a> &nbsp;&middot;&nbsp; <a href="../contatti.html">Parliamone &rarr;</a></p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-tight">
+      <div class="footer-top">
+        <div>
+          <p class="footer-brand">Renato <span>Valigi</span></p>
+          <p>Comunicazione, digital marketing e sport.</p>
+        </div>
+        <ul class="icon-row">
+          <li>
+            <a href="https://www.linkedin.com/in/renatovaligi/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="7.5" cy="7" r="1" fill="currentColor" stroke="none"/><line x1="7.5" y1="10.5" x2="7.5" y2="17"/><line x1="11.5" y1="10.5" x2="11.5" y2="17"/><path d="M11.5 13.2c0-1.5 1-2.7 2.5-2.7s2.5 1.2 2.5 2.7V17"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/valijao_meravigliao/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/rennybreccia" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14.5 8.5h2V5.2c-.4-.05-1.4-.15-2.6-.15-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.3h2.5V21h3.3v-6.05h2.5l.4-3.3h-2.9V9.7c0-.8.2-1.2 1.2-1.2Z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/renatovaligi" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="footer-nav">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../cv.html">Chi sono</a></li>
+        <li><a href="../progetti.html">Progetti</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../prodotti.html">I miei prodotti</a></li>
+        <li><a href="../contatti.html">Contatti</a></li>
+        <li><a href="../privacy.html">Privacy e cookie</a></li>
+        <li><a href="../note-legali.html">Note legali</a></li>
+        <li><a href="https://account.start2impact.it/profile/renato-valigi" target="_blank" rel="noopener">start2impact</a></li>
+        <li class="footer-copy">&copy; 2026 Renato Valigi</li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/motion.js" defer></script>
+  <script src="../assets/js/analytics.js" defer></script>
+</body>
+</html>
