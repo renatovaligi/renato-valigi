@@ -92,6 +92,61 @@
     });
   }
 
+  /* ----- Ordinamento blog per data ----------------------------
+     Di partenza l'elenco resta com'e scritto nell'HTML (il piu letto in cima).
+     "Piu recenti" e "Meno recenti" ordinano tutto per data, il badge resta
+     sull'articolo. Premendo di nuovo il pulsante attivo si torna all'ordine di partenza. */
+  var sortButtons = document.querySelectorAll(".blog-sort__btn");
+  var postList = document.querySelector(".post-list");
+  var sortStatus = document.getElementById("blog-status");
+
+  if (sortButtons.length && postList && posts.length) {
+    posts.forEach(function (post, index) {
+      post.setAttribute("data-seq", index);
+    });
+
+    var sortPosts = function (mode) {
+      var ordered = Array.prototype.slice.call(posts);
+      ordered.sort(function (a, b) {
+        var sa = Number(a.getAttribute("data-seq"));
+        var sb = Number(b.getAttribute("data-seq"));
+        if (!mode) return sa - sb;
+        var da = a.getAttribute("data-date") || "";
+        var db = b.getAttribute("data-date") || "";
+        if (da === db) return mode === "vecchi" ? sb - sa : sa - sb;
+        return mode === "vecchi" ? (da < db ? -1 : 1) : (da < db ? 1 : -1);
+      });
+      ordered.forEach(function (post) {
+        postList.appendChild(post);
+      });
+    };
+
+    sortButtons.forEach(function (button) {
+      button.setAttribute("aria-pressed", button.classList.contains("is-active") ? "true" : "false");
+      button.addEventListener("click", function () {
+        var wasActive = button.classList.contains("is-active");
+        sortButtons.forEach(function (btn) {
+          btn.classList.remove("is-active");
+          btn.setAttribute("aria-pressed", "false");
+        });
+        var mode = null;
+        if (!wasActive) {
+          button.classList.add("is-active");
+          button.setAttribute("aria-pressed", "true");
+          mode = button.getAttribute("data-sort");
+        }
+        sortPosts(mode);
+        if (sortStatus) {
+          sortStatus.textContent = mode === "vecchi"
+            ? "Articoli ordinati dal meno recente al più recente."
+            : mode === "nuovi"
+              ? "Articoli ordinati dal più recente al meno recente."
+              : "Ordine di partenza, con il più letto in cima.";
+        }
+      });
+    });
+  }
+
   /* ----- Popup newsletter (blog, progetti) ------------------ */
   var modal = document.getElementById("newsletter-modal");
 
