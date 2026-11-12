@@ -1157,14 +1157,26 @@ html:not(.js) .jarvis .lp { stroke-dashoffset: 0; fill: rgba(244, 241, 234, 0.95
 .blog-empty { color: var(--muted); }
 
 /* ordinamento del blog e badge "Il più letto" */
-.blog-sort { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: 1rem 0 0; }
-.blog-sort__label { margin-right: 0.3rem; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.02em; color: var(--muted); }
-.blog-sort__btn { min-height: 38px; font-size: 1rem; }
+.blog-sort { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: 0.75rem 0 0; }
+.blog-sort__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-right: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.blog-sort__label::before { content: ""; flex: none; width: 3px; height: 1.05em; background: var(--accent); }
+@media (max-width: 699px) { .blog-sort__label { flex-basis: 100%; margin: 0.4rem 0 0.1rem; } }
 html:not(.js) .blog-sort { display: none; }
 .post-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   margin: 0 0 0.85rem;
   padding: 0.35rem 0.9rem 0.35rem 0.7rem;
   font-family: var(--font-display);
@@ -1178,7 +1190,7 @@ html:not(.js) .blog-sort { display: none; }
   box-shadow: inset 0 0 0 1px var(--accent);
   clip-path: var(--cut);
 }
-.post-badge i { flex: none; width: 3px; height: 1.05em; background: var(--accent); }
+.post-badge svg { flex: none; width: 1.15em; height: 1.15em; color: var(--accent); }
 .post-card__body .post-badge { margin: 0 0 0.85rem; color: var(--text); }
 .post-card--top { border-top-color: var(--accent); }
 
