@@ -1164,21 +1164,22 @@ html:not(.js) .blog-sort { display: none; }
 .post-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.6rem;
   margin: 0 0 0.85rem;
-  padding: 0.3rem 0.85rem 0.3rem 0.6rem;
+  padding: 0.35rem 0.9rem 0.35rem 0.7rem;
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 900;
   letter-spacing: 0.08em;
-  line-height: 1.2;
+  line-height: 1.1;
   text-transform: uppercase;
-  color: var(--on-accent);
-  background: var(--accent);
+  color: var(--text);
+  background: var(--bg);
+  box-shadow: inset 0 0 0 1px var(--accent);
   clip-path: var(--cut);
 }
-.post-badge svg { flex: none; width: 1.1em; height: 1.1em; }
-.post-card__body .post-badge { margin: 0 0 0.85rem; color: var(--on-accent); }
+.post-badge i { flex: none; width: 3px; height: 1.05em; background: var(--accent); }
+.post-card__body .post-badge { margin: 0 0 0.85rem; color: var(--text); }
 .post-card--top { border-top-color: var(--accent); }
 
 .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; margin: 0; padding: 0; }
