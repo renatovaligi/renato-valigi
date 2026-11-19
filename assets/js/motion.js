@@ -1,10 +1,8 @@
 /* =============================================================
    motion.js
-   Animazioni del sito: reveal allo scroll, contatori, testo che si
-   accende, effetto riflettore sulle card, hero con sfera di particelle
-   che cambia forma, alone del cursore, barra di avanzamento.
-   Tutto e' un miglioramento: senza JS il contenuto resta visibile,
-   e con "riduci movimento" attivo nel sistema le animazioni si fermano.
+   Poco movimento, solo dove serve: il bordo dell'header quando si
+   scorre, i filtri e le finestre di dettaglio dei progetti.
+   Senza JS il contenuto resta tutto visibile.
    ============================================================= */
 (function () {
   "use strict";
@@ -12,449 +10,23 @@
   var doc = document;
   var root = doc.documentElement;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   function $(sel, ctx) { return (ctx || doc).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || doc).querySelectorAll(sel)); }
 
-  /* ----- Header: stato "scrolled" e barra di avanzamento ---- */
+  /* ----- Header: stato "scrolled" -------------------------- */
   var header = $(".site-header");
-  var bar = doc.createElement("div");
-  bar.className = "scroll-progress";
-  bar.setAttribute("aria-hidden", "true");
-  doc.body.appendChild(bar);
-
   var ticking = false;
   function onScroll() {
     if (ticking) return;
     ticking = true;
     window.requestAnimationFrame(function () {
       var y = window.pageYOffset || root.scrollTop;
-      var max = root.scrollHeight - window.innerHeight;
       if (header) header.classList.toggle("is-scrolled", y > 24);
-      bar.style.transform = "scaleX(" + (max > 0 ? Math.min(y / max, 1) : 0) + ")";
-      root.style.setProperty("--sy", y + "px");
-      updateScrub();
       ticking = false;
     });
   }
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll);
-
-  /* ----- Reveal allo scroll ------------------------------- *
-   * Gli elementi vengono marcati in automatico, cosi' le pagine
-   * interne non hanno bisogno di attributi aggiuntivi nell'HTML.
-   */
-  var autoTargets = [
-    ".section .container-tight > .section-label",
-    ".section .container-tight > h1",
-    ".section .container-tight > h2",
-    ".section .container-tight > .lead",
-    ".section .container-tight > .text-measure",
-    ".section-head",
-    ".stat",
-    ".about__media",
-    ".about__text > *",
-    ".method li",
-    ".skill-card",
-    ".project-card",
-    ".case-card",
-    ".blog-teaser__row",
-    ".post-card",
-    ".newsletter-box",
-    ".cv-header",
-    ".cv-section",
-    ".cv-entry",
-    ".contact-layout > *",
-    ".case-filters",
-    ".blog-filters",
-    ".cta-title",
-    ".section--ink .container-tight > *"
-  ];
-
-  function markReveal() {
-    autoTargets.forEach(function (sel) {
-      $$(sel).forEach(function (el) {
-        if (el.hasAttribute("data-reveal") || el.closest(".article__body") || el.closest("dialog")) return;
-        el.setAttribute("data-reveal", "");
-        // ritardo a cascata tra fratelli dello stesso gruppo
-        var siblings = el.parentElement ? Array.prototype.filter.call(el.parentElement.children, function (c) {
-          return c.matches(sel);
-        }) : [];
-        var idx = siblings.indexOf(el);
-        if (idx > 0) el.style.setProperty("--i", Math.min(idx, 6));
-      });
-    });
-  }
-
-  /* a reveal concluso l'attributo viene tolto: cosi' le transizioni e gli
-     hover propri di ogni card tornano a funzionare senza conflitti */
-  function finishReveal(el) {
-    var wait = 1100 + (parseInt(el.style.getPropertyValue("--i"), 10) || 0) * 90;
-    window.setTimeout(function () {
-      el.removeAttribute("data-reveal");
-      el.classList.remove("is-in");
-      el.style.removeProperty("--i");
-    }, wait);
-  }
-
-  function observeReveal() {
-    var items = $$("[data-reveal]");
-    if (reduceMotion || !("IntersectionObserver" in window)) {
-      items.forEach(function (el) { el.removeAttribute("data-reveal"); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-in");
-          finishReveal(entry.target);
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
-    items.forEach(function (el) { io.observe(el); });
-  }
-
-  /* ----- Contatori ---------------------------------------- */
-  function initCounters() {
-    var counters = $$("[data-count]");
-    if (!counters.length) return;
-
-    function setValue(el, value) {
-      el.textContent = String(Math.round(value));
-    }
-
-    function run(el) {
-      var target = parseFloat(el.getAttribute("data-count"));
-      if (reduceMotion) { setValue(el, target); return; }
-      var duration = 1800;
-      var start = null;
-      function step(ts) {
-        if (start === null) start = ts;
-        var t = Math.min((ts - start) / duration, 1);
-        var eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t); // easeOutExpo
-        setValue(el, target * eased);
-        if (t < 1) window.requestAnimationFrame(step);
-      }
-      window.requestAnimationFrame(step);
-    }
-
-    if (!("IntersectionObserver" in window)) {
-      counters.forEach(function (el) { setValue(el, parseFloat(el.getAttribute("data-count"))); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) { run(entry.target); io.unobserve(entry.target); }
-      });
-    }, { threshold: 0.6 });
-    counters.forEach(function (el) {
-      if (!reduceMotion) el.textContent = "0";
-      io.observe(el);
-    });
-  }
-
-  /* ----- Testo che si accende parola per parola ----------- */
-  var scrubEls = [];
-  function initScrub() {
-    $$("[data-scrub]").forEach(function (el) {
-      if (reduceMotion) return;
-      var words = [];
-      (function wrap(node) {
-        Array.prototype.slice.call(node.childNodes).forEach(function (child) {
-          if (child.nodeType === 3) {
-            var frag = doc.createDocumentFragment();
-            child.textContent.split(/(\s+)/).forEach(function (part) {
-              if (!part) return;
-              if (/^\s+$/.test(part)) { frag.appendChild(doc.createTextNode(part)); return; }
-              var span = doc.createElement("span");
-              span.className = "sw";
-              span.textContent = part;
-              words.push(span);
-              frag.appendChild(span);
-            });
-            node.replaceChild(frag, child);
-          } else if (child.nodeType === 1) {
-            wrap(child);
-          }
-        });
-      })(el);
-      el.classList.add("scrub");
-      scrubEls.push({ el: el, words: words });
-    });
-    updateScrub();
-  }
-
-  function updateScrub() {
-    var vh = window.innerHeight;
-    scrubEls.forEach(function (item) {
-      var rect = item.el.getBoundingClientRect();
-      // 0 quando il blocco entra dal basso, 1 quando e' a un terzo dall'alto
-      var p = (vh * 0.88 - rect.top) / (vh * 0.88 - vh * 0.3 + rect.height * 0.35);
-      p = Math.max(0, Math.min(1, p));
-      var lit = Math.round(p * item.words.length);
-      for (var i = 0; i < item.words.length; i++) {
-        item.words[i].classList.toggle("is-lit", i < lit);
-      }
-    });
-  }
-
-  /* ----- Effetto riflettore sulle card -------------------- */
-  function initSpotlight() {
-    if (!finePointer) return;
-    $$(".skill-card, .project-card, .case-card, .post-card, .stat").forEach(function (card) {
-      card.addEventListener("pointermove", function (e) {
-        var r = card.getBoundingClientRect();
-        card.style.setProperty("--mx", (e.clientX - r.left) + "px");
-        card.style.setProperty("--my", (e.clientY - r.top) + "px");
-      });
-    });
-  }
-
-  /* ----- Bottoni "magnetici" ------------------------------ */
-  function initMagnetic() {
-    if (!finePointer || reduceMotion) return;
-    $$(".hero__actions .btn, .cta-magnet .btn").forEach(function (btn) {
-      btn.addEventListener("pointermove", function (e) {
-        var r = btn.getBoundingClientRect();
-        var x = (e.clientX - r.left - r.width / 2) * 0.22;
-        var y = (e.clientY - r.top - r.height / 2) * 0.32;
-        btn.style.transform = "translate(" + x + "px," + y + "px)";
-      });
-      btn.addEventListener("pointerleave", function () { btn.style.transform = ""; });
-    });
-  }
-
-  /* ----- Alone che segue il cursore ----------------------- */
-  function initCursorGlow() {
-    if (!finePointer || reduceMotion) return;
-    var glow = doc.createElement("div");
-    glow.className = "cursor-glow";
-    glow.setAttribute("aria-hidden", "true");
-    doc.body.appendChild(glow);
-    var tx = 0, ty = 0, cx = 0, cy = 0, running = false;
-    function loop() {
-      cx += (tx - cx) * 0.12;
-      cy += (ty - cy) * 0.12;
-      glow.style.transform = "translate(" + cx + "px," + cy + "px)";
-      if (Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) {
-        window.requestAnimationFrame(loop);
-      } else { running = false; }
-    }
-    window.addEventListener("pointermove", function (e) {
-      tx = e.clientX; ty = e.clientY;
-      glow.classList.add("is-on");
-      if (!running) { running = true; window.requestAnimationFrame(loop); }
-    }, { passive: true });
-    doc.addEventListener("pointerleave", function () { glow.classList.remove("is-on"); });
-  }
-
-  /* ----- Hero: sfera di particelle che cambia forma -------- */
-  function initOrb() {
-    var canvas = $(".hero__orb canvas");
-    if (!canvas || !canvas.getContext) return;
-    var ctx = canvas.getContext("2d");
-    var N = 1250;
-    var GOLD = Math.PI * (3 - Math.sqrt(5));
-
-    /* le forme (sfera, pallone, canestro, lavagna tattica, megafono, grafico, logo)
-       arrivano da orb-shapes.js; se manca resta la sola sfera */
-    var defs = (window.OrbShapes && window.OrbShapes.build(N)) || null;
-    if (!defs) {
-      var fallback = [];
-      for (var q = 0; q < N; q++) {
-        var fy = 1 - (q / (N - 1)) * 2, fr = Math.sqrt(1 - fy * fy), fth = GOLD * q;
-        fallback.push([Math.cos(fth) * fr, fy, Math.sin(fth) * fr]);
-      }
-      defs = [{ label: "", flat: false, pts: fallback }];
-    }
-    var shapes = defs.map(function (d) { return d.pts; });
-    var cur = shapes[0].map(function (p) { return p.slice(); });
-    var from = cur.map(function (p) { return p.slice(); });
-    var target = 0;
-    var morphStart = 0;
-    var MORPH = 2300;      // durata morph
-    var HOLD = 3600;       // pausa tra forme
-    var nextSwitch = 0;
-
-    /* etichetta: numero e nome della forma corrente */
-    var labelEl = null;
-    if (defs.length > 1) {
-      labelEl = doc.createElement("p");
-      labelEl.className = "hero__orb-label";
-      canvas.parentNode.appendChild(labelEl);
-    }
-    function setLabel(i, animate) {
-      if (!labelEl) return;
-      var txt = (i + 1 < 10 ? "0" : "") + (i + 1) + " / " + (defs.length < 10 ? "0" : "") + defs.length + "  " + defs[i].label;
-      if (!animate) { labelEl.textContent = txt; return; }
-      labelEl.classList.add("is-swap");
-      window.setTimeout(function () { labelEl.textContent = txt; labelEl.classList.remove("is-swap"); }, 420);
-    }
-    setLabel(0, false);
-
-    /* sprite luminoso pre-renderizzato: molto piu' veloce di gradienti per punto */
-    var sprite = doc.createElement("canvas");
-    sprite.width = sprite.height = 64;
-    var sctx = sprite.getContext("2d");
-    var grad = sctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    grad.addColorStop(0, "rgba(255,240,215,1)");
-    grad.addColorStop(0.24, "rgba(255,150,70,0.95)");
-    grad.addColorStop(0.55, "rgba(255,74,34,0.3)");
-    grad.addColorStop(1, "rgba(255,74,34,0)");
-    sctx.fillStyle = grad;
-    sctx.fillRect(0, 0, 64, 64);
-
-    var w = 0, h = 0, dpr = 1;
-    function resize() {
-      var rect = canvas.getBoundingClientRect();
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = Math.max(rect.width, 1);
-      h = Math.max(rect.height, 1);
-      canvas.width = Math.round(w * dpr);
-      canvas.height = Math.round(h * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    resize();
-    window.addEventListener("resize", function () { resize(); if (reduceMotion) draw(0); });
-
-    var mx = 0, my = 0, smx = 0, smy = 0;
-    var lastT = 0, angBase = 0, flatAmt = 0;
-    if (finePointer) {
-      window.addEventListener("pointermove", function (e) {
-        mx = (e.clientX / window.innerWidth - 0.5) * 2;
-        my = (e.clientY / window.innerHeight - 0.5) * 2;
-      }, { passive: true });
-    }
-
-    function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
-
-    function draw(time) {
-      ctx.clearRect(0, 0, w, h);
-
-      // morph tra le forme
-      if (!reduceMotion) {
-        if (time > nextSwitch && morphStart === 0) {
-          from = cur.map(function (p) { return p.slice(); });
-          target = (target + 1) % shapes.length;
-          morphStart = time;
-          setLabel(target, true);
-        }
-        if (morphStart !== 0) {
-          var t = Math.min((time - morphStart) / MORPH, 1);
-          var e = ease(t);
-          var dest = shapes[target];
-          for (var i = 0; i < N; i++) {
-            cur[i][0] = from[i][0] + (dest[i][0] - from[i][0]) * e;
-            cur[i][1] = from[i][1] + (dest[i][1] - from[i][1]) * e;
-            cur[i][2] = from[i][2] + (dest[i][2] - from[i][2]) * e;
-          }
-          if (t >= 1) { morphStart = 0; nextSwitch = time + HOLD; }
-        }
-      }
-
-      smx += (mx - smx) * 0.05;
-      smy += (my - smy) * 0.05;
-
-      // forme tridimensionali: rotazione continua. Forme piatte (logo, lavagna):
-      // si girano di fronte e oscillano piano, cosi' restano leggibili.
-      var dt = lastT ? Math.min(time - lastT, 60) : 16;
-      lastT = time;
-      var wantFlat = defs[target].flat && !reduceMotion ? 1 : 0;
-      flatAmt += (wantFlat - flatAmt) * Math.min(1, dt * 0.0035);
-      angBase += dt * 0.00022 * (1 - flatAmt);
-      var front = Math.round(angBase / (Math.PI * 2)) * Math.PI * 2 + Math.sin(time * 0.0007) * 0.38;
-      var ang = reduceMotion ? 0.6 : angBase * (1 - flatAmt) + front * flatAmt + smx * 0.6 * (1 - flatAmt * 0.6);
-      var tilt = (0.38 + smy * 0.25) * (1 - flatAmt * 0.8) + flatAmt * 0.04;
-      var ca = Math.cos(ang), sa = Math.sin(ang), ct = Math.cos(tilt), st = Math.sin(tilt);
-      var cx = w / 2, cy = h / 2;
-      var R = Math.min(w, h) * 0.34;
-      var focal = 3.2;
-      var pulse = reduceMotion ? 1 : 1 + Math.sin(time * 0.0011) * 0.025;
-
-      // anelli tecnici attorno alla forma
-      ctx.globalCompositeOperation = "source-over";
-      ctx.lineWidth = 1;
-      for (var ring = 0; ring < 3; ring++) {
-        var rr = R * (1.28 + ring * 0.2) * pulse;
-        ctx.strokeStyle = "rgba(255,138,61," + (0.22 - ring * 0.05) + ")";
-        ctx.setLineDash(ring === 1 ? [2, 7] : ring === 2 ? [14, 10] : []);
-        ctx.beginPath();
-        ctx.ellipse(cx, cy, rr, rr * (0.34 + smy * 0.05 + ring * 0.06), ang * (ring % 2 ? -0.6 : 0.5) + ring, 0, Math.PI * 2);
-        ctx.stroke();
-      }
-      ctx.setLineDash([]);
-
-      // particelle
-      ctx.globalCompositeOperation = "lighter";
-      for (var j = 0; j < N; j++) {
-        var p = cur[j];
-        var x = p[0], y = p[1], z = p[2];
-        // piccola ondulazione continua, cosi' la forma "respira"
-        if (!reduceMotion) {
-          var wob = 1 + Math.sin(time * 0.0012 + j * 0.37) * 0.012;
-          x *= wob; y *= wob; z *= wob;
-        }
-        var rx = x * ca + z * sa;
-        var rz = -x * sa + z * ca;
-        var ry = y * ct - rz * st;
-        var rz2 = y * st + rz * ct;
-        var s = focal / (focal + rz2 * 0.9);
-        var sx = cx + rx * R * s * pulse;
-        var sy = cy + ry * R * s * pulse;
-        var depth = (rz2 + 1.4) / 2.8;           // 0 dietro, 1 davanti
-        var size = (7 + depth * 17) * s * (R / 300);
-        ctx.globalAlpha = Math.max(0.12, Math.min(1, depth * 1.15));
-        ctx.drawImage(sprite, sx - size / 2, sy - size / 2, size, size);
-      }
-      ctx.globalAlpha = 1;
-      ctx.globalCompositeOperation = "source-over";
-    }
-
-    if (reduceMotion) { draw(0); return; }
-
-    var visible = true, rafId = 0;
-    function frame(ts) {
-      draw(ts);
-      if (visible && !doc.hidden) rafId = window.requestAnimationFrame(frame);
-      else rafId = 0;
-    }
-    function start() { if (!rafId) rafId = window.requestAnimationFrame(frame); }
-
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (entries) {
-        visible = entries[0].isIntersecting;
-        if (visible) start();
-      }, { threshold: 0 }).observe(canvas);
-    }
-    doc.addEventListener("visibilitychange", function () { if (!doc.hidden) start(); });
-    nextSwitch = 3200;
-    start();
-  }
-
-  /* ----- Hero: ingresso del titolo ------------------------ */
-  function initHero() {
-    var hero = $(".hero");
-    if (!hero) return;
-    var go = function () { hero.classList.add("is-ready"); };
-    if (doc.fonts && doc.fonts.ready) {
-      Promise.race([doc.fonts.ready, new Promise(function (r) { setTimeout(r, 1200); })]).then(function () {
-        window.requestAnimationFrame(go);
-      });
-    } else { go(); }
-
-    // la sfera sale lentamente mentre si scorre la pagina
-    var orb = $(".hero__orb");
-    if (orb && !reduceMotion) {
-      window.addEventListener("scroll", function () {
-        var y = window.pageYOffset;
-        if (y > window.innerHeight * 1.2) return;
-        orb.style.transform = "translateY(calc(-50% + " + (y * 0.18) + "px))";
-        orb.style.setProperty("--orb-fade", String(Math.max(0, 1 - y / (window.innerHeight * 0.9))));
-      }, { passive: true });
-    }
-  }
 
   /* ----- Progetti: filtri e finestra di dettaglio --------- */
   function initCases() {
@@ -503,31 +75,24 @@
     });
   }
 
-  /* ----- Chiusura: wipe arancio quando entra nello schermo -- */
-  function initInkWipe() {
-    var ink = $(".section--ink");
-    if (!ink) return;
-    if (reduceMotion || !("IntersectionObserver" in window)) {
-      ink.classList.add("is-wiped");
-      return;
+  /* ----- Progetti: apre il caso indicato nell'indirizzo ----- *
+   * Dalla home i link arrivano come progetti.html#case-dott.
+   */
+  function openCaseFromHash() {
+    var id = window.location.hash.replace("#", "");
+    if (!/^case-[a-z0-9-]+$/.test(id)) return;
+    var dlg = doc.getElementById(id);
+    if (!dlg || dlg.tagName !== "DIALOG" || dlg.open) return;
+    if (typeof dlg.showModal === "function") {
+      dlg.showModal();
+      doc.body.style.overflow = "hidden";
+    } else {
+      dlg.setAttribute("open", "");
     }
-    var io = new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) { ink.classList.add("is-wiped"); io.disconnect(); }
-    }, { threshold: 0.25 });
-    io.observe(ink);
   }
 
   /* ----- Avvio -------------------------------------------- */
-  markReveal();
-  observeReveal();
-  initCounters();
-  initScrub();
-  initSpotlight();
-  initMagnetic();
-  initCursorGlow();
-  initHero();
-  initOrb();
   initCases();
-  initInkWipe();
+  openCaseFromHash();
   onScroll();
 })();

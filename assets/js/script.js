@@ -215,18 +215,6 @@
     });
   }
 
-  /* ----- Striscia scorrevole: pulsante di pausa ------------ */
-  var marquee = document.querySelector(".marquee");
-  var pauseBtn = marquee ? marquee.querySelector(".marquee__pause") : null;
-  if (marquee && pauseBtn) {
-    pauseBtn.addEventListener("click", function () {
-      var paused = marquee.classList.toggle("is-paused");
-      pauseBtn.setAttribute("aria-pressed", paused ? "true" : "false");
-      pauseBtn.setAttribute("aria-label", paused ? "Riprendi l'animazione" : "Metti in pausa l'animazione");
-      pauseBtn.textContent = paused ? "Riprendi" : "Pausa";
-    });
-  }
-
   /* ----- Modulo newsletter: caricato solo dopo il consenso ---- *
    * Il modulo di iscrizione e' ospitato da Brevo (iframe). Finche' l'utente
    * non spunta la casella, l'iframe NON viene caricato (src vuoto): nessuna
