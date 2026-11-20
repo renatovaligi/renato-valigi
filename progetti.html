@@ -18,7 +18,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="assets/css/style.css?v=20261118">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261120">
   <meta name="theme-color" content="#0b0d10">
   <script>document.documentElement.classList.add("js")</script>
   <link rel="canonical" href="https://renatovaligi.com/progetti.html">
@@ -68,12 +68,18 @@
           <button type="button" class="case-filter" data-filter="ux" aria-pressed="false">UX/UI</button>
           <button type="button" class="case-filter" data-filter="comunicazione" aria-pressed="false">Comunicazione e design</button>
         </div>
+        <div class="blog-sort case-sort" role="group" aria-label="Ordina i progetti per data di uscita">
+          <span class="blog-sort__label">Ordina per data</span>
+          <button type="button" class="blog-sort__btn" data-sort="nuovi" aria-pressed="false">Più recenti</button>
+          <button type="button" class="blog-sort__btn" data-sort="vecchi" aria-pressed="false">Meno recenti</button>
+        </div>
+        <p class="visually-hidden" id="case-status" role="status" aria-live="polite"></p>
 
         <h2 class="visually-hidden">Elenco dei progetti</h2>
         <div class="case-grid">
-          <article class="case-card" data-categories="growth">
+          <article class="case-card" data-categories="growth" data-date="2026-06">
             <div class="case-card__media">
-              <img src="assets/img/card-dott.webp" alt="Logo Dott" loading="lazy">
+              <img src="assets/img/card-dott.webp" alt="Dott, analisi strategica: 62% non conosce il brand" loading="lazy">
               <span class="case-card__cat">Growth marketing</span>
             </div>
             <div class="case-card__body">
@@ -86,9 +92,9 @@
               </div>
             </div>
           </article>
-          <article class="case-card" data-categories="comunicazione">
+          <article class="case-card" data-categories="comunicazione" data-date="2026-07">
             <div class="case-card__media">
-              <img src="assets/img/card-will-media.webp" alt="Logo Will Media" loading="lazy">
+              <img src="assets/img/card-will-media.webp" alt="Will Media, social media: 1,9M follower da coinvolgere" loading="lazy">
               <span class="case-card__cat">Comunicazione e design</span>
             </div>
             <div class="case-card__body">
@@ -101,9 +107,9 @@
               </div>
             </div>
           </article>
-          <article class="case-card" data-categories="ux">
+          <article class="case-card" data-categories="ux" data-date="2026-08">
             <div class="case-card__media">
-              <img src="assets/img/card-acumen-academy.webp" alt="Logo Acumen Academy" loading="lazy">
+              <img src="assets/img/card-acumen-academy.webp" alt="Acumen Academy, UX/UI design: 90% non conosceva il brand" loading="lazy">
               <span class="case-card__cat">UX/UI</span>
             </div>
             <div class="case-card__body">
@@ -116,9 +122,9 @@
               </div>
             </div>
           </article>
-          <article class="case-card" data-categories="comunicazione">
+          <article class="case-card" data-categories="comunicazione" data-date="2025-08">
             <div class="case-card__media">
-              <img src="assets/img/card-alaska.webp" alt="Alaska, progetto di design trasmediale" loading="lazy">
+              <img src="assets/img/card-alaska.webp" alt="Alaska, design trasmediale: 4 nuovi prodotti collegati" loading="lazy">
               <span class="case-card__cat">Comunicazione e design</span>
             </div>
             <div class="case-card__body">
@@ -131,9 +137,9 @@
               </div>
             </div>
           </article>
-          <article class="case-card" data-categories="growth">
+          <article class="case-card" data-categories="growth" data-date="2026-08">
             <div class="case-card__media">
-              <img src="assets/img/card-dna.webp" alt="Logo DnA" loading="lazy">
+              <img src="assets/img/card-dna.webp" alt="DnA, go-to-market: 5 test in roadmap" loading="lazy">
               <span class="case-card__cat">Growth marketing</span>
             </div>
             <div class="case-card__body">
@@ -146,9 +152,9 @@
               </div>
             </div>
           </article>
-          <article class="case-card" data-categories="growth">
+          <article class="case-card" data-categories="growth" data-date="2026-10">
             <div class="case-card__media">
-              <img src="assets/img/card-dna-email.webp" alt="Doppia elica DnA con il segmento dell'1% evidenziato" loading="lazy">
+              <img src="assets/img/card-dna-email.webp" alt="DnA, email marketing: 1% un voto per la ricerca" loading="lazy">
               <span class="case-card__cat">Growth marketing</span>
             </div>
             <div class="case-card__body">
@@ -162,9 +168,9 @@
             </div>
           </article>
 
-          <article class="case-card" data-categories="growth">
+          <article class="case-card" data-categories="growth" data-date="2026-11">
             <div class="case-card__media">
-              <img src="assets/img/card-dna-automazioni.webp" alt="Logo DnA con la doppia elica su sfondo scuro" loading="lazy">
+              <img src="assets/img/card-dna-automazioni.webp" alt="DnA, automazioni: 4 flussi in ActiveCampaign" loading="lazy">
               <span class="case-card__cat">Growth marketing</span>
             </div>
             <div class="case-card__body">
@@ -177,9 +183,9 @@
               </div>
             </div>
           </article>
-          <article class="case-card" data-categories="growth">
+          <article class="case-card" data-categories="growth" data-date="2026-11">
             <div class="case-card__media">
-              <img src="assets/img/card-includo-meta-ads.webp" alt="Illustrazione: un'inserzione con un vaso e un funnel a tre livelli, nei colori di IncluDO" loading="lazy">
+              <img src="assets/img/card-includo-meta-ads.webp" alt="IncluDO, Meta Ads: 10 creatività, due obiettivi" loading="lazy">
               <span class="case-card__cat">Growth marketing</span>
             </div>
             <div class="case-card__body">
@@ -192,9 +198,9 @@
               </div>
             </div>
           </article>
-          <article class="case-card" data-categories="growth">
+          <article class="case-card" data-categories="growth" data-date="2026-07">
             <div class="case-card__media">
-              <img src="assets/img/card-tongue.webp" alt="Logo Tongue" loading="lazy">
+              <img src="assets/img/card-tongue.webp" alt="Tongue, funnel marketing: 3M follower, un funnel AAARRR" loading="lazy">
               <span class="case-card__cat">Growth marketing</span>
             </div>
             <div class="case-card__body">
@@ -207,9 +213,9 @@
               </div>
             </div>
           </article>
-          <article class="case-card" data-categories="comunicazione">
+          <article class="case-card" data-categories="comunicazione" data-date="2026-07">
             <div class="case-card__media">
-              <img src="assets/img/card-includo.webp" alt="Logo IncluDO" loading="lazy">
+              <img src="assets/img/card-includo.webp" alt="IncluDO, grafica social: 3 piattaforme, una identità" loading="lazy">
               <span class="case-card__cat">Comunicazione e design</span>
             </div>
             <div class="case-card__body">
@@ -222,9 +228,9 @@
               </div>
             </div>
           </article>
-          <article class="case-card" data-categories="ux">
+          <article class="case-card" data-categories="ux" data-date="2026-05">
             <div class="case-card__media">
-              <img src="assets/img/card-last-minute.webp" alt="Logo Last Minute Sotto Casa" loading="lazy">
+              <img src="assets/img/card-last-minute.webp" alt="Last Minute Sotto Casa, UX/UI design: 2 flussi: chi compra, chi vende" loading="lazy">
               <span class="case-card__cat">UX/UI</span>
             </div>
             <div class="case-card__body">
@@ -237,9 +243,9 @@
               </div>
             </div>
           </article>
-          <article class="case-card" data-categories="growth">
+          <article class="case-card" data-categories="growth" data-date="2026-07">
             <div class="case-card__media">
-              <img src="assets/img/card-academe.webp" alt="Logo AcadeME" loading="lazy">
+              <img src="assets/img/card-academe.webp" alt="AcadeME, growth marketing: 3 email al posto di una" loading="lazy">
               <span class="case-card__cat">Growth marketing</span>
             </div>
             <div class="case-card__body">
@@ -252,9 +258,9 @@
               </div>
             </div>
           </article>
-          <article class="case-card" data-categories="growth">
+          <article class="case-card" data-categories="growth" data-date="2026-07">
             <div class="case-card__media">
-              <img src="assets/img/card-macalu.webp" alt="Logo Macalù" loading="lazy">
+              <img src="assets/img/card-macalu.webp" alt="Macalù Skincare, audit e roadmap: 90 giorni di OKR" loading="lazy">
               <span class="case-card__cat">Growth marketing</span>
             </div>
             <div class="case-card__body">
@@ -279,7 +285,7 @@
     <dialog class="case-dialog" id="case-dott" aria-labelledby="case-dott-title">
       <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
       <div class="case-dialog__scroll">
-        <div class="case-dialog__media"><img src="assets/img/card-dott.webp" alt="Logo Dott" loading="lazy"></div>
+        <div class="case-dialog__media"><img src="assets/img/card-dott.webp" alt="Dott, analisi strategica: 62% non conosce il brand" loading="lazy"></div>
         <div class="case-dialog__content">
           <p class="post-card__date">giu 2026</p>
           <h3 id="case-dott-title">Analisi Strategica: Growth Marketing e Brand Positioning per Dott</h3>
@@ -295,7 +301,7 @@
     <dialog class="case-dialog" id="case-will-media" aria-labelledby="case-will-media-title">
       <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
       <div class="case-dialog__scroll">
-        <div class="case-dialog__media"><img src="assets/img/card-will-media.webp" alt="Logo Will Media" loading="lazy"></div>
+        <div class="case-dialog__media"><img src="assets/img/card-will-media.webp" alt="Will Media, social media: 1,9M follower da coinvolgere" loading="lazy"></div>
         <div class="case-dialog__content">
           <p class="post-card__date">lug 2026</p>
           <h3 id="case-will-media-title">Social Media: Game Changer per Will Media</h3>
@@ -311,7 +317,7 @@
     <dialog class="case-dialog" id="case-acumen-academy" aria-labelledby="case-acumen-academy-title">
       <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
       <div class="case-dialog__scroll">
-        <div class="case-dialog__media"><img src="assets/img/card-acumen-academy.webp" alt="Logo Acumen Academy" loading="lazy"></div>
+        <div class="case-dialog__media"><img src="assets/img/card-acumen-academy.webp" alt="Acumen Academy, UX/UI design: 90% non conosceva il brand" loading="lazy"></div>
         <div class="case-dialog__content">
           <p class="post-card__date">ago 2026</p>
           <h3 id="case-acumen-academy-title">UX/UI Design: Acumen Academy</h3>
@@ -327,7 +333,7 @@
     <dialog class="case-dialog" id="case-alaska" aria-labelledby="case-alaska-title">
       <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
       <div class="case-dialog__scroll">
-        <div class="case-dialog__media"><img src="assets/img/card-alaska.webp" alt="Alaska, progetto di design trasmediale" loading="lazy"></div>
+        <div class="case-dialog__media"><img src="assets/img/card-alaska.webp" alt="Alaska, design trasmediale: 4 nuovi prodotti collegati" loading="lazy"></div>
         <div class="case-dialog__content">
           <p class="post-card__date">ago 2025</p>
           <h3 id="case-alaska-title">Design Trasmediale: Alaska, l'espansione dell'universo Breaking Bad</h3>
@@ -343,7 +349,7 @@
     <dialog class="case-dialog" id="case-dna" aria-labelledby="case-dna-title">
       <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
       <div class="case-dialog__scroll">
-        <div class="case-dialog__media"><img src="assets/img/card-dna.webp" alt="Logo DnA" loading="lazy"></div>
+        <div class="case-dialog__media"><img src="assets/img/card-dna.webp" alt="DnA, go-to-market: 5 test in roadmap" loading="lazy"></div>
         <div class="case-dialog__content">
           <p class="post-card__date">ago 2026</p>
           <h3 id="case-dna-title">Growth Marketing: Strategia di Go-to-Market per DnA</h3>
@@ -359,7 +365,7 @@
     <dialog class="case-dialog" id="case-email-marketing-dna" aria-labelledby="case-email-marketing-dna-title">
       <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
       <div class="case-dialog__scroll">
-        <div class="case-dialog__media"><img src="assets/img/card-dna-email.webp" alt="Doppia elica DnA con il segmento dell'1% evidenziato" loading="lazy"></div>
+        <div class="case-dialog__media"><img src="assets/img/card-dna-email.webp" alt="DnA, email marketing: 1% un voto per la ricerca" loading="lazy"></div>
         <div class="case-dialog__content">
           <p class="post-card__date">ott 2026</p>
           <h3 id="case-email-marketing-dna-title">Email Marketing: "Il voto dell'1%" per DnA</h3>
@@ -376,7 +382,7 @@
     <dialog class="case-dialog" id="case-automazioni-dna" aria-labelledby="case-automazioni-dna-title">
       <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
       <div class="case-dialog__scroll">
-        <div class="case-dialog__media"><img src="assets/img/card-dna-automazioni.webp" alt="Logo DnA con la doppia elica su sfondo scuro" loading="lazy"></div>
+        <div class="case-dialog__media"><img src="assets/img/card-dna-automazioni.webp" alt="DnA, automazioni: 4 flussi in ActiveCampaign" loading="lazy"></div>
         <div class="case-dialog__content">
           <p class="post-card__date">nov 2026</p>
           <h3 id="case-automazioni-dna-title">Automazioni per DnA: quattro flussi in ActiveCampaign</h3>
@@ -392,7 +398,7 @@
     <dialog class="case-dialog" id="case-meta-ads-includo" aria-labelledby="case-meta-ads-includo-title">
       <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
       <div class="case-dialog__scroll">
-        <div class="case-dialog__media"><img src="assets/img/card-includo-meta-ads.webp" alt="Illustrazione: un'inserzione con un vaso e un funnel a tre livelli, nei colori di IncluDO" loading="lazy"></div>
+        <div class="case-dialog__media"><img src="assets/img/card-includo-meta-ads.webp" alt="IncluDO, Meta Ads: 10 creatività, due obiettivi" loading="lazy"></div>
         <div class="case-dialog__content">
           <p class="post-card__date">nov 2026</p>
           <h3 id="case-meta-ads-includo-title">Meta Ads per IncluDO: dieci creatività per workshop e sponsor</h3>
@@ -408,7 +414,7 @@
     <dialog class="case-dialog" id="case-tongue" aria-labelledby="case-tongue-title">
       <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
       <div class="case-dialog__scroll">
-        <div class="case-dialog__media"><img src="assets/img/card-tongue.webp" alt="Logo Tongue" loading="lazy"></div>
+        <div class="case-dialog__media"><img src="assets/img/card-tongue.webp" alt="Tongue, funnel marketing: 3M follower, un funnel AAARRR" loading="lazy"></div>
         <div class="case-dialog__content">
           <p class="post-card__date">lug 2026</p>
           <h3 id="case-tongue-title">Funnel Marketing: un funnel AAARRR per Tongue</h3>
@@ -424,7 +430,7 @@
     <dialog class="case-dialog" id="case-includo" aria-labelledby="case-includo-title">
       <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
       <div class="case-dialog__scroll">
-        <div class="case-dialog__media"><img src="assets/img/card-includo.webp" alt="Logo IncluDO" loading="lazy"></div>
+        <div class="case-dialog__media"><img src="assets/img/card-includo.webp" alt="IncluDO, grafica social: 3 piattaforme, una identità" loading="lazy"></div>
         <div class="case-dialog__content">
           <p class="post-card__date">lug 2026</p>
           <h3 id="case-includo-title">Grafica per Social Media: identità visiva per IncluDO</h3>
@@ -440,7 +446,7 @@
     <dialog class="case-dialog" id="case-last-minute" aria-labelledby="case-last-minute-title">
       <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
       <div class="case-dialog__scroll">
-        <div class="case-dialog__media"><img src="assets/img/card-last-minute.webp" alt="Logo Last Minute Sotto Casa" loading="lazy"></div>
+        <div class="case-dialog__media"><img src="assets/img/card-last-minute.webp" alt="Last Minute Sotto Casa, UX/UI design: 2 flussi: chi compra, chi vende" loading="lazy"></div>
         <div class="case-dialog__content">
           <p class="post-card__date">mag 2026</p>
           <h3 id="case-last-minute-title">UX/UI Design: Last Minute Sotto Casa</h3>
@@ -456,7 +462,7 @@
     <dialog class="case-dialog" id="case-academe" aria-labelledby="case-academe-title">
       <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
       <div class="case-dialog__scroll">
-        <div class="case-dialog__media"><img src="assets/img/card-academe.webp" alt="Logo AcadeME" loading="lazy"></div>
+        <div class="case-dialog__media"><img src="assets/img/card-academe.webp" alt="AcadeME, growth marketing: 3 email al posto di una" loading="lazy"></div>
         <div class="case-dialog__content">
           <p class="post-card__date">lug 2026</p>
           <h3 id="case-academe-title">Growth Marketing: il dopo-conversione di AcadeME</h3>
@@ -472,7 +478,7 @@
     <dialog class="case-dialog" id="case-macalu" aria-labelledby="case-macalu-title">
       <button type="button" class="case-dialog__close" data-close-case aria-label="Chiudi">&times;</button>
       <div class="case-dialog__scroll">
-        <div class="case-dialog__media"><img src="assets/img/card-macalu.webp" alt="Logo Macalù" loading="lazy"></div>
+        <div class="case-dialog__media"><img src="assets/img/card-macalu.webp" alt="Macalù Skincare, audit e roadmap: 90 giorni di OKR" loading="lazy"></div>
         <div class="case-dialog__content">
           <p class="post-card__date">lug 2026</p>
           <h3 id="case-macalu-title">Growth Marketing: audit e roadmap per Macalù Skincare</h3>
@@ -568,7 +574,7 @@
   </div>
 
   <script src="assets/js/script.js?v=20261118"></script>
-  <script src="assets/js/motion.js?v=20261118" defer></script>
+  <script src="assets/js/motion.js?v=20261120" defer></script>
   <script src="assets/js/analytics.js" defer></script>
 </body>
 </html>

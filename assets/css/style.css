@@ -811,6 +811,9 @@ html:not(.js) .jarvis .lp { stroke-dashoffset: 0; fill: rgba(244, 241, 234, 0.95
 .blog-sort__label { margin-right: 0.6rem; font-size: 0.92rem; font-weight: 700; color: var(--muted); }
 @media (max-width: 699px) { .blog-sort__label { flex-basis: 100%; margin: 0.4rem 0 0.1rem; } }
 html:not(.js) .blog-sort { display: none; }
+/* nella pagina progetti l'ordinamento sta subito sotto ai filtri */
+.case-filters:has(+ .case-sort) { margin-bottom: 0; }
+.case-sort { margin: 0.75rem 0 2rem; }
 .post-badge {
   display: inline-flex;
   align-items: center;

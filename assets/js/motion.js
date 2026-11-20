@@ -53,6 +53,44 @@
       });
     }
 
+    /* Ordinamento per data di uscita. Di partenza resta l'ordine dell'HTML;
+       premendo di nuovo il pulsante attivo si torna a quello. */
+    var sortButtons = $$(".case-sort .blog-sort__btn");
+    var grid = $(".case-grid");
+    var status = doc.getElementById("case-status");
+    if (sortButtons.length && grid && cards.length) {
+      cards.forEach(function (card, i) { card.setAttribute("data-seq", i); });
+      var sortCards = function (mode) {
+        cards.slice().sort(function (a, b) {
+          var sa = Number(a.getAttribute("data-seq"));
+          var sb = Number(b.getAttribute("data-seq"));
+          if (!mode) return sa - sb;
+          var da = a.getAttribute("data-date") || "";
+          var db = b.getAttribute("data-date") || "";
+          if (da === db) return sa - sb;
+          return mode === "vecchi" ? (da < db ? -1 : 1) : (da < db ? 1 : -1);
+        }).forEach(function (card) { grid.appendChild(card); });
+      };
+      sortButtons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var wasActive = btn.classList.contains("is-active");
+          sortButtons.forEach(function (b) { b.classList.remove("is-active"); b.setAttribute("aria-pressed", "false"); });
+          var mode = null;
+          if (!wasActive) {
+            btn.classList.add("is-active");
+            btn.setAttribute("aria-pressed", "true");
+            mode = btn.getAttribute("data-sort");
+          }
+          sortCards(mode);
+          if (status) {
+            status.textContent = mode === "nuovi" ? "Progetti ordinati dal più recente al meno recente."
+              : mode === "vecchi" ? "Progetti ordinati dal meno recente al più recente."
+              : "Ordine di partenza.";
+          }
+        });
+      });
+    }
+
     $$("[data-open-case]").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var dlg = doc.getElementById(btn.getAttribute("data-open-case"));
