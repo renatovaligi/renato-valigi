@@ -51,6 +51,26 @@
   src: url("../fonts/newsreader-latin-opsz-italic.woff2") format("woff2");
 }
 
+/* Caratteri di ripiego con le stesse proporzioni di quelli veri: finche' il
+   woff2 non e' arrivato il testo occupa lo stesso spazio, cosi' la pagina non
+   si sposta sotto gli occhi di chi legge (Cumulative Layout Shift). */
+@font-face {
+  font-family: "Barlow Condensed Fallback";
+  src: local("Arial"), local("Helvetica"), local("Liberation Sans");
+  size-adjust: 78.5%;
+  ascent-override: 127.5%;
+  descent-override: 25.5%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Hanken Grotesk Fallback";
+  src: local("Arial"), local("Helvetica"), local("Liberation Sans");
+  size-adjust: 100.5%;
+  ascent-override: 99.5%;
+  descent-override: 30.1%;
+  line-gap-override: 0%;
+}
+
 /* ---------- 1. BASE ---------- */
 :root {
   --bg: #0b0d10;
@@ -69,8 +89,8 @@
   --cut-lg: none;
   --header-h: 72px;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --font-display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
-  --font-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Barlow Condensed", "Barlow Condensed Fallback", "Arial Narrow", Impact, sans-serif;
+  --font-body: "Hanken Grotesk", "Hanken Grotesk Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
   --font-ui: var(--font-body);
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
