@@ -890,6 +890,29 @@ main :is(p, dd, td) a:not([class]),
 .cookie-table tr:last-child td { border-bottom: 0; }
 .cookie-table code { font-family: var(--font-mono); font-size: 0.88em; color: var(--accent-2); }
 
+/* nella finestra di un progetto: il rimando all'articolo sullo stesso tema */
+.case-dialog__read { margin: 0 0 1.5rem; font-size: 0.98rem; color: var(--muted); }
+.case-dialog__read a { color: var(--text); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 0.3em; }
+.case-dialog__read a:hover { color: var(--accent-2); }
+
+/* in fondo a ogni articolo: due articoli collegati per argomento */
+.related { margin: 3.5rem 0 0; padding-top: 1.75rem; border-top: 2px solid var(--line-2); }
+.related h2 { margin: 0 0 0.75rem; font-size: 1.15rem; }
+.related__list { list-style: none; margin: 0; padding: 0; }
+.related__row {
+  display: grid;
+  gap: 0.15rem 1.75rem;
+  align-items: baseline;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  text-decoration: none;
+}
+@media (min-width: 620px) { .related__row { grid-template-columns: 6.5rem 1fr; } }
+.related__date { font-size: 0.9rem; font-weight: 600; color: var(--muted); }
+.related__title { font-family: var(--font-serif); font-size: 1.2rem; line-height: 1.3; }
+.related__row:hover .related__title { text-decoration: underline; text-underline-offset: 0.2em; }
+
 /* ---------- 9. CV E CONTATTI ---------- */
 .cv-header { display: grid; gap: 2rem; align-items: center; }
 @media (min-width: 768px) { .cv-header { grid-template-columns: 13rem 1fr; gap: 1.5rem; } }
